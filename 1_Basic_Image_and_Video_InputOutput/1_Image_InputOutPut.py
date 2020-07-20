@@ -12,26 +12,32 @@ ap.add_argument("-i", "--image", required=True,help="path to the input image")
 ## cv2.GaussianBlur -- width_Kernel(Positive and ODD )
 ap.add_argument("-wK","--width_Kernel",type=int, required=False,help=" _width_Kernel -- cv2.GaussianBlur")
 ap.add_argument("-lK","--length_Kernel",type=int, required=False,help=" _length_Kernel -- cv2.GaussianBlur")
-##
-#
 args = vars(ap.parse_args())
-print(args)
-
+#print(type(args)) #<class 'dict'>
 
 def png_to_jpg(img_in):
-    #
+    """
+    $ python 1_Image_InputOutPut.py -i tsukuba_l.png
+    """
     img_png = cv2.imread(img_in)
     plt.imshow(img_png)#,'gray')
-    plt.show()
-
+    #plt.show()
     cv2.imwrite('MyPic.jpg', img_png)
-    # plt.imshow(img_png)#,'gray')
-    # plt.show()
+#png_to_jpg('tsukuba_l.png')
+png_to_jpg(args["image"])
 
-
-png_to_jpg('tsukuba_l.png')
-
-
+def cropImage(img_in):
+    """
+    $ python 1_Image_InputOutPut.py -i tsukuba_l.png
+    # grab dimensions of image and calculate - Center
+    """
+    img_in = cv2.imread(img_in) # <class 'numpy.ndarray'>
+    #h = img_in.shape[:1] #- HEIGHT Only 
+    #(h, w) = img_in.shape[:2] #- (HEIGHT , WIDTH)
+    img_dim = img_in.shape[:3] #- (HEIGHT , WIDTH , DEPTH )
+    #print(type(img_dim)) #<class 'tuple'>
+    print("Dimensions of Image are = ",img_dim) #(288, 384, 3)
+cropImage(args["image"])
 
 
 ####
