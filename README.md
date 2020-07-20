@@ -1,13 +1,15 @@
-### This file has ROUGH NOTES , steps i followed , errors logs etc .( REFER with a pinch of salt)  
+### This GitHub Repo contains code for Computer Vision mostly OpenCV.  
+
+#### Rohit Dhankar - https://www.linkedin.com/in/rohitdhankar/
 
 
 <p align="center">
-    <img src="" width= "850px">
+    <img src="https://github.com/Computer-Vision-Dhankar-Rohit/cv2020/blob/master/DepthMap_OpenCV/tsukuba_l.png" width= "850px">
 </p>
 
 <h1 align="center">Computer Vision Experiments -cv2020 </h1>
 
-> This repository will contain both code and additional reading material refrences etc for Computer Vision  
+> This repository will contain both code and additional reading material refrences etc for Computer Vision  mostly OpenCV.
  
 
 <br/>
@@ -27,8 +29,6 @@
 <br/>
 
 ### References - Always an ongoing effort - Work in Progress
-
-### Computer Vision - OpenCV 
 
 <br/>
 
