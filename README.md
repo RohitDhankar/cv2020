@@ -19,9 +19,9 @@
 - [X] `B-- Geometric image transforms - rotation , resizing ...` 
 - [X] `C-- Misc image transforms - fourier transforms and distance transforms` 
 - [X] `D-- Depth Map with OpenCV...` 
-- [X] `Work in Progress` 
-- [X] `Work in Progress` 
-- [X] `Work in Progress` 
+- [X] `E-- Histograms ...` 
+- [X] `F-- Segmentation - watershed , meanshift ...` 
+- [X] `G-- Feature Detection - Canny , Harris , Hough , MSER , SURF ... ` 
 
 
 <br/>
@@ -38,5 +38,7 @@
 > Depth Map with OpenCV 
 
 <br/>
+
+
 
 
