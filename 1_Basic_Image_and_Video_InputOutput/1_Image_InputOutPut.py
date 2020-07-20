@@ -3,6 +3,19 @@
 import cv2
 import numpy as np
 from matplotlib import pyplot as plt
+#
+import argparse
+
+# Construct the argument parse and parse the arguments
+ap = argparse.ArgumentParser()
+ap.add_argument("-i", "--image", required=True,help="path to the input image")
+## cv2.GaussianBlur -- width_Kernel(Positive and ODD )
+ap.add_argument("-wK","--width_Kernel",type=int, required=False,help=" _width_Kernel -- cv2.GaussianBlur")
+ap.add_argument("-lK","--length_Kernel",type=int, required=False,help=" _length_Kernel -- cv2.GaussianBlur")
+##
+#
+args = vars(ap.parse_args())
+print(args)
 
 
 def png_to_jpg(img_in):
