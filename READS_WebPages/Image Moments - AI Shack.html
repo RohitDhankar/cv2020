@@ -1,0 +1,382 @@
+
+<!DOCTYPE HTML>
+<html lang='en'>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="keywords" content="" />
+        <meta name="author" content="Utkarsh Sinha">
+        <link rel="shortcut icon" href="/static/img/fav.gif" />
+        <title>
+             Image Moments - AI Shack
+        </title>
+        <link rel="stylesheet" href='/static/css/styles.min.css' />
+
+        <!-- for use while sharing -->
+        <meta name='title' content='Image Moments'>
+        <meta name="description" content="Image moments help identify certain key characteristics in images - like the center, area of white pixels, etc. We&#x27;ll look at how these are calculated mathematically." />
+        <link rel='image_src' href='http://aishack.in/static/thumb/post-image-moments.png' />
+        <meta property='og:image:url' content='http://aishack.in/static/thumb/post-image-moments.png' />
+
+        
+            <script type='text/javascript' src='//platform-api.sharethis.com/js/sharethis.js#property=5993cdcb770096001434eafb&product=inline-share-buttons' async='async'></script>
+        
+
+        
+
+    </head>
+    <body>
+        <div class='container-fluid header-top'>
+            <nav class='navbar navbar-default'>
+                <div class='container'>
+                    
+
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/"><span class='pull-left site-logo'></span> <strong>AI Shack</strong></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+      <ul class="nav navbar-nav navbar-right">
+       <li ><a href="/"><span class="glyphicon glyphicon-home"></span></a></li>
+        <!--li ><a class='nav-start-here' href="/start-here">Start here</a></li-->
+        <li class="active"><a href="/tutorials/"><span class="glyphicon glyphicon-th glyphicon-margin"></span>Tutorials</a></li>
+        
+        
+        <li ><a href="/about/">About</a></li>
+        <li>
+            <form class='form-inline form-search' method='get' action='/search'>
+                <div class='form-group has-feedback'>
+                    <input placeholder='Search' type='text' class='form-control' name='q' id='q' />
+                    <span class='glyphicon glyphicon-search form-control-feedback'></span>
+                </div>
+            </form>
+        </li>
+      </ul>
+
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+
+                </div>
+            </nav>
+        </div>
+        <div class='container pad-bottom'>
+
+            <div class="row">
+                
+                    <div class='col-md-12'>
+                
+
+                
+                    <ol class="breadcrumb">
+    <li><a href="/"><span class='glyphicon glyphicon-home'></span></a></li>
+    
+        <li><a href="/tutorials/">Tutorials</a></li>
+        
+            <li><a href='/category/computer-vision/'>Computer Vision</a></li>
+        
+        
+            
+            <li><a href='/tutorials/image-moments/'>Image Moments</a></li>
+        
+    
+    
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</ol>
+
+                    
+                    
+    
+        
+            <img class='tut-post-image img-responsive' src="/static/img/tut/post-image-moments.png" />
+        
+           <div class="fb-like" data-href="http://facebook.com/aishack" data-adapt-container-width="true" data-layout="standard" data-action="like" data-show-faces="true"></div> 
+        <hr />
+
+        
+            <h2>Image Moments</h2>
+            
+
+
+
+        <div class='tutorial-content'>
+            <style scoped>img.latex-inline { vertical-align: middle; }</style>
+<p>An Image moment is a number calculated using a certain formula. Understand what that formula means might be hard at first. In fact, I got a lot of questions about moments from <a href="/tutorials/tracking-colored-objects-opencv/">the tracking tutorial</a> I did long back. So, here it is - an explanation of what moments area! </p>
+<h2>The math of moments</h2>
+<p>In pure math, the n<sup>th</sup> order moment about the point c is defined as:</p>
+<p><img alt="" src="http://s0.wp.com/latex.php?latex=%5Cmu_%7Bn%7D%20%3D%20%5Cint_%7B-%5Cinfty%7D%5E%7B%2B%5Cinfty%7D%20%28x-c%29%5E%7Bn%7Df%28x%29%20%5C%2Cdx&amp;bg=ffffff&amp;fg=000&amp;s=0" /></p>
+<p>This definition holds for a function that has just one independent variable. We're interested in images - they have two dimensions. So we need two independent variables. So the formula becomes:</p>
+<p><img alt="" src="http://s0.wp.com/latex.php?latex=%5Cmu_%7Bm%2Cn%7D%20%3D%20%5Cint%5Cint%28x-c_x%29%5E%7Bm%7D%28y-c_y%29%5E%7Bn%7Df%28x%2C%20y%29%5C%2Cdy%5C%2Cdx&amp;bg=ffffff&amp;fg=000&amp;s=0" /></p>
+<p>Here, the f(x, y) is the actual image and is assumed to be continuous. For our purposes, we need a discrete way (think pixels) to describe moments:</p>
+<p><img alt="" src="http://s0.wp.com/latex.php?latex=%5Cmu_%7Bm%2Cn%7D%20%3D%20%5Csum_%7Bx%3D0%7D%5E%7B%5Cinfty%7D%5Csum_%7By%3D0%7D%5E%7B%5Cinfty%7D%28x-c_x%29%5E%7Bm%7D%28y-c_y%29%5E%7Bn%7Df%28x%2C%20y%29&amp;bg=ffffff&amp;fg=000&amp;s=0" /></p>
+<p>The intergrals has been replaced by summations. The order of the moment is m + n. Usually, we calculate the moments about (0, 0). So you can simply ignore the constants c<sub>x</sub> and c<sub>y</sub>.</p>
+<p>Now with the math part out of the way, let's have a look at what you can calculate with this thing. </p>
+<figure><img alt="A binary image with white and black pixels" src="/static/img/tut/zeroth-order.png" /><figcaption>
+<p>A binary image with white and black pixels</p>
+</figcaption>
+</figure>
+<h2>Calculating area</h2>
+<p>To calculate the area of a binary image, you need to calculate its zeroth moment:</p>
+<p><img alt="" src="http://s0.wp.com/latex.php?latex=%5Cmu_%7B0%2C0%7D%20%3D%20%5Csum_%7Bx%3D0%7D%5E%7Bw%7D%5Csum_%7By%3D0%7D%5E%7Bh%7Dx%5E%7B0%7Dy%5E%7B0%7Df%28x%2C%20y%29&amp;bg=ffffff&amp;fg=000&amp;s=0" /></p>
+<p>The x<sup>0</sup> and y<sup>0</sup> don't have any effect and can be removed.</p>
+<p><img alt="" src="http://s0.wp.com/latex.php?latex=%5Cmu_%7B0%2C0%7D%20%3D%20%5Csum_%7Bx%3D0%7D%5E%7Bw%7D%5Csum_%7By%3D0%7D%5E%7Bh%7Df%28x%2C%20y%29&amp;bg=ffffff&amp;fg=000&amp;s=0" /></p>
+<p>Now, in a binary image, a pixel is either 0 or 1. So for every white pixel, a '1' is added to the moment - effectively calculating the area of the binary image! Another thing to note is that there is only one zeroth order moment. </p>
+<h2>Centroid</h2>
+<p>To calculate the centroid of a binary image you need to calculate two coordinates -</p>
+<p><img alt="" src="http://s0.wp.com/latex.php?latex=centroid%20%3D%20%28%5Cfrac%7B%5Cmu_%7B1%2C0%7D%7D%7B%5Cmu_%7B0%2C0%7D%7D%2C%20%5Cfrac%7B%5Cmu_%7B0%2C1%7D%7D%7B%5Cmu_%7B0%2C0%7D%7D%29&amp;bg=ffffff&amp;fg=000&amp;s=0" /></p>
+<p>How did I get that? Here's a quick explanation. Consider the first moment:</p>
+<p><img alt="" src="http://s0.wp.com/latex.php?latex=sum_x%20%3D%20%5Csum%5Csum%20x%20f%28x%2C%20y%29&amp;bg=ffffff&amp;fg=000&amp;s=0" /></p>
+<p>The two summations are like a <em>for</em> loop. The x coordinate of all white pixels (where f(x, y) = 1) is added up.</p>
+<p>Similarly, we can calculate the sum of y coordinates of all white pixels: </p>
+<p><img alt="" src="http://s0.wp.com/latex.php?latex=sum_y%20%3D%20%5Csum%5Csum%20y%20f%28x%2C%20y%29&amp;bg=ffffff&amp;fg=000&amp;s=0" /></p>
+<p>Now we have the sum of several pixels' x and y coordinates. To get the average, you need to divide each by the number of pixels. The number of pixels is the area of the image - the zeroth moment. So you get:</p>
+<p><img alt="" src="http://s0.wp.com/latex.php?latex=%5Cmu_%7B1%2C0%7D%20%3D%20%5Cfrac%7Bsum_x%7D%7B%5Cmu_%7B0%2C0%7D%7D&amp;bg=ffffff&amp;fg=000&amp;s=0" /> and <img alt="" src="http://s0.wp.com/latex.php?latex=%5Cmu_%7B0%2C1%7D%20%3D%20%5Cfrac%7Bsum_y%7D%7B%5Cmu_%7B0%2C0%7D%7D&amp;bg=ffffff&amp;fg=000&amp;s=0" /></p>
+<p>One interesting thing about this technique is that it is not very sensitive to noise. The centroid might move a little bit but not much.</p>
+<p>Also, from the math it's clear this technique holds only for single blobs. If you have two white blobs in your image, the centroid will be somewhere in between. You'll have to extract each blob separately to get their centroids. </p>
+<figure><img alt="Calculating the centroid" src="/static/img/tut/first-order.png" /><figcaption>
+<p>Calculating the centroid of this blob</p>
+</figcaption>
+</figure>
+<h2>Central moments</h2>
+<p>In fact, this kind of division is very common - dividing a moment by the zeroth order moment. It's so common that it has a name of its own - central moments.</p>
+<p>So to calculate the centroid, you need to calculate the first order central moments. </p>
+<h2>Higher order moments</h2>
+<p>Going onto higher order moments, things get complicated really fast. You have  three 2<sup>nd</sup> order moments, four 3<sup>rd</sup> order moments, etc. You can combine several of these  moments so that they are translation invariant, scale invariant and even rotation invariant.</p>
+<p>While reading about moments, I found an entire book dedicated to <a href="http://www.amazon.com/gp/product/0470699876/ref=as_li_ss_tl?ie=UTF8&amp;tag=aish04-20&amp;linkCode=as2&amp;camp=217145&amp;creative=399373&amp;creativeASIN=0470699876">pattern recognition with moments</a><img alt="" src="http://www.assoc-amazon.com/e/ir?t=&amp;l=as2&amp;o=1&amp;a=0470699876&amp;camp=217145&amp;creative=399373" />. In fact, there are terms called <em>skewness</em> and <em>kurtosis</em>. These refer to third and fourth order moments. They measure how skewed an image is and whether an image is tall and thin or short and fat. Clearly, there's a LOT that can be learned about these mathematical tools.</p>
+        </div>
+
+        
+
+        <hr />
+        <div class='post-tutorial-social'>
+           <div class="fb-like" data-href="http://facebook.com/aishack" data-adapt-container-width='true' data-layout="standard" data-action="like" data-show-faces="true"></div> 
+           <hr/>
+            <div class="sharethis-inline-share-buttons"></div>
+        </div>
+
+        
+        
+            <hr/>
+            <h4>Related posts</h4>
+            <div class='row'>
+                
+                    <div class='col-md-3'>
+                        <a href='/tutorials/7-unique-neural-network-architectures/'><img class='img-responsive' src='/static/thumb/post-neural-types.jpg' /></a>
+                        <div>
+                            <h4><a href='/tutorials/7-unique-neural-network-architectures/'>7 unique neural network architectures</a></h4>
+                            <p></p>
+                            <a class='read-more btn btn-default' href='/tutorials/7-unique-neural-network-architectures/'>Read more</a>
+                        </div>
+                    </div>
+                
+                    <div class='col-md-3'>
+                        <a href='/tutorials/biological-neurons/'><img class='img-responsive' src='/static/thumb/post-biological-neurons.jpg' /></a>
+                        <div>
+                            <h4><a href='/tutorials/biological-neurons/'>All about biological neurons</a></h4>
+                            <p></p>
+                            <a class='read-more btn btn-default' href='/tutorials/biological-neurons/'>Read more</a>
+                        </div>
+                    </div>
+                
+                    <div class='col-md-3'>
+                        <a href='/tutorials/single-neuron-dictomizer/'><img class='img-responsive' src='/static/thumb/post-neuron-dictomizer.jpg' /></a>
+                        <div>
+                            <h4><a href='/tutorials/single-neuron-dictomizer/'>A single neuron Dictomizer</a></h4>
+                            <p></p>
+                            <a class='read-more btn btn-default' href='/tutorials/single-neuron-dictomizer/'>Read more</a>
+                        </div>
+                    </div>
+                
+                    <div class='col-md-3'>
+                        <a href='/tutorials/capturing-images/'><img class='img-responsive' src='/static/thumb/post-capturing-images.jpg' /></a>
+                        <div>
+                            <h4><a href='/tutorials/capturing-images/'>Capturing images</a></h4>
+                            <p></p>
+                            <a class='read-more btn btn-default' href='/tutorials/capturing-images/'>Read more</a>
+                        </div>
+                    </div>
+                
+            </div>
+        
+
+        <hr />
+
+        
+        
+
+        
+        <div class='well'>
+            <div class='col-sm-2'><a href='http://utkarshsinha.com/' target='_blank'><img class='img-circle' src='http://gravatar.com/avatar/066eac5a12b429666971cd4ae450f169?size=96px' /> </a></div>
+            <div class='col-sm-10 author-bio'>Utkarsh Sinha created AI Shack in 2010 and has since been working on computer vision and related fields. He is currently at Microsoft working on computer vision.</div>
+            <div class='clearfix'></div>
+        </div>
+
+        
+            <div id="disqus_thread"></div>
+            <script>
+            var disqus_config = function () {
+                this.page.url = "http://aishack.in/tutorials/image-moments/";  // Replace PAGE_URL with your page's canonical URL variable
+                this.page.identifier = "tutorials_image-moments"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+            };
+            (function() { // DON'T EDIT BELOW THIS LINE
+                var d = document, s = d.createElement('script');
+                s.src = '//aishack.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        
+
+    
+
+                </div>
+                    
+
+                
+            </div>
+        </div>
+        <div class='container'>
+            
+
+<div class="row footer">
+    <div class='col-md-4'>
+        <img src='/static/img/logo-footer-left.png' class='pull-left logo' alt='AI Shack logo'/>
+        <h4>About AI Shack</h4>
+        <p class='about-footer'>Learn about the latest in AI technology with in-depth tutorials on vision and learning!</p>
+        <a class='pull-right' href='/about/'>More...</a>
+        <a href="https://twitter.com/utkarshsinha" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @utkarshsinha</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </div>
+    <div class='col-md-4 getting-started'>
+        <h4>Get started</h4>
+        <ul class='about-footer'>
+            <li><a href='/tracks/opencv-basics/'>Get started with OpenCV</a></li>
+            <li><a href='/tutorials/tracking-colored-objects-opencv/'>Track a specific color on video</a></li>
+            <li><a href='/tracks/image-processing-algorithms-level-1/'>Learn basic image processing algorithms</a></li>
+            <li><a href='/tutorials/single-neuron-dictomizer/'>How to build artificial neurons?</a></li>
+            <li><a href='http://github.com/aishack/'>Look at some source code</a></li>
+        </ul>
+    </div>
+    <div class='col-md-4'>
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+        <div class="fb-page" data-href="https://www.facebook.com/aishack" data-width="380" data-small-header="true" data-adapt-container-width="false" data-hide-cover="true" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/aishack"><a href="https://www.facebook.com/aishack">AI Shack</a></blockquote></div></div>
+        </div>
+    <!--div class='col-md-5'>
+        <div class='panel panel-default'>
+            <div class='panel-heading'>AI Shack on Facebook</div>
+            <div class='facebook-liker-nopadding panel-body'>
+                <iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Faishack&amp;width=360&amp;height=258&amp;colorscheme=light&amp;show_faces=true&amp;header=false&amp;stream=false&amp;show_border=false" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:360px; height:258px;" allowTransparency="true"></iframe>
+            </div>
+        </div>
+    </div>
+    <div class='col-md-3'>
+        <div class='panel panel-default'>
+            <div class='panel-heading'><span class='glyphicon glyphicon-user'></span> Contact</div>
+            <div class='panel-body'><p>You can contact me through the internet over the following channels:</p>
+            <ul class='list-unstyled'>
+                <li><a href='http://facebook.com/aishack/' target='_blank'><span class='ico ico-facebook'></span>Facebook</a></li>
+                <li><a href='http://twitter.com/aishack' target='_blank'><span class='ico ico-twitter'></span>Twitter</a></li>
+                <li><a href='http://github.com/aishack' target='_blank'><span class='ico ico-github'></span>Github</a></li>
+                <li><a href='mailto:utkarsh@utkarshsinha.com'><span class='ico ico-email'></span>Email</a></li>
+            </ul>
+            </div>
+        </div>
+    </div>
+    <div class='col-md-4'>
+        <div class='panel panel-default'>
+            <div class='panel-heading'><span class='glyphicon glyphicon-question-sign'></span> Where to start?</div>
+            <div class='panel-body'>
+                <p>So you want to get started with AI but you're not sure where. Here are some links to get you started:</p>
+                <ul>
+                    <li><a href='/tracks/opencv-basics/'>Get started with OpenCV</a></li>
+                    <li><a href='/tutorials/tracking-colored-objects-in-opencv/'>Track a specific color on video</a></li>
+                    <li><a href='/tracks/image-processing-algorithms-level-1/'>Learn basic image processing algorithms</a></li>
+                    <li><a href='/tutorials/a-single-neuron-dictomizer/'>How to build artificial neurons?</a></li>
+                    <li><a href='http://github.com/aishack/'>Look at some source code</a></li>
+                </ul>
+            </div>
+        </div>
+    </div-->
+</div>
+
+        </div>
+        <div class='container-fluid footer-bottom'>
+            <div class='container'>
+                <div class='row'>
+                    <div class='col-md-12'>
+                        <p class='creator'>Created by <a href='http://utkarshsinha.com/' target='_blank'>Utkarsh Sinha</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--script src='/static/js/jquery-1.11.1.min.js'></script>
+        <script src='/static/js/bootstrap.min.js'></script>
+        <script src='/static/js/bootstrap-editable.min.js'></script-->
+        <script src='/static/js/bundle.min.js'></script>
+        
+            <script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-587551-5', 'auto');
+              ga('send', 'pageview');
+
+            </script>
+        
+        <script>
+        function gotoTop() {
+            var targetOffset = $('body').offset().top;
+            $('html,body').animate({scrollTop: targetOffset}, 1000);
+            return false;
+        }
+        $(document).ready(function() {
+            $("#btn-signup").tooltip({placement: 'top', title: 'Signup, track your progress, take quizzes.'});
+            $('.to-top').click(gotoTop);
+        });
+        
+        
+        </script>
+
+
+        
+    </body>
+</html>
