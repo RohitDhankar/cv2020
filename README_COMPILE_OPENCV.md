@@ -106,6 +106,98 @@ cmake version 3.10.2
 CMake suite maintained and supported by Kitware (kitware.com/cmake).
 ```
 
+### GPU Status -- nvidia-smi
+
+```
+(base) dhankar@dhankar-1:~/_dc_all/cv20/cmake_opencv/opencv-python$ nvidia-smi
+Thu Jul 23 14:49:55 2020       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 435.21       Driver Version: 435.21       CUDA Version: 10.1     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|===============================+======================+======================|
+|   0  GeForce GTX 1650    Off  | 00000000:01:00.0  On |                  N/A |
+|  0%   47C    P8     4W /  75W |    521MiB /  3910MiB |      1%      Default |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                       GPU Memory |
+|  GPU       PID   Type   Process name                             Usage      |
+|=============================================================================|
+|    0      2111      G   /usr/lib/xorg/Xorg                            14MiB |
+|    0      2348      G   /usr/bin/gnome-shell                          49MiB |
+|    0      3921      G   /usr/lib/xorg/Xorg                           191MiB |
+|    0      4084      G   /usr/bin/gnome-shell                         110MiB |
+|    0      8285      G   ...color-correct-rendering --no-sandbox --    36MiB |
+|    0      9403      G   /usr/lib/firefox/firefox                       2MiB |
+|    0     10544      G   ...AAAAAAAAAAAACAAAAAAAAAA= --shared-files   112MiB |
+|    0     17554      G   /usr/lib/firefox/firefox                       2MiB |
++-----------------------------------------------------------------------------+
+(base) dhankar@dhankar-1:~/_dc_all/cv20/cmake_opencv/opencv-python$ 
+(base) dhankar@dhankar-1:~/_dc_all/cv20/cmake_opencv/opencv-python$ nvidia-smi -a
+
+==============NVSMI LOG==============
+
+Timestamp                           : Thu Jul 23 14:54:01 2020
+Driver Version                      : 435.21
+CUDA Version                        : 10.1
+
+Attached GPUs                       : 1
+GPU 00000000:01:00.0
+    Product Name                    : GeForce GTX 1650
+    Product Brand                   : GeForce
+    Display Mode                    : Enabled
+    Display Active                  : Enabled
+    Persistence Mode                : Disabled
+    Accounting Mode                 : Disabled
+    Accounting Mode Buffer Size     : 4000
+    Driver Model
+        Current                     : N/A
+        Pending                     : N/A
+    Serial Number                   : N/A
+
+```
+#
+#
+```
+(base) dhankar@dhankar-1:~/.local/bin$ 
+(base) dhankar@dhankar-1:~/.local/bin$ source ~/.bashrc
+virtualenvwrapper.user_scripts creating /home/dhankar/.virtualenvs/premkproject
+virtualenvwrapper.user_scripts creating /home/dhankar/.virtualenvs/postmkproject
+virtualenvwrapper.user_scripts creating /home/dhankar/.virtualenvs/initialize
+virtualenvwrapper.user_scripts creating /home/dhankar/.virtualenvs/premkvirtualenv
+virtualenvwrapper.user_scripts creating /home/dhankar/.virtualenvs/postmkvirtualenv
+virtualenvwrapper.user_scripts creating /home/dhankar/.virtualenvs/prermvirtualenv
+virtualenvwrapper.user_scripts creating /home/dhankar/.virtualenvs/postrmvirtualenv
+virtualenvwrapper.user_scripts creating /home/dhankar/.virtualenvs/predeactivate
+virtualenvwrapper.user_scripts creating /home/dhankar/.virtualenvs/postdeactivate
+virtualenvwrapper.user_scripts creating /home/dhankar/.virtualenvs/preactivate
+virtualenvwrapper.user_scripts creating /home/dhankar/.virtualenvs/postactivate
+virtualenvwrapper.user_scripts creating /home/dhankar/.virtualenvs/get_env_details
+(base) dhankar@dhankar-1:~/.local/bin$ 
+(base) dhankar@dhankar-1:~/.local/bin$ 
+```
+#
+#
+```
+(base) dhankar@dhankar-1:~/.local/bin$ mkvirtualenv opencv_cuda -p python3
+created virtual environment CPython3.7.4.final.0-64 in 235ms
+  creator CPython3Posix(dest=/home/dhankar/.virtualenvs/opencv_cuda, clear=False, global=False)
+  seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=/home/dhankar/.local/share/virtualenv)
+    added seed packages: pip==20.1.1, setuptools==49.2.0, wheel==0.34.2
+  activators BashActivator,CShellActivator,FishActivator,PowerShellActivator,PythonActivator,XonshActivator
+virtualenvwrapper.user_scripts creating /home/dhankar/.virtualenvs/opencv_cuda/bin/predeactivate
+virtualenvwrapper.user_scripts creating /home/dhankar/.virtualenvs/opencv_cuda/bin/postdeactivate
+virtualenvwrapper.user_scripts creating /home/dhankar/.virtualenvs/opencv_cuda/bin/preactivate
+virtualenvwrapper.user_scripts creating /home/dhankar/.virtualenvs/opencv_cuda/bin/postactivate
+virtualenvwrapper.user_scripts creating /home/dhankar/.virtualenvs/opencv_cuda/bin/get_env_details
+(opencv_cuda) (base) dhankar@dhankar-1:~/.local/bin$ 
+```
+#
+#
+
+#
 #
 
 
