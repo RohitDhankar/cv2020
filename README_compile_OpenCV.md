@@ -8,29 +8,19 @@ Traceback (most recent call last):
     detector = cv.xfeatures2d_SURF.create(hessianThreshold=minHessian)
 AttributeError: module 'cv2.cv2' has no attribute 'xfeatures2d_SURF'
 
-#
-Own version of OpenCV Installed == opencv-python==4.2.0.34
-
-As not done CMAKE for CV2 - certain Functionality NOT AVAILABLE for FREE 
-To use SIFT or SURF - "must compile OpenCV from sources" - CMAKE as was done back in 2017.  
-
-export CMAKE_ARGS="-DOPENCV_ENABLE_NONFREE=ON -DWITH_TBB=ON -DWITH_CUDA=ON -DWITH_CUDNN=ON 
--DOPENCV_DNN_CUDA=ON -DCUDA_ARCH_BIN=7.5 -DBUILD_opencv_cudacodec=OFF -DENABLE_FAST_MATH=1 
--DCUDA_FAST_MATH=1 -DWITH_CUBLAS=1 -DWITH_V4L=ON -DWITH_QT=OFF -DWITH_OPENGL=ON -DWITH_GSTREAMER=ON 
--DOPENCV_GENERATE_PKGCONFIG=ON -DOPENCV_ENABLE_NONFREE=ON 
--DOPENCV_EXTRA_MODULES_PATH=/tmp/opencv-python/opencv_contrib/modules"
-python3 setup.py bdist_wheel
-cd dist
-pip3 install opencv_python-4.3.0+3073e9e-cp36-cp36m-linux_x86_64.whl
-
-
-# REFER HERE -- 
-# REFER HERE -- https://github.com/skvark/opencv-python
-
-# Even ROS restricts use of SIFT and SURF from OpenCV - https://answers.ros.org/question/34557/opencv-patent/
-
-As suggested by the Maintainers of - opencv-python --- "must compile OpenCV from sources" https://github.com/skvark/opencv-python/issues/126
 ```
+
+#
+
+- REFER HERE -- https://github.com/skvark/opencv-python
+> Own version of OpenCV Installed == opencv-python==4.2.0.34 . As not done CMAKE for CV2 - certain Functionality NOT AVAILABLE for FREE 
+To use SIFT or SURF - "must compile OpenCV from sources" - CMAKE as was done back in 2017.   
+As suggested by the Maintainers of - opencv-python --- "must compile OpenCV from sources" https://github.com/skvark/opencv-python/issues/126
+
+
+#
+
+- Even ROS restricts use of SIFT and SURF from OpenCV - https://answers.ros.org/question/34557/opencv-patent/
 
 #
 
