@@ -6,7 +6,8 @@ Issue now solved - may occur again - needs to be documented.
 - Link to own YouTubeVideo - https://www.youtube.com/watch?v=ABIVvn93ido&feature=youtu.be
 - Links Refered for Solution - https://askubuntu.com/a/1175928/958183
 
-> I read through link above and reasiled - that maybe the NVIDIA drivers need an Install . After the fresh install rebooted system - all ok as of now need to read through CRASH reports . 
+> I read through link above and realized - that maybe NVIDIA drivers need an Install . After the fresh install rebooted system - all ok as of now need to read through CRASH reports .    
+Bottom of this file - apport retrace of the crash reports.   
 #
 
 > Seen below output of - xrandr , now and earlier - am checking on the crash reports - may update this README. 
@@ -34,4 +35,26 @@ HDMI-1 connected primary 1366x768+0+0 (normal left inverted right x axis y axis)
    640x480       75.00    59.94    59.93  
 (base) dhankar@dhankar-1:/var/crash$ 
 ```
+#####
+
+- Source - http://manpages.ubuntu.com/manpages/focal/en/man1/apport-retrace.1.html
+
+#
+```
+$apport-retrace --stdout /var/crash/_usr_bin_gnome-control-center.1000.crash
+ERROR: report file does not contain one of the required fields: Package
+#
+$apport-retrace --stdout /var/crash/nvidia-kernel-source-435.0.crash
+ERROR: report file does not contain one of the required fields: CoreDump DistroRelease Architecture ExecutablePath
+#
+
+```
+###### apport-retrace --gdb    -- sandbox-dir sys_crash_retrace
+
+- Further Reads -- 
+- https://askubuntu.com/questions/1160113/system-program-problem-detected
+- https://askubuntu.com/questions/348790/apport-retrace-fails-with-error-report-file-does-not-contain-one-of-the-require
+- https://askubuntu.com/a/348789/958183
+- https://wiki.ubuntu.com/Apport?action=AttachFile&do=view&target=data-format.pdf
+
 
