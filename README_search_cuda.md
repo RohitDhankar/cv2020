@@ -29,7 +29,7 @@ ls: cannot access 'cuda*': No such file or directory
 
 ```
 #
-####
+##### 
 
 ```
 (base) dhankar@dhankar-1:/usr/bin$ dpkg -l | grep cuda
@@ -44,9 +44,50 @@ ii  nvidia-cuda-toolkit                        9.1.85-3ubuntu1                  
 ```
 #
 
+##### Searching for CUDA package installs within the - dpkg log files 
+
+#
+```
+(base) dhankar@dhankar-1:/var/log$ ls -ltr dpkg*
+-rw-r--r-- 1 root root 126019 Jan  9  2020 dpkg.log.7.gz
+-rw-r--r-- 1 root root  22318 Feb  7 12:44 dpkg.log.6.gz
+-rw-r--r-- 1 root root  27125 Feb 27 10:35 dpkg.log.5.gz
+-rw-r--r-- 1 root root   9958 Apr  1 09:26 dpkg.log.4.gz
+-rw-r--r-- 1 root root   8307 May  1 12:52 dpkg.log.3.gz
+-rw-r--r-- 1 root root  15690 May 30 21:54 dpkg.log.2.gz
+-rw-r--r-- 1 root root 234531 Jun 29 17:58 dpkg.log.1
+-rw-r--r-- 1 root root 496486 Jul 24 19:03 dpkg.log
+(base) dhankar@dhankar-1:/var/log$ 
+
+```
+#
+```
+grep installed dpkg.log.1 > ~/log_packs1.txt
+grep installed dpkg.log.2.gz > ~/log_packs2_May2020.txt
+
+```
+
+##### Seen below these are the Log extracts related to CUDA 
 #
 ```
 2020-05-04 18:35:20 install libcudart9.1:amd64 <none> 9.1.85-3ubuntu1
 2020-05-04 18:35:20 status half-installed libcudart9.1:amd64 9.1.85-3ubuntu1
+#
+2020-05-04 18:36:17 install nvidia-cuda-dev:amd64 <none> 9.1.85-3ubuntu1
+2020-05-04 18:36:17 status half-installed nvidia-cuda-dev:amd64 9.1.85-3ubuntu1
+2020-05-04 18:36:39 install nvidia-cuda-doc:all <none> 9.1.85-3ubuntu1
+2020-05-04 18:36:39 status half-installed nvidia-cuda-doc:all 9.1.85-3ubuntu1
+2020-05-04 18:36:44 install nvidia-cuda-gdb:amd64 <none> 9.1.85-3ubuntu1
+2020-05-04 18:36:44 status half-installed nvidia-cuda-gdb:amd64 9.1.85-3ubuntu1
+#
+2020-05-04 18:36:47 install nvidia-cuda-toolkit:amd64 <none> 9.1.85-3ubuntu1
+2020-05-04 18:36:47 status half-installed nvidia-cuda-toolkit:amd64 9.1.85-3ubuntu1
+#
+2020-05-04 18:36:57 status installed nvidia-cuda-doc:all 9.1.85-3ubuntu1
+2020-05-04 18:36:59 status installed nvidia-cuda-gdb:amd64 9.1.85-3ubuntu1
+2020-05-04 18:37:02 status installed libcudart9.1:amd64 9.1.85-3ubuntu1
+#
+
+
 ```
 #
