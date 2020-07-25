@@ -1,8 +1,37 @@
-##### While Compiling OpenCv with CUDA - getting to see multiple CUDA installs > Confusion . 
+
+##### NVIDIA Drivers and CUDA updated - latest sys specifications as seen below
 #
-##### NVIDIA Drivers have been updated - latest sys specifications as seen below at - #UPDATED_NVIDIA == Driver Version: 440.100
+
+```
+(base) dhankar@dhankar-1:~/_dc_all/cv20/cv2020$ nvidia-smi
+Sat Jul 25 17:22:23 2020       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 450.51.05    Driver Version: 450.51.05    CUDA Version: 11.0     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  GeForce GTX 1650    On   | 00000000:01:00.0  On |                  N/A |
+|  0%   45C    P8     4W /  75W |    216MiB /  3910MiB |      1%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|    0   N/A  N/A      1741      G   /usr/lib/xorg/Xorg                 14MiB |
+|    0   N/A  N/A      2142      G   /usr/bin/gnome-shell               49MiB |
+|    0   N/A  N/A      3868      G   /usr/lib/xorg/Xorg                 86MiB |
+|    0   N/A  N/A      4001      G   /usr/bin/gnome-shell               62MiB |
++-----------------------------------------------------------------------------+
+
+```
 #
-CMAKE Build process the terminal output states == -- CUDA detected: 9.1
+
+Earlier for the OpenCV - CMAKE Build process , the terminal output stated == -- CUDA detected: 9.1
 #
 ##### As suggested here on SO -- Searching for CUDA version.txt fails -- https://stackoverflow.com/a/42122965/4928635 
 ```
@@ -875,5 +904,34 @@ Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
 
 ```
 
+#
+
+```
+(base) dhankar@dhankar-1:~/_dc_all/cv20/cv2020$ nvidia-smi
+Sat Jul 25 17:22:23 2020       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 450.51.05    Driver Version: 450.51.05    CUDA Version: 11.0     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  GeForce GTX 1650    On   | 00000000:01:00.0  On |                  N/A |
+|  0%   45C    P8     4W /  75W |    216MiB /  3910MiB |      1%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|    0   N/A  N/A      1741      G   /usr/lib/xorg/Xorg                 14MiB |
+|    0   N/A  N/A      2142      G   /usr/bin/gnome-shell               49MiB |
+|    0   N/A  N/A      3868      G   /usr/lib/xorg/Xorg                 86MiB |
+|    0   N/A  N/A      4001      G   /usr/bin/gnome-shell               62MiB |
++-----------------------------------------------------------------------------+
+(base) dhankar@dhankar-1:~/_dc_all/cv20/cv2020$ 
+```
 #
 

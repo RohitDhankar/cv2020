@@ -1,267 +1,469 @@
-#### This has terminal dumps while Compiling OpenCV using CMAKE .
+##### Need to update flag for CUDA 11.0 DIR == -DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda-11.0 \
+```
+-- Consider using CMake 3.12+ for better Python support
+-- Looking for ccache - not found
+-- Could NOT find CUDNN (missing: CUDNN_LIBRARY CUDNN_INCLUDE_DIR) (Required is at least version "7.5")
+
+-- Performing Test HAVE_C_WERROR_NON_VIRTUAL_DTOR - Failed
+-- Performing Test HAVE_CXX_WMISSING_PROTOTYPES - Failed
+-- Performing Test HAVE_CXX_WSTRICT_PROTOTYPES - Failed
+-- Performing Test HAVE_C_WSIGN_PROMO - Failed
+-- Performing Test HAVE_C_WSUGGEST_OVERRIDE - Failed
+-- Performing Test HAVE_C_WNO_DELETE_NON_VIRTUAL_DTOR - Failed
+-- Performing Test HAVE_CXX_WNO_UNNAMED_TYPE_TEMPLATE_ARGS - Failed
+-- Performing Test HAVE_C_WNO_UNNAMED_TYPE_TEMPLATE_ARGS - Failed
+-- Performing Test HAVE_C_FVISIBILITY_INLINES_HIDDEN - Failed
+```
+#
+###### Solving for - ccache . 
+# 
+- https://askubuntu.com/questions/470545/how-do-i-set-up-ccache
+
+```
+(opencv_cuda) dhankar@dhankar-1:~/opencv_cuda/opencv/build$ dpkg -l ccache
+dpkg-query: no packages found matching ccache
+(opencv_cuda) dhankar@dhankar-1:~/opencv_cuda/opencv/build$ 
+(opencv_cuda) dhankar@dhankar-1:~/opencv_cuda/opencv/build$ sudo apt install -y ccache
+[sudo] password for dhankar: 
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+Suggested packages:
+  distcc
+The following NEW packages will be installed:
+  ccache
+0 upgraded, 1 newly installed, 0 to remove and 22 not upgraded.
+Need to get 110 kB of archives.
+After this operation, 326 kB of additional disk space will be used.
+Get:1 http://in.archive.ubuntu.com/ubuntu bionic/main amd64 ccache amd64 3.4.1-1 [110 kB]
+Fetched 110 kB in 1s (126 kB/s)         
+Selecting previously unselected package ccache.
+(Reading database ... 314025 files and directories currently installed.)
+Preparing to unpack .../ccache_3.4.1-1_amd64.deb ...
+Unpacking ccache (3.4.1-1) ...
+Setting up ccache (3.4.1-1) ...
+Updating symlinks in /usr/lib/ccache ...
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+
+
+(opencv_cuda) dhankar@dhankar-1:~/opencv_cuda/opencv/build$ dpkg -l ccache
+Desired=Unknown/Install/Remove/Purge/Hold
+| Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend
+|/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad)
+||/ Name                          Version             Architecture        Description
++++-=============================-===================-===================-================================================================
+ii  ccache                        3.4.1-1             amd64               Compiler cache for fast recompilation of C/C++ code
+
+
+(opencv_cuda) dhankar@dhankar-1:~/opencv_cuda/opencv/build$ which g++ gcc
+/usr/bin/g++
+/usr/bin/gcc
+
+(opencv_cuda) dhankar@dhankar-1:~/opencv_cuda/opencv/build$ ccache -s
+cache directory                     /home/dhankar/.ccache
+primary config                      /home/dhankar/.ccache/ccache.conf
+secondary config      (readonly)    /etc/ccache.conf
+cache hit (direct)                     0
+cache hit (preprocessed)               0
+cache miss                             0
+cache hit rate                      0.00 %
+cleanups performed                     0
+files in cache                         0
+cache size                           0.0 kB
+max cache size                       5.0 GB
+
+(opencv_cuda) dhankar@dhankar-1:~/opencv_cuda/opencv/build$ sudo /usr/sbin/update-ccache-symlinks
+(opencv_cuda) dhankar@dhankar-1:~/opencv_cuda/opencv/build$ echo 'export PATH="/usr/lib/ccache:$PATH"' | tee -a ~/.bashrc
+export PATH="/usr/lib/ccache:$PATH"
+
+(opencv_cuda) dhankar@dhankar-1:~/opencv_cuda/opencv/build$ source ~/.bashrc && echo $PATH
+/usr/lib/ccache:/home/dhankar/anaconda3/bin:/home/dhankar/.virtualenvs/opencv_cuda/bin:/home/dhankar/anaconda3/condabin:/home/dhankar/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+
+(base) dhankar@dhankar-1:~/opencv_cuda/opencv/build$ which g++ gcc
+/usr/lib/ccache/g++
+/usr/lib/ccache/gcc
+(base) dhankar@dhankar-1:~/opencv_cuda/opencv/build$ 
+
+```
+#
+###### Seems i have the same issue as this --- https://github.com/skvark/opencv-python/issues/330
+- https://github.com/skvark/opencv-python/issues/330
+- https://www.ics.com/blog/some-lesser-known-qt-tools-and-commands-part-5
+
+> for now am trying by adding another Compile flag as suggested in the above issue - "-D WITH_QT=4"
 
 #
 ```
-(tensorflow_gpuenv) dhankar@dhankar-1:~/_dc_all/cv20/cv2020/2_Feature Detection_SIFT_SURF$ python SURF_FeatureDetection.py --img_in ./Input_Images/box.png
-Traceback (most recent call last):
-  File "SURF_FeatureDetection.py", line 21, in <module>
-    detector = cv.xfeatures2d_SURF.create(hessianThreshold=minHessian)
-AttributeError: module 'cv2.cv2' has no attribute 'xfeatures2d_SURF'
+(opencv_cuda) dhankar@dhankar-1:/usr/lib/qt5$ ls -ltr
+total 4
+drwxr-xr-x 2 root root 4096 Feb 11 08:30 bin
+(opencv_cuda) dhankar@dhankar-1:/usr/lib/qt5$ cd bin
+(opencv_cuda) dhankar@dhankar-1:/usr/lib/qt5/bin$ ls -ltr
+total 12992
+-rwxr-xr-x 1 root root   49240 Apr  4  2018 syncqt.pl
+-rwxr-xr-x 1 root root    6344 Apr  4  2018 fixqt4headers.pl
+-rwxr-xr-x 1 root root   22512 Apr 14  2018 qtplugininfo
+-rwxr-xr-x 1 root root   22592 Apr 14  2018 qtpaths
+-rwxr-xr-x 1 root root   59456 Apr 14  2018 qtdiag
+-rwxr-xr-x 1 root root   67568 Apr 14  2018 qtattributionsscanner
+-rwxr-xr-x 1 root root   22592 Apr 14  2018 qhelpgenerator
+-rwxr-xr-x 1 root root  194624 Apr 14  2018 qhelpconverter
+-rwxr-xr-x 1 root root 1462992 Apr 14  2018 qdoc
+-rwxr-xr-x 1 root root  129088 Apr 14  2018 qdbusviewer
+-rwxr-xr-x 1 root root   71744 Apr 14  2018 qcollectiongenerator
+-rwxr-xr-x 1 root root   59456 Apr 14  2018 pixeltool
+-rwxr-xr-x 1 root root  940176 Apr 14  2018 lupdate
+-rwxr-xr-x 1 root root  522304 Apr 14  2018 lrelease
+-rwxr-xr-x 1 root root 1460288 Apr 14  2018 linguist
+-rwxr-xr-x 1 root root  301120 Apr 14  2018 lconvert
+-rwxr-xr-x 1 root root  485448 Apr 14  2018 designer
+-rwxr-xr-x 1 root root 1329736 Apr 14  2018 assistant
+-rwxr-xr-x 1 root root  649280 Feb  7 21:11 uic
+-rwxr-xr-x 1 root root  993472 Feb  7 21:11 rcc
+-rwxr-xr-x 1 root root 2718192 Feb  7 21:11 qmake
+-rwxr-xr-x 1 root root  202736 Feb  7 21:11 qlalr
+-rwxr-xr-x 1 root root   79856 Feb  7 21:11 qdbusxml2cpp
+-rwxr-xr-x 1 root root  284736 Feb  7 21:11 qdbuscpp2xml
+-rwxr-xr-x 1 root root 1116352 Feb  7 21:11 moc
+(opencv_cuda) dhankar@dhankar-1:/usr/lib/qt5/bin$ 
 
 ```
 
 #
+```
+ WebP: /usr/lib/x86_64-linux-gnu/libwebp.so  
+-- The imported target "openjp2_static" references the file
+   "/usr/lib/x86_64-linux-gnu/libopenjp2.a"
+but this file does not exist.  Possible reasons include:
+* The file was deleted, renamed, or moved to another location.
+* An install or uninstall procedure did not complete successfully.
+* The installation package was faulty and contained
+   "/usr/lib/x86_64-linux-gnu/openjpeg-2.3/OpenJPEGTargets.cmake"
+but not all the files it references.
 
-- REFER HERE -- https://github.com/skvark/opencv-python
-> Own version of OpenCV Installed == opencv-python==4.2.0.34 . As not done CMAKE for CV2 - certain Functionality NOT AVAILABLE for FREE 
-To use SIFT or SURF - "must compile OpenCV from sources" - CMAKE as was done back in 2017.   
-As suggested by the Maintainers of - opencv-python --- "must compile OpenCV from sources" https://github.com/skvark/opencv-python/issues/126
+-- The imported target "openjpip" references the file
+   "/usr/lib/x86_64-linux-gnu/libopenjpip.so.2.3.0"
+but this file does not exist.  Possible reasons include:
+* The file was deleted, renamed, or moved to another location.
+* An install or uninstall procedure did not complete successfully.
+* The installation package was faulty and contained
+   "/usr/lib/x86_64-linux-gnu/openjpeg-2.3/OpenJPEGTargets.cmake"
+but not all the files it references.
 
+-- The imported target "openjpip_server" references the file
+   "/usr/lib/x86_64-linux-gnu/libopenjpip_server.a"
+but this file does not exist.  Possible reasons include:
+* The file was deleted, renamed, or moved to another location.
+* An install or uninstall procedure did not complete successfully.
+* The installation package was faulty and contained
+   "/usr/lib/x86_64-linux-gnu/openjpeg-2.3/OpenJPEGTargets.cmake"
+but not all the files it references.
+
+-- The imported target "opj_decompress" references the file
+   "/usr/bin/opj_decompress"
+but this file does not exist.  Possible reasons include:
+* The file was deleted, renamed, or moved to another location.
+* An install or uninstall procedure did not complete successfully.
+* The installation package was faulty and contained
+   "/usr/lib/x86_64-linux-gnu/openjpeg-2.3/OpenJPEGTargets.cmake"
+but not all the files it references.
+
+-- The imported target "opj_compress" references the file
+   "/usr/bin/opj_compress"
+but this file does not exist.  Possible reasons include:
+* The file was deleted, renamed, or moved to another location.
+* An install or uninstall procedure did not complete successfully.
+* The installation package was faulty and contained
+   "/usr/lib/x86_64-linux-gnu/openjpeg-2.3/OpenJPEGTargets.cmake"
+but not all the files it references.
+
+-- The imported target "opj_dump" references the file
+   "/usr/bin/opj_dump"
+but this file does not exist.  Possible reasons include:
+* The file was deleted, renamed, or moved to another location.
+* An install or uninstall procedure did not complete successfully.
+* The installation package was faulty and contained
+   "/usr/lib/x86_64-linux-gnu/openjpeg-2.3/OpenJPEGTargets.cmake"
+but not all the files it references.
+
+-- The imported target "opj_jpip_addxml" references the file
+   "/usr/bin/opj_jpip_addxml"
+but this file does not exist.  Possible reasons include:
+* The file was deleted, renamed, or moved to another location.
+* An install or uninstall procedure did not complete successfully.
+* The installation package was faulty and contained
+   "/usr/lib/x86_64-linux-gnu/openjpeg-2.3/OpenJPEGTargets.cmake"
+but not all the files it references.
+
+-- The imported target "opj_server" references the file
+   "/usr/bin/opj_server"
+but this file does not exist.  Possible reasons include:
+* The file was deleted, renamed, or moved to another location.
+* An install or uninstall procedure did not complete successfully.
+* The installation package was faulty and contained
+   "/usr/lib/x86_64-linux-gnu/openjpeg-2.3/OpenJPEGTargets.cmake"
+but not all the files it references.
+
+-- The imported target "opj_dec_server" references the file
+   "/usr/bin/opj_dec_server"
+but this file does not exist.  Possible reasons include:
+* The file was deleted, renamed, or moved to another location.
+* An install or uninstall procedure did not complete successfully.
+* The installation package was faulty and contained
+   "/usr/lib/x86_64-linux-gnu/openjpeg-2.3/OpenJPEGTargets.cmake"
+but not all the files it references.
+
+-- The imported target "opj_jpip_transcode" references the file
+   "/usr/bin/opj_jpip_transcode"
+but this file does not exist.  Possible reasons include:
+* The file was deleted, renamed, or moved to another location.
+* An install or uninstall procedure did not complete successfully.
+* The installation package was faulty and contained
+   "/usr/lib/x86_64-linux-gnu/openjpeg-2.3/OpenJPEGTargets.cmake"
+but not all the files it references.
+
+-- The imported target "opj_jpip_test" references the file
+   "/usr/bin/opj_jpip_test"
+but this file does not exist.  Possible reasons include:
+* The file was deleted, renamed, or moved to another location.
+* An install or uninstall procedure did not complete successfully.
+* The installation package was faulty and contained
+   "/usr/lib/x86_64-linux-gnu/openjpeg-2.3/OpenJPEGTargets.cmake"
+but not all the files it references.
+```
 
 #
 
-- Even ROS restricts use of SIFT and SURF from OpenCV - https://answers.ros.org/question/34557/opencv-patent/
+#
+
+```
+(opencv_cuda) dhankar@dhankar-1:~$ cd /usr/local/
+(opencv_cuda) dhankar@dhankar-1:/usr/local$ 
+(opencv_cuda) dhankar@dhankar-1:/usr/local$ ls -ltr
+total 40
+drwxr-xr-x  2 root root 4096 Aug  6  2019 src
+drwxr-xr-x  2 root root 4096 Aug  6  2019 sbin
+drwxr-xr-x  2 root root 4096 Aug  6  2019 include
+drwxr-xr-x  2 root root 4096 Aug  6  2019 games
+lrwxrwxrwx  1 root root    9 Dec 23  2019 man -> share/man
+drwxr-xr-x  4 root root 4096 Apr 17 11:52 etc
+drwxr-xr-x  5 root root 4096 May 13 10:29 lib
+drwxr-xr-x  3 root root 4096 Jul  4 09:11 aws-cli
+drwxr-xr-x 10 root root 4096 Jul 21 18:42 share
+drwxr-xr-x 15 root root 4096 Jul 25 16:58 cuda-11.0
+drwxr-xr-x  2 root root 4096 Jul 25 16:58 bin
+lrwxrwxrwx  1 root root    9 Jul 25 16:59 cuda -> cuda-11.0
+(opencv_cuda) dhankar@dhankar-1:/usr/local$ cd cuda-11.0
+(opencv_cuda) dhankar@dhankar-1:/usr/local/cuda-11.0$ ls -ltr
+total 116
+lrwxrwxrwx  1 root root    24 Jun 12 23:37 lib64 -> targets/x86_64-linux/lib
+lrwxrwxrwx  1 root root    28 Jun 12 23:37 include -> targets/x86_64-linux/include
+-rw-r--r--  1 root root 59649 Jul  1 03:24 EULA.txt
+-rw-r--r--  1 root root    22 Jul  1 03:24 version.txt
+drwxr-xr-x  3 root root  4096 Jul 25 16:55 targets
+drwxr-xr-x  7 root root  4096 Jul 25 16:57 nvvm
+drwxr-xr-x  2 root root  4096 Jul 25 16:57 src
+drwxr-xr-x  3 root root  4096 Jul 25 16:57 share
+drwxr-xr-x  4 root root  4096 Jul 25 16:57 Sanitizer
+drwxr-xr-x  2 root root  4096 Jul 25 16:58 nsightee_plugins
+drwxr-xr-x  3 root root  4096 Jul 25 16:58 nvml
+drwxr-xr-x  7 root root  4096 Jul 25 16:58 libnvvp
+drwxr-xr-x 11 root root  4096 Jul 25 16:58 samples
+drwxr-xr-x  3 root root  4096 Jul 25 16:58 bin
+drwxr-xr-x  5 root root  4096 Jul 25 16:58 doc
+drwxr-xr-x  2 root root  4096 Jul 25 16:58 tools
+drwxr-xr-x  5 root root  4096 Jul 25 16:58 extras
+(opencv_cuda) dhankar@dhankar-1:/usr/local/cuda-11.0$ 
+```
 
 #
 
-
 ```
-(base) dhankar@dhankar-1:~/_dc_all/cv20$ mkdir cmake_opencv
-(base) dhankar@dhankar-1:~/_dc_all/cv20$ cd cmake_opencv
-
-(base) dhankar@dhankar-1:~/_dc_all/cv20/cmake_opencv$ git clone --recursive https://github.com/skvark/opencv-python.git
-Cloning into 'opencv-python'...
-remote: Enumerating objects: 136, done.
-remote: Counting objects: 100% (136/136), done.
-remote: Compressing objects: 100% (96/96), done.
-remote: Total 2045 (delta 83), reused 90 (delta 39), pack-reused 1909
-Receiving objects: 100% (2045/2045), 1.48 MiB | 963.00 KiB/s, done.
-Resolving deltas: 100% (1266/1266), done.
-Submodule 'multibuild' (https://github.com/matthew-brett/multibuild.git) registered for path 'multibuild'
-Submodule 'opencv' (https://github.com/opencv/opencv.git) registered for path 'opencv'
-Submodule 'opencv_contrib' (https://github.com/opencv/opencv_contrib.git) registered for path 'opencv_contrib'
-Cloning into '/home/dhankar/_dc_all/cv20/cmake_opencv/opencv-python/multibuild'...
-remote: Enumerating objects: 5, done.        
-remote: Counting objects: 100% (5/5), done.        
-remote: Compressing objects: 100% (5/5), done.        
-remote: Total 2544 (delta 0), reused 1 (delta 0), pack-reused 2539        
-Receiving objects: 100% (2544/2544), 1.35 MiB | 827.00 KiB/s, done.
-Resolving deltas: 100% (1663/1663), done.
-Cloning into '/home/dhankar/_dc_all/cv20/cmake_opencv/opencv-python/opencv'...
-remote: Enumerating objects: 5, done.        
-remote: Counting objects: 100% (5/5), done.        
-remote: Compressing objects: 100% (5/5), done.        
-remote: Total 277040 (delta 0), reused 1 (delta 0), pack-reused 277035        
-Receiving objects: 100% (277040/277040), 470.20 MiB | 1.25 MiB/s, done.
-Resolving deltas: 100% (193581/193581), done.
-Cloning into '/home/dhankar/_dc_all/cv20/cmake_opencv/opencv-python/opencv_contrib'...
-remote: Enumerating objects: 9, done.        
-remote: Counting objects: 100% (9/9), done.        
-remote: Compressing objects: 100% (9/9), done.        
-remote: Total 32622 (delta 0), reused 2 (delta 0), pack-reused 32613        
-Receiving objects: 100% (32622/32622), 129.17 MiB | 2.60 MiB/s, done.
-Resolving deltas: 100% (20169/20169), done.
-Submodule path 'multibuild': checked out 'c2890dc8dc93f99b0eadd76f87aa181f6aea42da'
-Submodule path 'opencv': checked out '01b2c5a77ca6dbef3baef24ebc0a5984579231d9'
-Submodule path 'opencv_contrib': checked out 'e6f32c6a69043456a806a4e802ee3ce7b7059c93'
-
-(base) dhankar@dhankar-1:~/_dc_all/cv20/cmake_opencv$ cd opencv-python
-(base) dhankar@dhankar-1:~/_dc_all/cv20/cmake_opencv/opencv-python$ ls -ltr
-total 232
--rw-r--r--  1 dhankar dhankar 113621 Jul 23 12:07 LICENSE-3RD-PARTY.txt
--rw-r--r--  1 dhankar dhankar    846 Jul 23 12:07 CONTRIBUTING.md
--rw-r--r--  1 dhankar dhankar  15677 Jul 23 12:07 setup.py
--rw-r--r--  1 dhankar dhankar  13652 Jul 23 12:07 README.md
--rw-r--r--  1 dhankar dhankar    253 Jul 23 12:07 pyproject.toml
-drwxr-xr-x  2 dhankar dhankar   4096 Jul 23 12:07 patches
--rw-r--r--  1 dhankar dhankar    273 Jul 23 12:07 MANIFEST.in
--rw-r--r--  1 dhankar dhankar   1070 Jul 23 12:07 LICENSE.txt
--rw-r--r--  1 dhankar dhankar   2097 Jul 23 12:07 find_version.py
-drwxr-xr-x  4 dhankar dhankar   4096 Jul 23 12:07 docker
-drwxr-xr-x  3 dhankar dhankar   4096 Jul 23 12:07 cv2
--rw-r--r--  1 dhankar dhankar   4594 Jul 23 12:07 appveyor.yml
--rw-r--r--  1 dhankar dhankar  17648 Jul 23 12:07 travis_osx_brew_cache.sh
--rw-r--r--  1 dhankar dhankar    277 Jul 23 12:07 travis_multibuild_customize.sh
--rw-r--r--  1 dhankar dhankar   4941 Jul 23 12:07 travis_config.sh
-drwxr-xr-x  2 dhankar dhankar   4096 Jul 23 12:07 tests
-drwxr-xr-x  4 dhankar dhankar   4096 Jul 23 12:14 multibuild
-drwxr-xr-x 12 dhankar dhankar   4096 Jul 23 12:14 opencv
-drwxr-xr-x  6 dhankar dhankar   4096 Jul 23 12:14 opencv_contrib
-
-(base) dhankar@dhankar-1:~/_dc_all/cv20/cmake_opencv/opencv-python$ which cmake
-/usr/bin/cmake
-(base) dhankar@dhankar-1:~/_dc_all/cv20/cmake_opencv/opencv-python$ cmake --version
-cmake version 3.10.2
-
-CMake suite maintained and supported by Kitware (kitware.com/cmake).
-```
-
-### GPU Status -- nvidia-smi
-
-```
-(base) dhankar@dhankar-1:~/_dc_all/cv20/cmake_opencv/opencv-python$ nvidia-smi
-Thu Jul 23 14:49:55 2020       
-+-----------------------------------------------------------------------------+
-| NVIDIA-SMI 435.21       Driver Version: 435.21       CUDA Version: 10.1     |
-|-------------------------------+----------------------+----------------------+
-| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
-| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
-|===============================+======================+======================|
-|   0  GeForce GTX 1650    Off  | 00000000:01:00.0  On |                  N/A |
-|  0%   47C    P8     4W /  75W |    521MiB /  3910MiB |      1%      Default |
-+-------------------------------+----------------------+----------------------+
-                                                                               
-+-----------------------------------------------------------------------------+
-| Processes:                                                       GPU Memory |
-|  GPU       PID   Type   Process name                             Usage      |
-|=============================================================================|
-|    0      2111      G   /usr/lib/xorg/Xorg                            14MiB |
-|    0      2348      G   /usr/bin/gnome-shell                          49MiB |
-|    0      3921      G   /usr/lib/xorg/Xorg                           191MiB |
-|    0      4084      G   /usr/bin/gnome-shell                         110MiB |
-|    0      8285      G   ...color-correct-rendering --no-sandbox --    36MiB |
-|    0      9403      G   /usr/lib/firefox/firefox                       2MiB |
-|    0     10544      G   ...AAAAAAAAAAAACAAAAAAAAAA= --shared-files   112MiB |
-|    0     17554      G   /usr/lib/firefox/firefox                       2MiB |
-+-----------------------------------------------------------------------------+
-(base) dhankar@dhankar-1:~/_dc_all/cv20/cmake_opencv/opencv-python$ 
-(base) dhankar@dhankar-1:~/_dc_all/cv20/cmake_opencv/opencv-python$ nvidia-smi -a
+(opencv_cuda) dhankar@dhankar-1:~$     
+(opencv_cuda) dhankar@dhankar-1:~$ nvidia-smi -a
 
 ==============NVSMI LOG==============
 
-Timestamp                           : Thu Jul 23 14:54:01 2020
-Driver Version                      : 435.21
-CUDA Version                        : 10.1
+Timestamp                                 : Sat Jul 25 17:42:45 2020
+Driver Version                            : 450.51.05
+CUDA Version                              : 11.0
 
-Attached GPUs                       : 1
+Attached GPUs                             : 1
 GPU 00000000:01:00.0
-    Product Name                    : GeForce GTX 1650
-    Product Brand                   : GeForce
-    Display Mode                    : Enabled
-    Display Active                  : Enabled
-    Persistence Mode                : Disabled
-    Accounting Mode                 : Disabled
-    Accounting Mode Buffer Size     : 4000
+    Product Name                          : GeForce GTX 1650
+    Product Brand                         : GeForce
+    Display Mode                          : Enabled
+    Display Active                        : Enabled
+    Persistence Mode                      : Enabled
+    MIG Mode
+        Current                           : N/A
+        Pending                           : N/A
+    Accounting Mode                       : Disabled
+    Accounting Mode Buffer Size           : 4000
     Driver Model
-        Current                     : N/A
-        Pending                     : N/A
-    Serial Number                   : N/A
+        Current                           : N/A
+        Pending                           : N/A
+    Serial Number                         : N/A
+    GPU UUID                              : GPU-
+    Minor Number                          : 0
+    VBIOS Version                         : 90.........
+    MultiGPU Board                        : No
+    Board ID                              : 0x100
+    GPU Part Number                       : N/A
+    Inforom Version
+        Image Version                     : G......
+        OEM Object                        : 1.1
+        ECC Object                        : N/A
+        Power Management Object           : N/A
+    GPU Operation Mode
+        Current                           : N/A
+        Pending                           : N/A
+    GPU Virtualization Mode
+        Virtualization Mode               : None
+        Host VGPU Mode                    : N/A
+    IBMNPU
+        Relaxed Ordering Mode             : N/A
+    PCI
+        Bus                               : 0x01
+        Device                            : 0x00
+        Domain                            : 0x0000
+        Device Id                         : 0
+        Bus Id                            : 00
+        Sub System Id                     : 0
+        GPU Link Info
+            PCIe Generation
+                Max                       : 3
+                Current                   : 1
+            Link Width
+                Max                       : 16x
+                Current                   : 16x
+        Bridge Chip
+            Type                          : N/A
+            Firmware                      : N/A
+        Replays Since Reset               : 0
+        Replay Number Rollovers           : 0
+        Tx Throughput                     : 1000 KB/s
+        Rx Throughput                     : 10000 KB/s
+    Fan Speed                             : 0 %
+    Performance State                     : P8
+    Clocks Throttle Reasons
+        Idle                              : Active
+        Applications Clocks Setting       : Not Active
+        SW Power Cap                      : Not Active
+        HW Slowdown                       : Not Active
+            HW Thermal Slowdown           : Not Active
+            HW Power Brake Slowdown       : Not Active
+        Sync Boost                        : Not Active
+        SW Thermal Slowdown               : Not Active
+        Display Clock Setting             : Not Active
+    FB Memory Usage
+        Total                             : 3910 MiB
+        Used                              : 236 MiB
+        Free                              : 3674 MiB
+    BAR1 Memory Usage
+        Total                             : 256 MiB
+        Used                              : 7 MiB
+        Free                              : 249 MiB
+    Compute Mode                          : Default
+    Utilization
+        Gpu                               : 14 %
+        Memory                            : 6 %
+        Encoder                           : 0 %
+        Decoder                           : 0 %
+    Encoder Stats
+        Active Sessions                   : 0
+        Average FPS                       : 0
+        Average Latency                   : 0
+    FBC Stats
+        Active Sessions                   : 0
+        Average FPS                       : 0
+        Average Latency                   : 0
+    Ecc Mode
+        Current                           : N/A
+        Pending                           : N/A
+    ECC Errors
+        Volatile
+            SRAM Correctable              : N/A
+            SRAM Uncorrectable            : N/A
+            DRAM Correctable              : N/A
+            DRAM Uncorrectable            : N/A
+        Aggregate
+            SRAM Correctable              : N/A
+            SRAM Uncorrectable            : N/A
+            DRAM Correctable              : N/A
+            DRAM Uncorrectable            : N/A
+    Retired Pages
+        Single Bit ECC                    : N/A
+        Double Bit ECC                    : N/A
+        Pending Page Blacklist            : N/A
+    Remapped Rows                         : N/A
+    Temperature
+        GPU Current Temp                  : 48 C
+        GPU Shutdown Temp                 : 97 C
+        GPU Slowdown Temp                 : 94 C
+        GPU Max Operating Temp            : 92 C
+        Memory Current Temp               : N/A
+        Memory Max Operating Temp         : N/A
+    Power Readings
+        Power Management                  : Supported
+        Power Draw                        : 7.37 W
+        Power Limit                       : 75.00 W
+        Default Power Limit               : 75.00 W
+        Enforced Power Limit              : 75.00 W
+        Min Power Limit                   : 45.00 W
+        Max Power Limit                   : 75.00 W
+    Clocks
+        Graphics                          : 300 MHz
+        SM                                : 300 MHz
+        Memory                            : 405 MHz
+        Video                             : 540 MHz
+    Applications Clocks
+        Graphics                          : N/A
+        Memory                            : N/A
+    Default Applications Clocks
+        Graphics                          : N/A
+        Memory                            : N/A
+    Max Clocks
+        Graphics                          : 2145 MHz
+        SM                                : 2145 MHz
+        Memory                            : 4001 MHz
+        Video                             : 1950 MHz
+    Max Customer Boost Clocks
+        Graphics                          : N/A
+    Clock Policy
+        Auto Boost                        : N/A
+        Auto Boost Default                : N/A
+    Processes
+        GPU instance ID             : N/A
+        Compute instance ID         : N/A
+        Process ID                  : 1741
+            Type                    : G
+            Name                    : /usr/lib/xorg/Xorg
+            Used GPU Memory         : 14 MiB
+        GPU instance ID             : N/A
+        Compute instance ID         : N/A
+        Process ID                  : 2142
+            Type                    : G
+            Name                    : /usr/bin/gnome-shell
+            Used GPU Memory         : 49 MiB
+        GPU instance ID             : N/A
+        Compute instance ID         : N/A
+        Process ID                  : 3868
+            Type                    : G
+            Name                    : /usr/lib/xorg/Xorg
+            Used GPU Memory         : 100 MiB
+        GPU instance ID             : N/A
+        Compute instance ID         : N/A
+        Process ID                  : 4001
+            Type                    : G
+            Name                    : /usr/bin/gnome-shell
+            Used GPU Memory         : 69 MiB
 
+(opencv_cuda) dhankar@dhankar-1:~$ 
 ```
-#
-#
-```
-(base) dhankar@dhankar-1:~/.local/bin$ 
-(base) dhankar@dhankar-1:~/.local/bin$ source ~/.bashrc
-virtualenvwrapper.user_scripts creating /home/dhankar/.virtualenvs/premkproject
-virtualenvwrapper.user_scripts creating /home/dhankar/.virtualenvs/postmkproject
-virtualenvwrapper.user_scripts creating /home/dhankar/.virtualenvs/initialize
-virtualenvwrapper.user_scripts creating /home/dhankar/.virtualenvs/premkvirtualenv
-virtualenvwrapper.user_scripts creating /home/dhankar/.virtualenvs/postmkvirtualenv
-virtualenvwrapper.user_scripts creating /home/dhankar/.virtualenvs/prermvirtualenv
-virtualenvwrapper.user_scripts creating /home/dhankar/.virtualenvs/postrmvirtualenv
-virtualenvwrapper.user_scripts creating /home/dhankar/.virtualenvs/predeactivate
-virtualenvwrapper.user_scripts creating /home/dhankar/.virtualenvs/postdeactivate
-virtualenvwrapper.user_scripts creating /home/dhankar/.virtualenvs/preactivate
-virtualenvwrapper.user_scripts creating /home/dhankar/.virtualenvs/postactivate
-virtualenvwrapper.user_scripts creating /home/dhankar/.virtualenvs/get_env_details
-(base) dhankar@dhankar-1:~/.local/bin$ 
-(base) dhankar@dhankar-1:~/.local/bin$ 
-```
-#
-#
-```
-(base) dhankar@dhankar-1:~/.local/bin$ mkvirtualenv opencv_cuda -p python3
-created virtual environment CPython3.7.4.final.0-64 in 235ms
-  creator CPython3Posix(dest=/home/dhankar/.virtualenvs/opencv_cuda, clear=False, global=False)
-  seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=/home/dhankar/.local/share/virtualenv)
-    added seed packages: pip==20.1.1, setuptools==49.2.0, wheel==0.34.2
-  activators BashActivator,CShellActivator,FishActivator,PowerShellActivator,PythonActivator,XonshActivator
-virtualenvwrapper.user_scripts creating /home/dhankar/.virtualenvs/opencv_cuda/bin/predeactivate
-virtualenvwrapper.user_scripts creating /home/dhankar/.virtualenvs/opencv_cuda/bin/postdeactivate
-virtualenvwrapper.user_scripts creating /home/dhankar/.virtualenvs/opencv_cuda/bin/preactivate
-virtualenvwrapper.user_scripts creating /home/dhankar/.virtualenvs/opencv_cuda/bin/postactivate
-virtualenvwrapper.user_scripts creating /home/dhankar/.virtualenvs/opencv_cuda/bin/get_env_details
-(opencv_cuda) (base) dhankar@dhankar-1:~/.local/bin$ 
-```
-#
-#
-```
-(opencv_cuda) dhankar@dhankar-1:~/.local/bin$ cd ~/opencv_cuda
-(opencv_cuda) dhankar@dhankar-1:~/opencv_cuda$ ls -ltr
-total 8
-drwxr-xr-x 12 dhankar dhankar 4096 Jul 23 12:14 opencv
-drwxr-xr-x  6 dhankar dhankar 4096 Jul 23 12:14 opencv_contrib
-(opencv_cuda) dhankar@dhankar-1:~/opencv_cuda$ 
-(opencv_cuda) dhankar@dhankar-1:~/opencv_cuda$ pip install numpy
-Collecting numpy
-  Downloading numpy-1.19.1-cp37-cp37m-manylinux2010_x86_64.whl (14.5 MB)
-     |████████████████████████████████| 14.5 MB 4.2 MB/s 
-Installing collected packages: numpy
-Successfully installed numpy-1.19.1
-(opencv_cuda) dhankar@dhankar-1:~/opencv_cuda$ 
-(opencv_cuda) dhankar@dhankar-1:~/opencv_cuda$ nvidia-smi
-Thu Jul 23 21:35:29 2020       
-+-----------------------------------------------------------------------------+
-| NVIDIA-SMI 435.21       Driver Version: 435.21       CUDA Version: 10.1     |
-|-------------------------------+----------------------+----------------------+
-| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
-| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
-|===============================+======================+======================|
-|   0  GeForce GTX 1650    Off  | 00000000:01:00.0  On |                  N/A |
-|  0%   47C    P8     4W /  75W |    539MiB /  3910MiB |      1%      Default |
-+-------------------------------+----------------------+----------------------+
-                                                                               
-+-----------------------------------------------------------------------------+
-| Processes:                                                       GPU Memory |
-|  GPU       PID   Type   Process name                             Usage      |
-|=============================================================================|
-|    0      2111      G   /usr/lib/xorg/Xorg                            14MiB |
-|    0      2348      G   /usr/bin/gnome-shell                          49MiB |
-|    0      3921      G   /usr/lib/xorg/Xorg                           197MiB |
-|    0      4084      G   /usr/bin/gnome-shell                         127MiB |
-|    0      8285      G   ...color-correct-rendering --no-sandbox --    35MiB |
-|    0      9295      G   /usr/lib/firefox/firefox                       2MiB |
-|    0      9403      G   /usr/lib/firefox/firefox                       2MiB |
-|    0     10544      G   ...AAAAAAAAAAAACAAAAAAAAAA= --shared-files   103MiB |
-|    0     17554      G   /usr/lib/firefox/firefox                       2MiB |
-|    0     17815      G   /usr/lib/firefox/firefox                       2MiB |
-+-----------------------------------------------------------------------------+
-
-(opencv_cuda) dhankar@dhankar-1:~/opencv_cuda$ cd opencv
-(opencv_cuda) dhankar@dhankar-1:~/opencv_cuda/opencv$ mkdir build
-(opencv_cuda) dhankar@dhankar-1:~/opencv_cuda/opencv$ cd build
-(opencv_cuda) dhankar@dhankar-1:~/opencv_cuda/opencv/build$ 
-
-cmake -D CMAKE_BUILD_TYPE=RELEASE \
-	-D CMAKE_INSTALL_PREFIX=/usr/local \
-        -D CUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda-11.0 \
-        -D WITH_QT=4 \
-	-D INSTALL_PYTHON_EXAMPLES=ON \
-	-D INSTALL_C_EXAMPLES=OFF \
-	-D OPENCV_ENABLE_NONFREE=ON \
-	-D WITH_CUDA=ON \
-	-D WITH_CUDNN=ON \
-	-D OPENCV_DNN_CUDA=ON \
-	-D ENABLE_FAST_MATH=1 \
-	-D CUDA_FAST_MATH=1 \
-	-D CUDA_ARCH_BIN=7.5 \
-	-D WITH_CUBLAS=1 \
-	-D OPENCV_EXTRA_MODULES_PATH=~/opencv_cuda/opencv_contrib/modules \
-	-D HAVE_opencv_python3=ON \
-	-D PYTHON_EXECUTABLE=~/.virtualenvs/opencv_cuda/bin/python \
-        -D WITH_TBB=ON \
-        -D WITH_V4L=ON \
-        -D WITH_OPENGL=ON \
-	-D BUILD_EXAMPLES=ON ..
-
-```
-
-#
 #
 
-```
-(opencv_cuda) dhankar@dhankar-1:~/.virtualenvs/opencv_cuda/bin$ cd ~/opencv_cuda/opencv/build
+dhankar@dhankar-1:~/opencv_cuda/opencv/build$ workon opencv_cuda
 (opencv_cuda) dhankar@dhankar-1:~/opencv_cuda/opencv/build$ 
 (opencv_cuda) dhankar@dhankar-1:~/opencv_cuda/opencv/build$ cmake -D CMAKE_BUILD_TYPE=RELEASE \
 > -D CMAKE_INSTALL_PREFIX=/usr/local \
@@ -805,8 +1007,8 @@ but not all the files it references.
 --     Version control (extra):     unknown
 -- 
 --   Platform:
---     Timestamp:                   2020-07-23T16:27:56Z
---     Host:                        Linux 5.3.0-62-generic x86_64
+--     Timestamp:                   2020-07-25T12:43:57Z
+--     Host:                        Linux 5.4.0-42-generic x86_64
 --     CMake:                       3.10.2
 --     CMake generator:             Unix Makefiles
 --     CMake build tool:            /usr/bin/make
@@ -920,25 +1122,4 @@ but not all the files it references.
 -- Build files have been written to: /home/dhankar/opencv_cuda/opencv/build
 (opencv_cuda) dhankar@dhankar-1:~/opencv_cuda/opencv/build$ 
 (opencv_cuda) dhankar@dhankar-1:~/opencv_cuda/opencv/build$ 
-
-
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-#
-export CMAKE_ARGS="-DOPENCV_ENABLE_NONFREE=ON -DWITH_TBB=ON -DWITH_CUDA=ON -DWITH_CUDNN=ON -DOPENCV_DNN_CUDA=ON -DCUDA_ARCH_BIN=7.5 -DBUILD_opencv_cudacodec=OFF -DENABLE_FAST_MATH=1 -DCUDA_FAST_MATH=1 -DWITH_CUBLAS=1 -DWITH_V4L=ON -DWITH_QT=OFF -DWITH_OPENGL=ON -DWITH_GSTREAMER=ON -DOPENCV_GENERATE_PKGCONFIG=ON -DOPENCV_ENABLE_NONFREE=ON -DOPENCV_EXTRA_MODULES_PATH=/tmp/opencv-python/opencv_contrib/modules"
-python3 setup.py bdist_wheel
-#
-
 
