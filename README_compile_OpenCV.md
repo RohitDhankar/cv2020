@@ -236,13 +236,10 @@ Thu Jul 23 21:35:29 2020
 cmake -D CMAKE_BUILD_TYPE=RELEASE \
 	-D CMAKE_INSTALL_PREFIX=/usr/local \
         -D CUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda \
-        -D CUDNN_LIBRARY=/usr/lib64/libcudnn_static_v7.a \
-        -D CUDNN_VERSION=7.6.5 \
-        
         -D CUDNN_INCLUDE_DIR=/usr/local/cuda/include \
-        -D CUDNN_LIBRARY=/usr/local/cuda/lib64/libcudnn.so.7.6.5 \
-        
--D WITH_QT=4 \
+        -D CUDNN_LIBRARY=/usr/lib/x86_64-linux-gnu/libcudnn.so.8.0.1 \
+        -D CUDNN_VERSION=8.0.1 \
+        -D WITH_QT=5 \
 	-D INSTALL_PYTHON_EXAMPLES=ON \
 	-D INSTALL_C_EXAMPLES=OFF \
 	-D OPENCV_ENABLE_NONFREE=ON \

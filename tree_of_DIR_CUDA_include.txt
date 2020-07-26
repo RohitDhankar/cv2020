@@ -1,0 +1,1413 @@
+.
+├── builtin_types.h
+├── channel_descriptor.h
+├── CL
+│   ├── cl_egl.h
+│   ├── cl_ext.h
+│   ├── cl_gl_ext.h
+│   ├── cl_gl.h
+│   ├── cl.h
+│   ├── cl.hpp
+│   ├── cl_platform.h
+│   └── opencl.h
+├── common_functions.h
+├── cooperative_groups
+│   ├── details
+│   │   ├── async.h
+│   │   ├── coalesced_reduce.h
+│   │   ├── driver_abi.h
+│   │   ├── functional.h
+│   │   ├── helpers.h
+│   │   ├── info.h
+│   │   ├── partitioning.h
+│   │   ├── reduce.h
+│   │   └── sync.h
+│   ├── memcpy_async.h
+│   └── reduce.h
+├── cooperative_groups.h
+├── crt
+│   ├── common_functions.h
+│   ├── device_double_functions.h
+│   ├── device_double_functions.hpp
+│   ├── device_functions.h
+│   ├── device_functions.hpp
+│   ├── func_macro.h
+│   ├── host_config.h
+│   ├── host_defines.h
+│   ├── host_runtime.h
+│   ├── math_functions.h
+│   ├── math_functions.hpp
+│   ├── mma.h
+│   ├── mma.hpp
+│   ├── nvfunctional
+│   ├── sm_70_rt.h
+│   ├── sm_70_rt.hpp
+│   ├── sm_80_rt.h
+│   ├── sm_80_rt.hpp
+│   └── storage_class.h
+├── cub
+│   ├── agent
+│   │   ├── agent_histogram.cuh
+│   │   ├── agent_radix_sort_downsweep.cuh
+│   │   ├── agent_radix_sort_upsweep.cuh
+│   │   ├── agent_reduce_by_key.cuh
+│   │   ├── agent_reduce.cuh
+│   │   ├── agent_rle.cuh
+│   │   ├── agent_scan.cuh
+│   │   ├── agent_segment_fixup.cuh
+│   │   ├── agent_select_if.cuh
+│   │   ├── agent_spmv_orig.cuh
+│   │   └── single_pass_scan_operators.cuh
+│   ├── block
+│   │   ├── block_adjacent_difference.cuh
+│   │   ├── block_discontinuity.cuh
+│   │   ├── block_exchange.cuh
+│   │   ├── block_histogram.cuh
+│   │   ├── block_load.cuh
+│   │   ├── block_radix_rank.cuh
+│   │   ├── block_radix_sort.cuh
+│   │   ├── block_raking_layout.cuh
+│   │   ├── block_reduce.cuh
+│   │   ├── block_scan.cuh
+│   │   ├── block_shuffle.cuh
+│   │   ├── block_store.cuh
+│   │   └── specializations
+│   │       ├── block_histogram_atomic.cuh
+│   │       ├── block_histogram_sort.cuh
+│   │       ├── block_reduce_raking_commutative_only.cuh
+│   │       ├── block_reduce_raking.cuh
+│   │       ├── block_reduce_warp_reductions.cuh
+│   │       ├── block_scan_raking.cuh
+│   │       ├── block_scan_warp_scans2.cuh
+│   │       ├── block_scan_warp_scans3.cuh
+│   │       └── block_scan_warp_scans.cuh
+│   ├── config.cuh
+│   ├── cub.cuh
+│   ├── device
+│   │   ├── device_histogram.cuh
+│   │   ├── device_partition.cuh
+│   │   ├── device_radix_sort.cuh
+│   │   ├── device_reduce.cuh
+│   │   ├── device_run_length_encode.cuh
+│   │   ├── device_scan.cuh
+│   │   ├── device_segmented_radix_sort.cuh
+│   │   ├── device_segmented_reduce.cuh
+│   │   ├── device_select.cuh
+│   │   ├── device_spmv.cuh
+│   │   └── dispatch
+│   │       ├── dispatch_histogram.cuh
+│   │       ├── dispatch_radix_sort.cuh
+│   │       ├── dispatch_reduce_by_key.cuh
+│   │       ├── dispatch_reduce.cuh
+│   │       ├── dispatch_rle.cuh
+│   │       ├── dispatch_scan.cuh
+│   │       ├── dispatch_select_if.cuh
+│   │       └── dispatch_spmv_orig.cuh
+│   ├── grid
+│   │   ├── grid_barrier.cuh
+│   │   ├── grid_even_share.cuh
+│   │   ├── grid_mapping.cuh
+│   │   └── grid_queue.cuh
+│   ├── host
+│   │   └── mutex.cuh
+│   ├── iterator
+│   │   ├── arg_index_input_iterator.cuh
+│   │   ├── cache_modified_input_iterator.cuh
+│   │   ├── cache_modified_output_iterator.cuh
+│   │   ├── constant_input_iterator.cuh
+│   │   ├── counting_input_iterator.cuh
+│   │   ├── discard_output_iterator.cuh
+│   │   ├── tex_obj_input_iterator.cuh
+│   │   ├── tex_ref_input_iterator.cuh
+│   │   └── transform_input_iterator.cuh
+│   ├── thread
+│   │   ├── thread_load.cuh
+│   │   ├── thread_operators.cuh
+│   │   ├── thread_reduce.cuh
+│   │   ├── thread_scan.cuh
+│   │   ├── thread_search.cuh
+│   │   └── thread_store.cuh
+│   ├── util_allocator.cuh
+│   ├── util_arch.cuh
+│   ├── util_compiler.cuh
+│   ├── util_cpp_dialect.cuh
+│   ├── util_debug.cuh
+│   ├── util_deprecated.cuh
+│   ├── util_device.cuh
+│   ├── util_macro.cuh
+│   ├── util_namespace.cuh
+│   ├── util_ptx.cuh
+│   ├── util_type.cuh
+│   ├── version.cuh
+│   └── warp
+│       ├── specializations
+│       │   ├── warp_reduce_shfl.cuh
+│       │   ├── warp_reduce_smem.cuh
+│       │   ├── warp_scan_shfl.cuh
+│       │   └── warp_scan_smem.cuh
+│       ├── warp_reduce.cuh
+│       └── warp_scan.cuh
+├── cublas_api.h
+├── cublas.h
+├── cublasLt.h
+├── cublas_v2.h
+├── cublasXt.h
+├── cuComplex.h
+├── cuda
+│   ├── atomic
+│   ├── barrier
+│   └── std
+│       ├── atomic
+│       ├── barrier
+│       ├── cassert
+│       ├── cfloat
+│       ├── chrono
+│       ├── climits
+│       ├── cstddef
+│       ├── cstdint
+│       ├── ctime
+│       ├── detail
+│       │   ├── __atomic
+│       │   ├── __atomic_derived
+│       │   ├── __atomic_generated
+│       │   ├── __config
+│       │   ├── __functional_base
+│       │   ├── libcxx
+│       │   │   └── include
+│       │   │       ├── algorithm
+│       │   │       ├── any
+│       │   │       ├── array
+│       │   │       ├── atomic
+│       │   │       ├── barrier
+│       │   │       ├── bit
+│       │   │       ├── __bit_reference
+│       │   │       ├── bitset
+│       │   │       ├── __bsd_locale_defaults.h
+│       │   │       ├── __bsd_locale_fallbacks.h
+│       │   │       ├── cassert
+│       │   │       ├── ccomplex
+│       │   │       ├── cctype
+│       │   │       ├── cerrno
+│       │   │       ├── cfenv
+│       │   │       ├── cfloat
+│       │   │       ├── charconv
+│       │   │       ├── chrono
+│       │   │       ├── cinttypes
+│       │   │       ├── ciso646
+│       │   │       ├── climits
+│       │   │       ├── clocale
+│       │   │       ├── CMakeLists.txt
+│       │   │       ├── cmath
+│       │   │       ├── codecvt
+│       │   │       ├── compare
+│       │   │       ├── complex
+│       │   │       ├── complex.h
+│       │   │       ├── condition_variable
+│       │   │       ├── __config
+│       │   │       ├── __config_site.in
+│       │   │       ├── csetjmp
+│       │   │       ├── csignal
+│       │   │       ├── cstdarg
+│       │   │       ├── cstdbool
+│       │   │       ├── cstddef
+│       │   │       ├── cstdint
+│       │   │       ├── cstdio
+│       │   │       ├── cstdlib
+│       │   │       ├── cstring
+│       │   │       ├── ctgmath
+│       │   │       ├── ctime
+│       │   │       ├── ctype.h
+│       │   │       ├── cwchar
+│       │   │       ├── cwctype
+│       │   │       ├── __debug
+│       │   │       ├── deque
+│       │   │       ├── __errc
+│       │   │       ├── errno.h
+│       │   │       ├── exception
+│       │   │       ├── execution
+│       │   │       ├── experimental
+│       │   │       │   ├── algorithm
+│       │   │       │   ├── __config
+│       │   │       │   ├── coroutine
+│       │   │       │   ├── deque
+│       │   │       │   ├── filesystem
+│       │   │       │   ├── forward_list
+│       │   │       │   ├── functional
+│       │   │       │   ├── iterator
+│       │   │       │   ├── list
+│       │   │       │   ├── map
+│       │   │       │   ├── __memory
+│       │   │       │   ├── memory_resource
+│       │   │       │   ├── propagate_const
+│       │   │       │   ├── regex
+│       │   │       │   ├── set
+│       │   │       │   ├── simd
+│       │   │       │   ├── string
+│       │   │       │   ├── type_traits
+│       │   │       │   ├── unordered_map
+│       │   │       │   ├── unordered_set
+│       │   │       │   ├── utility
+│       │   │       │   └── vector
+│       │   │       ├── ext
+│       │   │       │   ├── __hash
+│       │   │       │   ├── hash_map
+│       │   │       │   └── hash_set
+│       │   │       ├── fenv.h
+│       │   │       ├── filesystem
+│       │   │       ├── float.h
+│       │   │       ├── forward_list
+│       │   │       ├── fstream
+│       │   │       ├── functional
+│       │   │       ├── __functional_03
+│       │   │       ├── __functional_base
+│       │   │       ├── __functional_base_03
+│       │   │       ├── future
+│       │   │       ├── __hash_table
+│       │   │       ├── initializer_list
+│       │   │       ├── inttypes.h
+│       │   │       ├── iomanip
+│       │   │       ├── ios
+│       │   │       ├── iosfwd
+│       │   │       ├── iostream
+│       │   │       ├── istream
+│       │   │       ├── iterator
+│       │   │       ├── latch
+│       │   │       ├── __libcpp_version
+│       │   │       ├── limits
+│       │   │       ├── limits.h
+│       │   │       ├── list
+│       │   │       ├── locale
+│       │   │       ├── __locale
+│       │   │       ├── locale.h
+│       │   │       ├── map
+│       │   │       ├── math.h
+│       │   │       ├── memory
+│       │   │       ├── module.modulemap
+│       │   │       ├── mutex
+│       │   │       ├── __mutex_base
+│       │   │       ├── new
+│       │   │       ├── __node_handle
+│       │   │       ├── __nullptr
+│       │   │       ├── numeric
+│       │   │       ├── optional
+│       │   │       ├── ostream
+│       │   │       ├── __pragma_pop
+│       │   │       ├── __pragma_push
+│       │   │       ├── queue
+│       │   │       ├── random
+│       │   │       ├── ratio
+│       │   │       ├── regex
+│       │   │       ├── scoped_allocator
+│       │   │       ├── semaphore
+│       │   │       ├── set
+│       │   │       ├── setjmp.h
+│       │   │       ├── shared_mutex
+│       │   │       ├── span
+│       │   │       ├── __split_buffer
+│       │   │       ├── __sso_allocator
+│       │   │       ├── sstream
+│       │   │       ├── stack
+│       │   │       ├── stdbool.h
+│       │   │       ├── stddef.h
+│       │   │       ├── stdexcept
+│       │   │       ├── stdint.h
+│       │   │       ├── stdio.h
+│       │   │       ├── stdlib.h
+│       │   │       ├── __std_stream
+│       │   │       ├── streambuf
+│       │   │       ├── string
+│       │   │       ├── __string
+│       │   │       ├── string.h
+│       │   │       ├── string_view
+│       │   │       ├── strstream
+│       │   │       ├── support
+│       │   │       │   ├── android
+│       │   │       │   │   └── locale_bionic.h
+│       │   │       │   ├── fuchsia
+│       │   │       │   │   └── xlocale.h
+│       │   │       │   ├── ibm
+│       │   │       │   │   ├── limits.h
+│       │   │       │   │   ├── locale_mgmt_aix.h
+│       │   │       │   │   ├── support.h
+│       │   │       │   │   └── xlocale.h
+│       │   │       │   ├── musl
+│       │   │       │   │   └── xlocale.h
+│       │   │       │   ├── newlib
+│       │   │       │   │   └── xlocale.h
+│       │   │       │   ├── solaris
+│       │   │       │   │   ├── floatingpoint.h
+│       │   │       │   │   ├── wchar.h
+│       │   │       │   │   └── xlocale.h
+│       │   │       │   ├── win32
+│       │   │       │   │   ├── limits_msvc_win32.h
+│       │   │       │   │   └── locale_win32.h
+│       │   │       │   └── xlocale
+│       │   │       │       ├── __nop_locale_mgmt.h
+│       │   │       │       ├── __posix_l_fallback.h
+│       │   │       │       └── __strtonum_fallback.h
+│       │   │       ├── system_error
+│       │   │       ├── tgmath.h
+│       │   │       ├── thread
+│       │   │       ├── __threading_support
+│       │   │       ├── __tree
+│       │   │       ├── tuple
+│       │   │       ├── __tuple
+│       │   │       ├── typeindex
+│       │   │       ├── typeinfo
+│       │   │       ├── type_traits
+│       │   │       ├── __undef_macros
+│       │   │       ├── unordered_map
+│       │   │       ├── unordered_set
+│       │   │       ├── utility
+│       │   │       ├── valarray
+│       │   │       ├── variant
+│       │   │       ├── vector
+│       │   │       ├── version
+│       │   │       ├── wchar.h
+│       │   │       └── wctype.h
+│       │   ├── __pragma_pop
+│       │   ├── __pragma_push
+│       │   └── __threading_support
+│       ├── functional
+│       ├── latch
+│       ├── limits
+│       ├── ratio
+│       ├── semaphore
+│       ├── type_traits
+│       ├── utility
+│       └── version
+├── cuda_awbarrier.h
+├── cuda_awbarrier_helpers.h
+├── cuda_awbarrier_primitives.h
+├── cuda_bf16.h
+├── cuda_bf16.hpp
+├── cuda_device_runtime_api.h
+├── cudaEGL.h
+├── cuda_egl_interop.h
+├── cuda_fp16.h
+├── cuda_fp16.hpp
+├── cudaGL.h
+├── cuda_gl_interop.h
+├── cuda.h
+├── cudalibxt.h
+├── cuda_occupancy.h
+├── cuda_pipeline.h
+├── cuda_pipeline_helpers.h
+├── cuda_pipeline_primitives.h
+├── cuda_profiler_api.h
+├── cudaProfiler.h
+├── cudart_platform.h
+├── cuda_runtime_api.h
+├── cuda_runtime.h
+├── cuda_stdint.h
+├── cuda_surface_types.h
+├── cuda_texture_types.h
+├── cudaVDPAU.h
+├── cuda_vdpau_interop.h
+├── cufft.h
+├── cufftw.h
+├── cufftXt.h
+├── cupti_activity.h
+├── cupti_callbacks.h
+├── cupti_driver_cbid.h
+├── cupti_events.h
+├── cupti.h
+├── cupti_metrics.h
+├── cupti_nvtx_cbid.h
+├── cupti_profiler_target.h
+├── cupti_result.h
+├── cupti_runtime_cbid.h
+├── cupti_target.h
+├── cupti_version.h
+├── curand_discrete2.h
+├── curand_discrete.h
+├── curand_globals.h
+├── curand.h
+├── curand_kernel.h
+├── curand_lognormal.h
+├── curand_mrg32k3a.h
+├── curand_mtgp32dc_p_11213.h
+├── curand_mtgp32.h
+├── curand_mtgp32_host.h
+├── curand_mtgp32_kernel.h
+├── curand_normal.h
+├── curand_normal_static.h
+├── curand_philox4x32_x.h
+├── curand_poisson.h
+├── curand_precalc.h
+├── curand_uniform.h
+├── cusolver_common.h
+├── cusolverDn.h
+├── cusolverMg.h
+├── cusolverRf.h
+├── cusolverSp.h
+├── cusolverSp_LOWLEVEL_PREVIEW.h
+├── cusparse.h
+├── cusparse_v2.h
+├── device_atomic_functions.h
+├── device_atomic_functions.hpp
+├── device_double_functions.h
+├── device_functions.h
+├── device_launch_parameters.h
+├── device_types.h
+├── driver_functions.h
+├── driver_types.h
+├── fatBinaryCtl.h
+├── fatbinary.h
+├── fatbinary_section.h
+├── generated_cuda_gl_interop_meta.h
+├── generated_cudaGL_meta.h
+├── generated_cuda_meta.h
+├── generated_cuda_runtime_api_meta.h
+├── generated_cuda_vdpau_interop_meta.h
+├── generated_cudaVDPAU_meta.h
+├── generated_nvtx_meta.h
+├── host_config.h
+├── host_defines.h
+├── library_types.h
+├── math_constants.h
+├── math_functions.h
+├── mma.h
+├── nppcore.h
+├── nppdefs.h
+├── npp.h
+├── nppi_arithmetic_and_logical_operations.h
+├── nppi_color_conversion.h
+├── nppi_data_exchange_and_initialization.h
+├── nppi_filtering_functions.h
+├── nppi_geometry_transforms.h
+├── nppi.h
+├── nppi_linear_transforms.h
+├── nppi_morphological_operations.h
+├── nppi_statistics_functions.h
+├── nppi_support_functions.h
+├── nppi_threshold_and_compare_operations.h
+├── npps_arithmetic_and_logical_operations.h
+├── npps_conversion_functions.h
+├── npps_filtering_functions.h
+├── npps.h
+├── npps_initialization.h
+├── npps_statistics_functions.h
+├── npps_support_functions.h
+├── nvblas.h
+├── nvfunctional
+├── nvjpeg.h
+├── nvml.h
+├── nvperf_cuda_host.h
+├── nvperf_host.h
+├── nvperf_target.h
+├── nvrtc.h
+├── nvToolsExtCuda.h
+├── nvToolsExtCudaRt.h
+├── nvToolsExt.h
+├── nvToolsExtMeta.h
+├── nvToolsExtSync.h
+├── nvtx3
+│   ├── nvToolsExtCuda.h
+│   ├── nvToolsExtCudaRt.h
+│   ├── nvToolsExt.h
+│   ├── nvToolsExtOpenCL.h
+│   ├── nvToolsExtSync.h
+│   └── nvtxDetail
+│       ├── nvtxImplCore.h
+│       ├── nvtxImplCudaRt_v3.h
+│       ├── nvtxImplCuda_v3.h
+│       ├── nvtxImpl.h
+│       ├── nvtxImplOpenCL_v3.h
+│       ├── nvtxImplSync_v3.h
+│       ├── nvtxInitDecls.h
+│       ├── nvtxInitDefs.h
+│       ├── nvtxInit.h
+│       ├── nvtxLinkOnce.h
+│       └── nvtxTypes.h
+├── Openacc
+│   └── cupti_openacc.h
+├── Openmp
+│   ├── cupti_openmp.h
+│   └── omp-tools.h
+├── sm_20_atomic_functions.h
+├── sm_20_atomic_functions.hpp
+├── sm_20_intrinsics.h
+├── sm_20_intrinsics.hpp
+├── sm_30_intrinsics.h
+├── sm_30_intrinsics.hpp
+├── sm_32_atomic_functions.h
+├── sm_32_atomic_functions.hpp
+├── sm_32_intrinsics.h
+├── sm_32_intrinsics.hpp
+├── sm_35_atomic_functions.h
+├── sm_35_intrinsics.h
+├── sm_60_atomic_functions.h
+├── sm_60_atomic_functions.hpp
+├── sm_61_intrinsics.h
+├── sm_61_intrinsics.hpp
+├── surface_functions.h
+├── surface_functions.hpp
+├── surface_indirect_functions.h
+├── surface_indirect_functions.hpp
+├── surface_types.h
+├── texture_fetch_functions.h
+├── texture_fetch_functions.hpp
+├── texture_indirect_functions.h
+├── texture_indirect_functions.hpp
+├── texture_types.h
+├── thrust
+│   ├── addressof.h
+│   ├── adjacent_difference.h
+│   ├── advance.h
+│   ├── allocate_unique.h
+│   ├── async
+│   │   ├── copy.h
+│   │   ├── for_each.h
+│   │   ├── reduce.h
+│   │   ├── sort.h
+│   │   └── transform.h
+│   ├── binary_search.h
+│   ├── complex.h
+│   ├── copy.h
+│   ├── count.h
+│   ├── detail
+│   │   ├── adjacent_difference.inl
+│   │   ├── advance.inl
+│   │   ├── alignment.h
+│   │   ├── allocator
+│   │   │   ├── allocator_traits.h
+│   │   │   ├── allocator_traits.inl
+│   │   │   ├── copy_construct_range.h
+│   │   │   ├── copy_construct_range.inl
+│   │   │   ├── default_construct_range.h
+│   │   │   ├── default_construct_range.inl
+│   │   │   ├── destroy_range.h
+│   │   │   ├── destroy_range.inl
+│   │   │   ├── fill_construct_range.h
+│   │   │   ├── fill_construct_range.inl
+│   │   │   ├── malloc_allocator.h
+│   │   │   ├── malloc_allocator.inl
+│   │   │   ├── no_throw_allocator.h
+│   │   │   ├── tagged_allocator.h
+│   │   │   ├── tagged_allocator.inl
+│   │   │   ├── temporary_allocator.h
+│   │   │   └── temporary_allocator.inl
+│   │   ├── allocator_aware_execution_policy.h
+│   │   ├── binary_search.inl
+│   │   ├── complex
+│   │   │   ├── arithmetic.h
+│   │   │   ├── c99math.h
+│   │   │   ├── catrigf.h
+│   │   │   ├── catrig.h
+│   │   │   ├── ccoshf.h
+│   │   │   ├── ccosh.h
+│   │   │   ├── cexpf.h
+│   │   │   ├── cexp.h
+│   │   │   ├── clogf.h
+│   │   │   ├── clog.h
+│   │   │   ├── complex.inl
+│   │   │   ├── cpow.h
+│   │   │   ├── cproj.h
+│   │   │   ├── csinhf.h
+│   │   │   ├── csinh.h
+│   │   │   ├── csqrtf.h
+│   │   │   ├── csqrt.h
+│   │   │   ├── ctanhf.h
+│   │   │   ├── ctanh.h
+│   │   │   ├── math_private.h
+│   │   │   └── stream.h
+│   │   ├── config
+│   │   │   ├── compiler_fence.h
+│   │   │   ├── compiler.h
+│   │   │   ├── config.h
+│   │   │   ├── cpp_compatibility.h
+│   │   │   ├── cpp_dialect.h
+│   │   │   ├── debug.h
+│   │   │   ├── deprecated.h
+│   │   │   ├── device_system.h
+│   │   │   ├── exec_check_disable.h
+│   │   │   ├── forceinline.h
+│   │   │   ├── global_workarounds.h
+│   │   │   ├── host_device.h
+│   │   │   ├── host_system.h
+│   │   │   └── simple_defines.h
+│   │   ├── config.h
+│   │   ├── contiguous_storage.h
+│   │   ├── contiguous_storage.inl
+│   │   ├── copy.h
+│   │   ├── copy_if.h
+│   │   ├── copy_if.inl
+│   │   ├── copy.inl
+│   │   ├── count.inl
+│   │   ├── cpp11_required.h
+│   │   ├── cstdint.h
+│   │   ├── dependencies_aware_execution_policy.h
+│   │   ├── device_delete.inl
+│   │   ├── device_free.inl
+│   │   ├── device_malloc.inl
+│   │   ├── device_new.inl
+│   │   ├── device_ptr.inl
+│   │   ├── device_reference.inl
+│   │   ├── device_vector.inl
+│   │   ├── distance.inl
+│   │   ├── equal.inl
+│   │   ├── event_error.h
+│   │   ├── execute_with_allocator_fwd.h
+│   │   ├── execute_with_allocator.h
+│   │   ├── execute_with_dependencies.h
+│   │   ├── execution_policy.h
+│   │   ├── extrema.inl
+│   │   ├── fill.inl
+│   │   ├── find.inl
+│   │   ├── for_each.inl
+│   │   ├── functional
+│   │   │   ├── actor.h
+│   │   │   ├── actor.inl
+│   │   │   ├── argument.h
+│   │   │   ├── composite.h
+│   │   │   ├── operators
+│   │   │   │   ├── arithmetic_operators.h
+│   │   │   │   ├── assignment_operator.h
+│   │   │   │   ├── bitwise_operators.h
+│   │   │   │   ├── compound_assignment_operators.h
+│   │   │   │   ├── logical_operators.h
+│   │   │   │   ├── operator_adaptors.h
+│   │   │   │   └── relational_operators.h
+│   │   │   ├── operators.h
+│   │   │   ├── placeholder.h
+│   │   │   └── value.h
+│   │   ├── functional.inl
+│   │   ├── function.h
+│   │   ├── gather.inl
+│   │   ├── generate.inl
+│   │   ├── get_iterator_value.h
+│   │   ├── host_vector.inl
+│   │   ├── inner_product.inl
+│   │   ├── integer_math.h
+│   │   ├── integer_traits.h
+│   │   ├── internal_functional.h
+│   │   ├── logical.inl
+│   │   ├── malloc_and_free.h
+│   │   ├── memory_algorithms.h
+│   │   ├── merge.inl
+│   │   ├── minmax.h
+│   │   ├── mismatch.inl
+│   │   ├── modern_gcc_required.h
+│   │   ├── mpl
+│   │   │   └── math.h
+│   │   ├── numeric_traits.h
+│   │   ├── overlapped_copy.h
+│   │   ├── pair.inl
+│   │   ├── partition.inl
+│   │   ├── pointer.h
+│   │   ├── pointer.inl
+│   │   ├── preprocessor.h
+│   │   ├── range
+│   │   │   ├── head_flags.h
+│   │   │   └── tail_flags.h
+│   │   ├── raw_pointer_cast.h
+│   │   ├── raw_reference_cast.h
+│   │   ├── reduce.inl
+│   │   ├── reference_forward_declaration.h
+│   │   ├── reference.h
+│   │   ├── reference.inl
+│   │   ├── remove.inl
+│   │   ├── replace.inl
+│   │   ├── reverse.inl
+│   │   ├── scan.inl
+│   │   ├── scatter.inl
+│   │   ├── select_system.h
+│   │   ├── seq.h
+│   │   ├── sequence.inl
+│   │   ├── set_operations.inl
+│   │   ├── shuffle.inl
+│   │   ├── sort.inl
+│   │   ├── static_assert.h
+│   │   ├── static_map.h
+│   │   ├── swap.h
+│   │   ├── swap.inl
+│   │   ├── swap_ranges.inl
+│   │   ├── tabulate.inl
+│   │   ├── temporary_array.h
+│   │   ├── temporary_array.inl
+│   │   ├── temporary_buffer.h
+│   │   ├── transform.inl
+│   │   ├── transform_reduce.inl
+│   │   ├── transform_scan.inl
+│   │   ├── trivial_sequence.h
+│   │   ├── tuple_algorithms.h
+│   │   ├── tuple.inl
+│   │   ├── tuple_meta_transform.h
+│   │   ├── tuple_transform.h
+│   │   ├── type_deduction.h
+│   │   ├── type_traits
+│   │   │   ├── algorithm
+│   │   │   │   └── intermediate_type_from_function_and_iterators.h
+│   │   │   ├── function_traits.h
+│   │   │   ├── has_member_function.h
+│   │   │   ├── has_nested_type.h
+│   │   │   ├── has_trivial_assign.h
+│   │   │   ├── is_call_possible.h
+│   │   │   ├── is_metafunction_defined.h
+│   │   │   ├── iterator
+│   │   │   │   ├── is_discard_iterator.h
+│   │   │   │   └── is_output_iterator.h
+│   │   │   ├── minimum_type.h
+│   │   │   ├── pointer_traits.h
+│   │   │   └── result_of_adaptable_function.h
+│   │   ├── type_traits.h
+│   │   ├── uninitialized_copy.inl
+│   │   ├── uninitialized_fill.inl
+│   │   ├── unique.inl
+│   │   ├── use_default.h
+│   │   ├── util
+│   │   │   └── align.h
+│   │   ├── vector_base.h
+│   │   └── vector_base.inl
+│   ├── device_allocator.h
+│   ├── device_delete.h
+│   ├── device_free.h
+│   ├── device_make_unique.h
+│   ├── device_malloc_allocator.h
+│   ├── device_malloc.h
+│   ├── device_new_allocator.h
+│   ├── device_new.h
+│   ├── device_ptr.h
+│   ├── device_reference.h
+│   ├── device_vector.h
+│   ├── distance.h
+│   ├── equal.h
+│   ├── event.h
+│   ├── execution_policy.h
+│   ├── extrema.h
+│   ├── fill.h
+│   ├── find.h
+│   ├── for_each.h
+│   ├── functional.h
+│   ├── future.h
+│   ├── gather.h
+│   ├── generate.h
+│   ├── host_vector.h
+│   ├── inner_product.h
+│   ├── iterator
+│   │   ├── constant_iterator.h
+│   │   ├── counting_iterator.h
+│   │   ├── detail
+│   │   │   ├── any_assign.h
+│   │   │   ├── any_system_tag.h
+│   │   │   ├── constant_iterator_base.h
+│   │   │   ├── counting_iterator.inl
+│   │   │   ├── device_system_tag.h
+│   │   │   ├── discard_iterator_base.h
+│   │   │   ├── distance_from_result.h
+│   │   │   ├── host_system_tag.h
+│   │   │   ├── is_iterator_category.h
+│   │   │   ├── iterator_adaptor_base.h
+│   │   │   ├── iterator_category_to_system.h
+│   │   │   ├── iterator_category_to_traversal.h
+│   │   │   ├── iterator_category_with_system_and_traversal.h
+│   │   │   ├── iterator_facade_category.h
+│   │   │   ├── iterator_traits.inl
+│   │   │   ├── iterator_traversal_tags.h
+│   │   │   ├── join_iterator.h
+│   │   │   ├── minimum_category.h
+│   │   │   ├── minimum_system.h
+│   │   │   ├── normal_iterator.h
+│   │   │   ├── permutation_iterator_base.h
+│   │   │   ├── retag.h
+│   │   │   ├── reverse_iterator_base.h
+│   │   │   ├── reverse_iterator.inl
+│   │   │   ├── tagged_iterator.h
+│   │   │   ├── transform_iterator.inl
+│   │   │   ├── transform_output_iterator.inl
+│   │   │   ├── tuple_of_iterator_references.h
+│   │   │   ├── universal_categories.h
+│   │   │   ├── zip_iterator_base.h
+│   │   │   └── zip_iterator.inl
+│   │   ├── discard_iterator.h
+│   │   ├── iterator_adaptor.h
+│   │   ├── iterator_categories.h
+│   │   ├── iterator_facade.h
+│   │   ├── iterator_traits.h
+│   │   ├── permutation_iterator.h
+│   │   ├── retag.h
+│   │   ├── reverse_iterator.h
+│   │   ├── transform_iterator.h
+│   │   ├── transform_output_iterator.h
+│   │   └── zip_iterator.h
+│   ├── limits.h
+│   ├── logical.h
+│   ├── memory
+│   │   └── detail
+│   │       ├── device_system_resource.h
+│   │       └── host_system_resource.h
+│   ├── memory.h
+│   ├── merge.h
+│   ├── mismatch.h
+│   ├── mr
+│   │   ├── allocator.h
+│   │   ├── detail
+│   │   │   └── config.h
+│   │   ├── disjoint_pool.h
+│   │   ├── disjoint_sync_pool.h
+│   │   ├── disjoint_tls_pool.h
+│   │   ├── fancy_pointer_resource.h
+│   │   ├── memory_resource.h
+│   │   ├── new.h
+│   │   ├── polymorphic_adaptor.h
+│   │   ├── pool.h
+│   │   ├── pool_options.h
+│   │   ├── sync_pool.h
+│   │   ├── tls_pool.h
+│   │   └── validator.h
+│   ├── optional.h
+│   ├── pair.h
+│   ├── partition.h
+│   ├── per_device_resource.h
+│   ├── random
+│   │   ├── detail
+│   │   │   ├── discard_block_engine.inl
+│   │   │   ├── linear_congruential_engine_discard.h
+│   │   │   ├── linear_congruential_engine.inl
+│   │   │   ├── linear_feedback_shift_engine.inl
+│   │   │   ├── linear_feedback_shift_engine_wordmask.h
+│   │   │   ├── mod.h
+│   │   │   ├── normal_distribution_base.h
+│   │   │   ├── normal_distribution.inl
+│   │   │   ├── random_core_access.h
+│   │   │   ├── subtract_with_carry_engine.inl
+│   │   │   ├── uniform_int_distribution.inl
+│   │   │   ├── uniform_real_distribution.inl
+│   │   │   ├── xor_combine_engine.inl
+│   │   │   └── xor_combine_engine_max.h
+│   │   ├── discard_block_engine.h
+│   │   ├── linear_congruential_engine.h
+│   │   ├── linear_feedback_shift_engine.h
+│   │   ├── normal_distribution.h
+│   │   ├── subtract_with_carry_engine.h
+│   │   ├── uniform_int_distribution.h
+│   │   ├── uniform_real_distribution.h
+│   │   └── xor_combine_engine.h
+│   ├── random.h
+│   ├── reduce.h
+│   ├── remove.h
+│   ├── replace.h
+│   ├── reverse.h
+│   ├── scan.h
+│   ├── scatter.h
+│   ├── sequence.h
+│   ├── set_operations.h
+│   ├── shuffle.h
+│   ├── sort.h
+│   ├── swap.h
+│   ├── system
+│   │   ├── cpp
+│   │   │   ├── detail
+│   │   │   │   ├── adjacent_difference.h
+│   │   │   │   ├── assign_value.h
+│   │   │   │   ├── binary_search.h
+│   │   │   │   ├── copy.h
+│   │   │   │   ├── copy_if.h
+│   │   │   │   ├── count.h
+│   │   │   │   ├── equal.h
+│   │   │   │   ├── execution_policy.h
+│   │   │   │   ├── extrema.h
+│   │   │   │   ├── fill.h
+│   │   │   │   ├── find.h
+│   │   │   │   ├── for_each.h
+│   │   │   │   ├── gather.h
+│   │   │   │   ├── generate.h
+│   │   │   │   ├── get_value.h
+│   │   │   │   ├── inner_product.h
+│   │   │   │   ├── iter_swap.h
+│   │   │   │   ├── logical.h
+│   │   │   │   ├── malloc_and_free.h
+│   │   │   │   ├── memory.inl
+│   │   │   │   ├── merge.h
+│   │   │   │   ├── mismatch.h
+│   │   │   │   ├── par.h
+│   │   │   │   ├── partition.h
+│   │   │   │   ├── per_device_resource.h
+│   │   │   │   ├── pointer.inl
+│   │   │   │   ├── reduce_by_key.h
+│   │   │   │   ├── reduce.h
+│   │   │   │   ├── remove.h
+│   │   │   │   ├── replace.h
+│   │   │   │   ├── reverse.h
+│   │   │   │   ├── scan_by_key.h
+│   │   │   │   ├── scan.h
+│   │   │   │   ├── scatter.h
+│   │   │   │   ├── sequence.h
+│   │   │   │   ├── set_operations.h
+│   │   │   │   ├── sort.h
+│   │   │   │   ├── swap_ranges.h
+│   │   │   │   ├── tabulate.h
+│   │   │   │   ├── temporary_buffer.h
+│   │   │   │   ├── transform.h
+│   │   │   │   ├── transform_reduce.h
+│   │   │   │   ├── transform_scan.h
+│   │   │   │   ├── uninitialized_copy.h
+│   │   │   │   ├── uninitialized_fill.h
+│   │   │   │   ├── unique_by_key.h
+│   │   │   │   ├── unique.h
+│   │   │   │   └── vector.inl
+│   │   │   ├── execution_policy.h
+│   │   │   ├── memory.h
+│   │   │   ├── memory_resource.h
+│   │   │   ├── pointer.h
+│   │   │   └── vector.h
+│   │   ├── cuda
+│   │   │   ├── config.h
+│   │   │   ├── detail
+│   │   │   │   ├── adjacent_difference.h
+│   │   │   │   ├── assign_value.h
+│   │   │   │   ├── async
+│   │   │   │   │   ├── copy.h
+│   │   │   │   │   ├── customization.h
+│   │   │   │   │   ├── for_each.h
+│   │   │   │   │   ├── reduce.h
+│   │   │   │   │   ├── sort.h
+│   │   │   │   │   └── transform.h
+│   │   │   │   ├── binary_search.h
+│   │   │   │   ├── copy.h
+│   │   │   │   ├── copy_if.h
+│   │   │   │   ├── core
+│   │   │   │   │   ├── agent_launcher.h
+│   │   │   │   │   ├── alignment.h
+│   │   │   │   │   ├── triple_chevron_launch.h
+│   │   │   │   │   └── util.h
+│   │   │   │   ├── count.h
+│   │   │   │   ├── cross_system.h
+│   │   │   │   ├── dispatch.h
+│   │   │   │   ├── equal.h
+│   │   │   │   ├── error.inl
+│   │   │   │   ├── execution_policy.h
+│   │   │   │   ├── extrema.h
+│   │   │   │   ├── fill.h
+│   │   │   │   ├── find.h
+│   │   │   │   ├── for_each.h
+│   │   │   │   ├── future.inl
+│   │   │   │   ├── gather.h
+│   │   │   │   ├── generate.h
+│   │   │   │   ├── get_value.h
+│   │   │   │   ├── guarded_cuda_runtime_api.h
+│   │   │   │   ├── guarded_driver_types.h
+│   │   │   │   ├── inner_product.h
+│   │   │   │   ├── internal
+│   │   │   │   │   ├── copy_cross_system.h
+│   │   │   │   │   └── copy_device_to_device.h
+│   │   │   │   ├── iter_swap.h
+│   │   │   │   ├── logical.h
+│   │   │   │   ├── make_unsigned_special.h
+│   │   │   │   ├── malloc_and_free.h
+│   │   │   │   ├── managed_memory_pointer.h
+│   │   │   │   ├── memory.inl
+│   │   │   │   ├── merge.h
+│   │   │   │   ├── mismatch.h
+│   │   │   │   ├── parallel_for.h
+│   │   │   │   ├── par.h
+│   │   │   │   ├── partition.h
+│   │   │   │   ├── par_to_seq.h
+│   │   │   │   ├── per_device_resource.h
+│   │   │   │   ├── pointer.inl
+│   │   │   │   ├── reduce_by_key.h
+│   │   │   │   ├── reduce.h
+│   │   │   │   ├── remove.h
+│   │   │   │   ├── replace.h
+│   │   │   │   ├── reverse.h
+│   │   │   │   ├── scan_by_key.h
+│   │   │   │   ├── scan.h
+│   │   │   │   ├── scatter.h
+│   │   │   │   ├── sequence.h
+│   │   │   │   ├── set_operations.h
+│   │   │   │   ├── sort.h
+│   │   │   │   ├── swap_ranges.h
+│   │   │   │   ├── tabulate.h
+│   │   │   │   ├── temporary_buffer.h
+│   │   │   │   ├── terminate.h
+│   │   │   │   ├── transform.h
+│   │   │   │   ├── transform_reduce.h
+│   │   │   │   ├── transform_scan.h
+│   │   │   │   ├── uninitialized_copy.h
+│   │   │   │   ├── uninitialized_fill.h
+│   │   │   │   ├── unique_by_key.h
+│   │   │   │   ├── unique.h
+│   │   │   │   ├── util.h
+│   │   │   │   └── vector.inl
+│   │   │   ├── error.h
+│   │   │   ├── execution_policy.h
+│   │   │   ├── experimental
+│   │   │   │   └── pinned_allocator.h
+│   │   │   ├── future.h
+│   │   │   ├── memory.h
+│   │   │   ├── memory_resource.h
+│   │   │   ├── pointer.h
+│   │   │   └── vector.h
+│   │   ├── detail
+│   │   │   ├── adl
+│   │   │   │   ├── adjacent_difference.h
+│   │   │   │   ├── assign_value.h
+│   │   │   │   ├── async
+│   │   │   │   │   ├── copy.h
+│   │   │   │   │   ├── for_each.h
+│   │   │   │   │   ├── reduce.h
+│   │   │   │   │   ├── sort.h
+│   │   │   │   │   └── transform.h
+│   │   │   │   ├── binary_search.h
+│   │   │   │   ├── copy.h
+│   │   │   │   ├── copy_if.h
+│   │   │   │   ├── count.h
+│   │   │   │   ├── equal.h
+│   │   │   │   ├── extrema.h
+│   │   │   │   ├── fill.h
+│   │   │   │   ├── find.h
+│   │   │   │   ├── for_each.h
+│   │   │   │   ├── gather.h
+│   │   │   │   ├── generate.h
+│   │   │   │   ├── get_value.h
+│   │   │   │   ├── inner_product.h
+│   │   │   │   ├── iter_swap.h
+│   │   │   │   ├── logical.h
+│   │   │   │   ├── malloc_and_free.h
+│   │   │   │   ├── merge.h
+│   │   │   │   ├── mismatch.h
+│   │   │   │   ├── partition.h
+│   │   │   │   ├── per_device_resource.h
+│   │   │   │   ├── reduce_by_key.h
+│   │   │   │   ├── reduce.h
+│   │   │   │   ├── remove.h
+│   │   │   │   ├── replace.h
+│   │   │   │   ├── reverse.h
+│   │   │   │   ├── scan_by_key.h
+│   │   │   │   ├── scan.h
+│   │   │   │   ├── scatter.h
+│   │   │   │   ├── sequence.h
+│   │   │   │   ├── set_operations.h
+│   │   │   │   ├── sort.h
+│   │   │   │   ├── swap_ranges.h
+│   │   │   │   ├── tabulate.h
+│   │   │   │   ├── temporary_buffer.h
+│   │   │   │   ├── transform.h
+│   │   │   │   ├── transform_reduce.h
+│   │   │   │   ├── transform_scan.h
+│   │   │   │   ├── uninitialized_copy.h
+│   │   │   │   ├── uninitialized_fill.h
+│   │   │   │   ├── unique_by_key.h
+│   │   │   │   └── unique.h
+│   │   │   ├── bad_alloc.h
+│   │   │   ├── errno.h
+│   │   │   ├── error_category.inl
+│   │   │   ├── error_code.inl
+│   │   │   ├── error_condition.inl
+│   │   │   ├── generic
+│   │   │   │   ├── adjacent_difference.h
+│   │   │   │   ├── adjacent_difference.inl
+│   │   │   │   ├── advance.h
+│   │   │   │   ├── advance.inl
+│   │   │   │   ├── binary_search.h
+│   │   │   │   ├── binary_search.inl
+│   │   │   │   ├── copy.h
+│   │   │   │   ├── copy_if.h
+│   │   │   │   ├── copy_if.inl
+│   │   │   │   ├── copy.inl
+│   │   │   │   ├── count.h
+│   │   │   │   ├── count.inl
+│   │   │   │   ├── distance.h
+│   │   │   │   ├── distance.inl
+│   │   │   │   ├── equal.h
+│   │   │   │   ├── equal.inl
+│   │   │   │   ├── extrema.h
+│   │   │   │   ├── extrema.inl
+│   │   │   │   ├── fill.h
+│   │   │   │   ├── find.h
+│   │   │   │   ├── find.inl
+│   │   │   │   ├── for_each.h
+│   │   │   │   ├── gather.h
+│   │   │   │   ├── gather.inl
+│   │   │   │   ├── generate.h
+│   │   │   │   ├── generate.inl
+│   │   │   │   ├── inner_product.h
+│   │   │   │   ├── inner_product.inl
+│   │   │   │   ├── logical.h
+│   │   │   │   ├── memory.h
+│   │   │   │   ├── memory.inl
+│   │   │   │   ├── merge.h
+│   │   │   │   ├── merge.inl
+│   │   │   │   ├── mismatch.h
+│   │   │   │   ├── mismatch.inl
+│   │   │   │   ├── partition.h
+│   │   │   │   ├── partition.inl
+│   │   │   │   ├── per_device_resource.h
+│   │   │   │   ├── reduce_by_key.h
+│   │   │   │   ├── reduce_by_key.inl
+│   │   │   │   ├── reduce.h
+│   │   │   │   ├── reduce.inl
+│   │   │   │   ├── remove.h
+│   │   │   │   ├── remove.inl
+│   │   │   │   ├── replace.h
+│   │   │   │   ├── replace.inl
+│   │   │   │   ├── reverse.h
+│   │   │   │   ├── reverse.inl
+│   │   │   │   ├── scalar
+│   │   │   │   │   ├── binary_search.h
+│   │   │   │   │   └── binary_search.inl
+│   │   │   │   ├── scan_by_key.h
+│   │   │   │   ├── scan_by_key.inl
+│   │   │   │   ├── scan.h
+│   │   │   │   ├── scan.inl
+│   │   │   │   ├── scatter.h
+│   │   │   │   ├── scatter.inl
+│   │   │   │   ├── select_system_exists.h
+│   │   │   │   ├── select_system.h
+│   │   │   │   ├── select_system.inl
+│   │   │   │   ├── sequence.h
+│   │   │   │   ├── sequence.inl
+│   │   │   │   ├── set_operations.h
+│   │   │   │   ├── set_operations.inl
+│   │   │   │   ├── shuffle.h
+│   │   │   │   ├── shuffle.inl
+│   │   │   │   ├── sort.h
+│   │   │   │   ├── sort.inl
+│   │   │   │   ├── swap_ranges.h
+│   │   │   │   ├── swap_ranges.inl
+│   │   │   │   ├── tabulate.h
+│   │   │   │   ├── tabulate.inl
+│   │   │   │   ├── tag.h
+│   │   │   │   ├── temporary_buffer.h
+│   │   │   │   ├── temporary_buffer.inl
+│   │   │   │   ├── transform.h
+│   │   │   │   ├── transform.inl
+│   │   │   │   ├── transform_reduce.h
+│   │   │   │   ├── transform_reduce.inl
+│   │   │   │   ├── transform_scan.h
+│   │   │   │   ├── transform_scan.inl
+│   │   │   │   ├── uninitialized_copy.h
+│   │   │   │   ├── uninitialized_copy.inl
+│   │   │   │   ├── uninitialized_fill.h
+│   │   │   │   ├── uninitialized_fill.inl
+│   │   │   │   ├── unique_by_key.h
+│   │   │   │   ├── unique_by_key.inl
+│   │   │   │   ├── unique.h
+│   │   │   │   └── unique.inl
+│   │   │   ├── internal
+│   │   │   │   └── decompose.h
+│   │   │   ├── sequential
+│   │   │   │   ├── adjacent_difference.h
+│   │   │   │   ├── assign_value.h
+│   │   │   │   ├── binary_search.h
+│   │   │   │   ├── copy_backward.h
+│   │   │   │   ├── copy.h
+│   │   │   │   ├── copy_if.h
+│   │   │   │   ├── copy.inl
+│   │   │   │   ├── count.h
+│   │   │   │   ├── equal.h
+│   │   │   │   ├── execution_policy.h
+│   │   │   │   ├── extrema.h
+│   │   │   │   ├── fill.h
+│   │   │   │   ├── find.h
+│   │   │   │   ├── for_each.h
+│   │   │   │   ├── gather.h
+│   │   │   │   ├── general_copy.h
+│   │   │   │   ├── generate.h
+│   │   │   │   ├── get_value.h
+│   │   │   │   ├── inner_product.h
+│   │   │   │   ├── insertion_sort.h
+│   │   │   │   ├── iter_swap.h
+│   │   │   │   ├── logical.h
+│   │   │   │   ├── malloc_and_free.h
+│   │   │   │   ├── merge.h
+│   │   │   │   ├── merge.inl
+│   │   │   │   ├── mismatch.h
+│   │   │   │   ├── partition.h
+│   │   │   │   ├── per_device_resource.h
+│   │   │   │   ├── reduce_by_key.h
+│   │   │   │   ├── reduce.h
+│   │   │   │   ├── remove.h
+│   │   │   │   ├── replace.h
+│   │   │   │   ├── reverse.h
+│   │   │   │   ├── scan_by_key.h
+│   │   │   │   ├── scan.h
+│   │   │   │   ├── scatter.h
+│   │   │   │   ├── sequence.h
+│   │   │   │   ├── set_operations.h
+│   │   │   │   ├── sort.h
+│   │   │   │   ├── sort.inl
+│   │   │   │   ├── stable_merge_sort.h
+│   │   │   │   ├── stable_merge_sort.inl
+│   │   │   │   ├── stable_primitive_sort.h
+│   │   │   │   ├── stable_primitive_sort.inl
+│   │   │   │   ├── stable_radix_sort.h
+│   │   │   │   ├── stable_radix_sort.inl
+│   │   │   │   ├── swap_ranges.h
+│   │   │   │   ├── tabulate.h
+│   │   │   │   ├── temporary_buffer.h
+│   │   │   │   ├── transform.h
+│   │   │   │   ├── transform_reduce.h
+│   │   │   │   ├── transform_scan.h
+│   │   │   │   ├── trivial_copy.h
+│   │   │   │   ├── uninitialized_copy.h
+│   │   │   │   ├── uninitialized_fill.h
+│   │   │   │   ├── unique_by_key.h
+│   │   │   │   └── unique.h
+│   │   │   └── system_error.inl
+│   │   ├── error_code.h
+│   │   ├── omp
+│   │   │   ├── detail
+│   │   │   │   ├── adjacent_difference.h
+│   │   │   │   ├── assign_value.h
+│   │   │   │   ├── binary_search.h
+│   │   │   │   ├── copy.h
+│   │   │   │   ├── copy_if.h
+│   │   │   │   ├── copy_if.inl
+│   │   │   │   ├── copy.inl
+│   │   │   │   ├── count.h
+│   │   │   │   ├── default_decomposition.h
+│   │   │   │   ├── default_decomposition.inl
+│   │   │   │   ├── equal.h
+│   │   │   │   ├── execution_policy.h
+│   │   │   │   ├── extrema.h
+│   │   │   │   ├── fill.h
+│   │   │   │   ├── find.h
+│   │   │   │   ├── for_each.h
+│   │   │   │   ├── for_each.inl
+│   │   │   │   ├── gather.h
+│   │   │   │   ├── generate.h
+│   │   │   │   ├── get_value.h
+│   │   │   │   ├── inner_product.h
+│   │   │   │   ├── iter_swap.h
+│   │   │   │   ├── logical.h
+│   │   │   │   ├── malloc_and_free.h
+│   │   │   │   ├── memory.inl
+│   │   │   │   ├── merge.h
+│   │   │   │   ├── mismatch.h
+│   │   │   │   ├── par.h
+│   │   │   │   ├── partition.h
+│   │   │   │   ├── partition.inl
+│   │   │   │   ├── per_device_resource.h
+│   │   │   │   ├── pointer.inl
+│   │   │   │   ├── reduce_by_key.h
+│   │   │   │   ├── reduce_by_key.inl
+│   │   │   │   ├── reduce.h
+│   │   │   │   ├── reduce.inl
+│   │   │   │   ├── reduce_intervals.h
+│   │   │   │   ├── reduce_intervals.inl
+│   │   │   │   ├── remove.h
+│   │   │   │   ├── remove.inl
+│   │   │   │   ├── replace.h
+│   │   │   │   ├── reverse.h
+│   │   │   │   ├── scan_by_key.h
+│   │   │   │   ├── scan.h
+│   │   │   │   ├── scatter.h
+│   │   │   │   ├── sequence.h
+│   │   │   │   ├── set_operations.h
+│   │   │   │   ├── sort.h
+│   │   │   │   ├── sort.inl
+│   │   │   │   ├── swap_ranges.h
+│   │   │   │   ├── tabulate.h
+│   │   │   │   ├── temporary_buffer.h
+│   │   │   │   ├── transform.h
+│   │   │   │   ├── transform_reduce.h
+│   │   │   │   ├── transform_scan.h
+│   │   │   │   ├── uninitialized_copy.h
+│   │   │   │   ├── uninitialized_fill.h
+│   │   │   │   ├── unique_by_key.h
+│   │   │   │   ├── unique_by_key.inl
+│   │   │   │   ├── unique.h
+│   │   │   │   ├── unique.inl
+│   │   │   │   └── vector.inl
+│   │   │   ├── execution_policy.h
+│   │   │   ├── memory.h
+│   │   │   ├── memory_resource.h
+│   │   │   ├── pointer.h
+│   │   │   └── vector.h
+│   │   ├── system_error.h
+│   │   └── tbb
+│   │       ├── detail
+│   │       │   ├── adjacent_difference.h
+│   │       │   ├── assign_value.h
+│   │       │   ├── binary_search.h
+│   │       │   ├── copy.h
+│   │       │   ├── copy_if.h
+│   │       │   ├── copy_if.inl
+│   │       │   ├── copy.inl
+│   │       │   ├── count.h
+│   │       │   ├── equal.h
+│   │       │   ├── execution_policy.h
+│   │       │   ├── extrema.h
+│   │       │   ├── fill.h
+│   │       │   ├── find.h
+│   │       │   ├── for_each.h
+│   │       │   ├── for_each.inl
+│   │       │   ├── gather.h
+│   │       │   ├── generate.h
+│   │       │   ├── get_value.h
+│   │       │   ├── inner_product.h
+│   │       │   ├── iter_swap.h
+│   │       │   ├── logical.h
+│   │       │   ├── malloc_and_free.h
+│   │       │   ├── memory.inl
+│   │       │   ├── merge.h
+│   │       │   ├── merge.inl
+│   │       │   ├── mismatch.h
+│   │       │   ├── par.h
+│   │       │   ├── partition.h
+│   │       │   ├── partition.inl
+│   │       │   ├── per_device_resource.h
+│   │       │   ├── pointer.inl
+│   │       │   ├── reduce_by_key.h
+│   │       │   ├── reduce_by_key.inl
+│   │       │   ├── reduce.h
+│   │       │   ├── reduce.inl
+│   │       │   ├── reduce_intervals.h
+│   │       │   ├── remove.h
+│   │       │   ├── remove.inl
+│   │       │   ├── replace.h
+│   │       │   ├── reverse.h
+│   │       │   ├── scan_by_key.h
+│   │       │   ├── scan.h
+│   │       │   ├── scan.inl
+│   │       │   ├── scatter.h
+│   │       │   ├── sequence.h
+│   │       │   ├── set_operations.h
+│   │       │   ├── sort.h
+│   │       │   ├── sort.inl
+│   │       │   ├── swap_ranges.h
+│   │       │   ├── tabulate.h
+│   │       │   ├── temporary_buffer.h
+│   │       │   ├── transform.h
+│   │       │   ├── transform_reduce.h
+│   │       │   ├── transform_scan.h
+│   │       │   ├── uninitialized_copy.h
+│   │       │   ├── uninitialized_fill.h
+│   │       │   ├── unique_by_key.h
+│   │       │   ├── unique_by_key.inl
+│   │       │   ├── unique.h
+│   │       │   ├── unique.inl
+│   │       │   └── vector.inl
+│   │       ├── execution_policy.h
+│   │       ├── memory.h
+│   │       ├── memory_resource.h
+│   │       ├── pointer.h
+│   │       └── vector.h
+│   ├── system_error.h
+│   ├── tabulate.h
+│   ├── transform.h
+│   ├── transform_reduce.h
+│   ├── transform_scan.h
+│   ├── tuple.h
+│   ├── type_traits
+│   │   ├── integer_sequence.h
+│   │   ├── is_contiguous_iterator.h
+│   │   ├── is_execution_policy.h
+│   │   ├── is_operator_less_or_greater_function_object.h
+│   │   ├── is_operator_plus_function_object.h
+│   │   ├── is_trivially_relocatable.h
+│   │   ├── logical_metafunctions.h
+│   │   ├── remove_cvref.h
+│   │   └── void_t.h
+│   ├── uninitialized_copy.h
+│   ├── uninitialized_fill.h
+│   ├── unique.h
+│   ├── version.h
+│   └── zip_function.h
+├── vector_functions.h
+├── vector_functions.hpp
+└── vector_types.h
+
+79 directories, 1331 files
