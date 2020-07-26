@@ -2,8 +2,9 @@
 ```
 -- Consider using CMake 3.12+ for better Python support
 -- Looking for ccache - not found
-
 -- Could NOT find CUDNN (missing: CUDNN_LIBRARY CUDNN_INCLUDE_DIR) (Required is at least version "7.5")
+# similar issue - but for Windows -- https://github.com/opencv/opencv/issues/16380
+# similar issue - https://github.com/CMU-Perceptual-Computing-Lab/openpose/issues/486
 
 -- Performing Test HAVE_C_WERROR_NON_VIRTUAL_DTOR - Failed
 -- Performing Test HAVE_CXX_WMISSING_PROTOTYPES - Failed
