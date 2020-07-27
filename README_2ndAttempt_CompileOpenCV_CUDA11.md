@@ -1,3 +1,79 @@
+##### New ERROR ? Not sure if i got this earlier - FindCUDNN 
+
+> Searching the NVIDIA Forum - am getting one probable similar Issue , but its got to with a NVIDIA Docker Image ? 
+- https://forums.developer.nvidia.com/search?q=FindCUDNN
+- https://forums.developer.nvidia.com/t/opencv-4-2-0-and-cudnn-for-jetson-nano/112281/17
+
+##### Locating the File == cudnn.h
+The CMAKE script at location == /home/dhankar/opencv_cuda/opencv/cmake/FindCUDNN.cmake
+On Line 68 == file(READ "${CUDNN_INCLUDE_DIR}/cudnn.h" CUDNN_H_CONTENTS)
+Is trying to locate this file == cudnn.h
+But this file is located within DIR == /usr/include/
+That too it seems to be SYMLINK 
+
+```
+(base) dhankar@dhankar-1:/usr/include$ 
+(base) dhankar@dhankar-1:/usr/include$ ls -ltr cudnn.h
+lrwxrwxrwx 1 root root 26 Jul 25 23:34 cudnn.h -> /etc/alternatives/libcudnn
+(base) dhankar@dhankar-1:/usr/include$ 
+(base) dhankar@dhankar-1:/usr/include$ 
+```
+
+```
+drwxr-xr-x  19 root root     4096 Jul 25 23:34 x86_64-linux-gnu
+lrwxrwxrwx   1 root root       33 Jul 25 23:34 cudnn_version.h -> /etc/alternatives/cudnn_version_h
+lrwxrwxrwx   1 root root       35 Jul 25 23:34 cudnn_ops_train.h -> /etc/alternatives/cudnn_ops_train_h
+lrwxrwxrwx   1 root root       35 Jul 25 23:34 cudnn_ops_infer.h -> /etc/alternatives/cudnn_ops_infer_h
+lrwxrwxrwx   1 root root       26 Jul 25 23:34 cudnn.h -> /etc/alternatives/libcudnn
+lrwxrwxrwx   1 root root       35 Jul 25 23:34 cudnn_cnn_train.h -> /etc/alternatives/cudnn_cnn_train_h
+lrwxrwxrwx   1 root root       35 Jul 25 23:34 cudnn_cnn_infer.h -> /etc/alternatives/cudnn_cnn_infer_h
+lrwxrwxrwx   1 root root       33 Jul 25 23:34 cudnn_backend.h -> /etc/alternatives/cudnn_backend_h
+lrwxrwxrwx   1 root root       35 Jul 25 23:34 cudnn_adv_train.h -> /etc/alternatives/cudnn_adv_train_h
+lrwxrwxrwx   1 root root       35 Jul 25 23:34 cudnn_adv_infer.h -> /etc/alternatives/cudnn_adv_infer_h
+(base) dhankar@dhankar-1:/usr/include$ 
+(base) dhankar@dhankar-1:/usr/include$ 
+```
+#
+
+```
+
+lrwxrwxrwx 1 root root  46 Jul 25 23:34 libcudnn_stlib -> /usr/lib/x86_64-linux-gnu/libcudnn_static_v8.a
+lrwxrwxrwx 1 root root  39 Jul 25 23:34 libcudnn_so -> /usr/lib/x86_64-linux-gnu/libcudnn.so.8
+lrwxrwxrwx 1 root root  56 Jul 25 23:34 libcudnn_ops_train_stlib -> /usr/lib/x86_64-linux-gnu/libcudnn_ops_train_static_v8.a
+lrwxrwxrwx 1 root root  49 Jul 25 23:34 libcudnn_ops_train_so -> /usr/lib/x86_64-linux-gnu/libcudnn_ops_train.so.8
+lrwxrwxrwx 1 root root  56 Jul 25 23:34 libcudnn_ops_infer_stlib -> /usr/lib/x86_64-linux-gnu/libcudnn_ops_infer_static_v8.a
+lrwxrwxrwx 1 root root  49 Jul 25 23:34 libcudnn_ops_infer_so -> /usr/lib/x86_64-linux-gnu/libcudnn_ops_infer.so.8
+lrwxrwxrwx 1 root root  56 Jul 25 23:34 libcudnn_cnn_train_stlib -> /usr/lib/x86_64-linux-gnu/libcudnn_cnn_train_static_v8.a
+lrwxrwxrwx 1 root root  49 Jul 25 23:34 libcudnn_cnn_train_so -> /usr/lib/x86_64-linux-gnu/libcudnn_cnn_train.so.8
+lrwxrwxrwx 1 root root  56 Jul 25 23:34 libcudnn_cnn_infer_stlib -> /usr/lib/x86_64-linux-gnu/libcudnn_cnn_infer_static_v8.a
+lrwxrwxrwx 1 root root  49 Jul 25 23:34 libcudnn_cnn_infer_so -> /usr/lib/x86_64-linux-gnu/libcudnn_cnn_infer.so.8
+lrwxrwxrwx 1 root root  56 Jul 25 23:34 libcudnn_adv_train_stlib -> /usr/lib/x86_64-linux-gnu/libcudnn_adv_train_static_v8.a
+lrwxrwxrwx 1 root root  49 Jul 25 23:34 libcudnn_adv_train_so -> /usr/lib/x86_64-linux-gnu/libcudnn_adv_train.so.8
+lrwxrwxrwx 1 root root  56 Jul 25 23:34 libcudnn_adv_infer_stlib -> /usr/lib/x86_64-linux-gnu/libcudnn_adv_infer_static_v8.a
+lrwxrwxrwx 1 root root  49 Jul 25 23:34 libcudnn_adv_infer_so -> /usr/lib/x86_64-linux-gnu/libcudnn_adv_infer.so.8
+lrwxrwxrwx 1 root root  40 Jul 25 23:34 libcudnn -> /usr/include/x86_64-linux-gnu/cudnn_v8.h
+lrwxrwxrwx 1 root root  48 Jul 25 23:34 cudnn_version_h -> /usr/include/x86_64-linux-gnu/cudnn_version_v8.h
+lrwxrwxrwx 1 root root  50 Jul 25 23:34 cudnn_ops_train_h -> /usr/include/x86_64-linux-gnu/cudnn_ops_train_v8.h
+lrwxrwxrwx 1 root root  50 Jul 25 23:34 cudnn_ops_infer_h -> /usr/include/x86_64-linux-gnu/cudnn_ops_infer_v8.h
+lrwxrwxrwx 1 root root  50 Jul 25 23:34 cudnn_cnn_train_h -> /usr/include/x86_64-linux-gnu/cudnn_cnn_train_v8.h
+lrwxrwxrwx 1 root root  50 Jul 25 23:34 cudnn_cnn_infer_h -> /usr/include/x86_64-linux-gnu/cudnn_cnn_infer_v8.h
+lrwxrwxrwx 1 root root  48 Jul 25 23:34 cudnn_backend_h -> /usr/include/x86_64-linux-gnu/cudnn_backend_v8.h
+lrwxrwxrwx 1 root root  50 Jul 25 23:34 cudnn_adv_train_h -> /usr/include/x86_64-linux-gnu/cudnn_adv_train_v8.h
+lrwxrwxrwx 1 root root  50 Jul 25 23:34 cudnn_adv_infer_h -> /usr/include/x86_64-linux-gnu/cudnn_adv_infer_v8.h
+(base) dhankar@dhankar-1:/etc/alternatives$ 
+
+```
+#
+
+
+
+
+
+
+
+
+
+
 ##### CUDCNN detected correctly - 
 - seen below the 1st CMAKE output 
 ```
