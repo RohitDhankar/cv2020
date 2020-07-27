@@ -15,14 +15,12 @@ That too it seems to be SYMLINK
 #
 
 ```
-(base) dhankar@dhankar-1:/usr/include$ 
 (base) dhankar@dhankar-1:/usr/include$ ls -ltr cudnn.h
 lrwxrwxrwx 1 root root 26 Jul 25 23:34 cudnn.h -> /etc/alternatives/libcudnn
-(base) dhankar@dhankar-1:/usr/include$ 
-(base) dhankar@dhankar-1:/usr/include$ 
 ```
 
 ```
+(base) dhankar@dhankar-1:/usr/include$ 
 drwxr-xr-x  19 root root     4096 Jul 25 23:34 x86_64-linux-gnu
 lrwxrwxrwx   1 root root       33 Jul 25 23:34 cudnn_version.h -> /etc/alternatives/cudnn_version_h
 lrwxrwxrwx   1 root root       35 Jul 25 23:34 cudnn_ops_train.h -> /etc/alternatives/cudnn_ops_train_h
@@ -34,12 +32,12 @@ lrwxrwxrwx   1 root root       33 Jul 25 23:34 cudnn_backend.h -> /etc/alternati
 lrwxrwxrwx   1 root root       35 Jul 25 23:34 cudnn_adv_train.h -> /etc/alternatives/cudnn_adv_train_h
 lrwxrwxrwx   1 root root       35 Jul 25 23:34 cudnn_adv_infer.h -> /etc/alternatives/cudnn_adv_infer_h
 (base) dhankar@dhankar-1:/usr/include$ 
-(base) dhankar@dhankar-1:/usr/include$ 
+
 ```
 #
 
 ```
-
+(base) dhankar@dhankar-1:/etc/alternatives$ 
 lrwxrwxrwx 1 root root  46 Jul 25 23:34 libcudnn_stlib -> /usr/lib/x86_64-linux-gnu/libcudnn_static_v8.a
 lrwxrwxrwx 1 root root  39 Jul 25 23:34 libcudnn_so -> /usr/lib/x86_64-linux-gnu/libcudnn.so.8
 lrwxrwxrwx 1 root root  56 Jul 25 23:34 libcudnn_ops_train_stlib -> /usr/lib/x86_64-linux-gnu/libcudnn_ops_train_static_v8.a
