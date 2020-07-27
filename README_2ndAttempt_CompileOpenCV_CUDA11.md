@@ -5,6 +5,9 @@
 - https://forums.developer.nvidia.com/t/opencv-4-2-0-and-cudnn-for-jetson-nano/112281/17
 
 ##### Locating the File == cudnn.h
+- Similar issue ?? - https://github.com/opencv/opencv/issues/17372
+> Probably - YES , the above issue seems to state that we need to point to - ```cudnn_version.h``` , and not the - ```cudnn.h```. 
+
 The CMAKE script at location == /home/dhankar/opencv_cuda/opencv/cmake/FindCUDNN.cmake
 On Line 68 == file(READ "${CUDNN_INCLUDE_DIR}/cudnn.h" CUDNN_H_CONTENTS)
 Is trying to locate this file == cudnn.h
