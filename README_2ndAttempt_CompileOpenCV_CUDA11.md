@@ -1,4 +1,4 @@
-####### CUDCNN detected correctly - 
+##### CUDCNN detected correctly - 
 - seen below the 1st CMAKE output 
 ```
 --   NVIDIA CUDA:                   YES (ver 9.1, CUFFT CUBLAS FAST_MATH)
@@ -44,7 +44,19 @@ dhankar@dhankar-1:~/opencv_cuda/opencv/build$ cmake -L -N > ~/cmake_L-N_variable
 dhankar@dhankar-1:~/opencv_cuda/opencv/build$ # Above will NOT run CMAKE again - will only provide CACHED VARIABLES - within a text file log. 
 
 ```
- - The text file logs from above - ```cmake -L -N``` are here - 
+> Now for the ``` cmake -LAH..``` , we will get a terminal print as below - need to manually reach the line - ``` -- Cache values``` , so that we see the variables below . Better option to use the - ```cmake -L -N ```. 
+
+```
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/dhankar/opencv_cuda/opencv/build
+-- Cache values
+// Path to a program.
+ANT_EXECUTABLE:FILEPATH=ANT_EXECUTABLE-NOTFOUND
+
+```
+
+ - The text file logs ( terminal prints piped to text files ) from above - ```cmake -L -N``` are here - https://github.com/Computer-Vision-Dhankar-Rohit/cv2020/tree/master/CMAKE_Cache_Variables/Vanilla_OpenCV_CMAKE
 
 #
 
