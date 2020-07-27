@@ -1,0 +1,1439 @@
+-- Detected processor: x86_64
+-- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found suitable version "1.2.11", minimum required is "1.2.3") 
+-- The imported target "openjp2_static" references the file
+   "/usr/lib/x86_64-linux-gnu/libopenjp2.a"
+but this file does not exist.  Possible reasons include:
+* The file was deleted, renamed, or moved to another location.
+* An install or uninstall procedure did not complete successfully.
+* The installation package was faulty and contained
+   "/usr/lib/x86_64-linux-gnu/openjpeg-2.3/OpenJPEGTargets.cmake"
+but not all the files it references.
+
+-- The imported target "openjpip" references the file
+   "/usr/lib/x86_64-linux-gnu/libopenjpip.so.2.3.0"
+but this file does not exist.  Possible reasons include:
+* The file was deleted, renamed, or moved to another location.
+* An install or uninstall procedure did not complete successfully.
+* The installation package was faulty and contained
+   "/usr/lib/x86_64-linux-gnu/openjpeg-2.3/OpenJPEGTargets.cmake"
+but not all the files it references.
+
+-- The imported target "openjpip_server" references the file
+   "/usr/lib/x86_64-linux-gnu/libopenjpip_server.a"
+but this file does not exist.  Possible reasons include:
+* The file was deleted, renamed, or moved to another location.
+* An install or uninstall procedure did not complete successfully.
+* The installation package was faulty and contained
+   "/usr/lib/x86_64-linux-gnu/openjpeg-2.3/OpenJPEGTargets.cmake"
+but not all the files it references.
+
+-- The imported target "opj_decompress" references the file
+   "/usr/bin/opj_decompress"
+but this file does not exist.  Possible reasons include:
+* The file was deleted, renamed, or moved to another location.
+* An install or uninstall procedure did not complete successfully.
+* The installation package was faulty and contained
+   "/usr/lib/x86_64-linux-gnu/openjpeg-2.3/OpenJPEGTargets.cmake"
+but not all the files it references.
+
+-- The imported target "opj_compress" references the file
+   "/usr/bin/opj_compress"
+but this file does not exist.  Possible reasons include:
+* The file was deleted, renamed, or moved to another location.
+* An install or uninstall procedure did not complete successfully.
+* The installation package was faulty and contained
+   "/usr/lib/x86_64-linux-gnu/openjpeg-2.3/OpenJPEGTargets.cmake"
+but not all the files it references.
+
+-- The imported target "opj_dump" references the file
+   "/usr/bin/opj_dump"
+but this file does not exist.  Possible reasons include:
+* The file was deleted, renamed, or moved to another location.
+* An install or uninstall procedure did not complete successfully.
+* The installation package was faulty and contained
+   "/usr/lib/x86_64-linux-gnu/openjpeg-2.3/OpenJPEGTargets.cmake"
+but not all the files it references.
+
+-- The imported target "opj_jpip_addxml" references the file
+   "/usr/bin/opj_jpip_addxml"
+but this file does not exist.  Possible reasons include:
+* The file was deleted, renamed, or moved to another location.
+* An install or uninstall procedure did not complete successfully.
+* The installation package was faulty and contained
+   "/usr/lib/x86_64-linux-gnu/openjpeg-2.3/OpenJPEGTargets.cmake"
+but not all the files it references.
+
+-- The imported target "opj_server" references the file
+   "/usr/bin/opj_server"
+but this file does not exist.  Possible reasons include:
+* The file was deleted, renamed, or moved to another location.
+* An install or uninstall procedure did not complete successfully.
+* The installation package was faulty and contained
+   "/usr/lib/x86_64-linux-gnu/openjpeg-2.3/OpenJPEGTargets.cmake"
+but not all the files it references.
+
+-- The imported target "opj_dec_server" references the file
+   "/usr/bin/opj_dec_server"
+but this file does not exist.  Possible reasons include:
+* The file was deleted, renamed, or moved to another location.
+* An install or uninstall procedure did not complete successfully.
+* The installation package was faulty and contained
+   "/usr/lib/x86_64-linux-gnu/openjpeg-2.3/OpenJPEGTargets.cmake"
+but not all the files it references.
+
+-- The imported target "opj_jpip_transcode" references the file
+   "/usr/bin/opj_jpip_transcode"
+but this file does not exist.  Possible reasons include:
+* The file was deleted, renamed, or moved to another location.
+* An install or uninstall procedure did not complete successfully.
+* The installation package was faulty and contained
+   "/usr/lib/x86_64-linux-gnu/openjpeg-2.3/OpenJPEGTargets.cmake"
+but not all the files it references.
+
+-- The imported target "opj_jpip_test" references the file
+   "/usr/bin/opj_jpip_test"
+but this file does not exist.  Possible reasons include:
+* The file was deleted, renamed, or moved to another location.
+* An install or uninstall procedure did not complete successfully.
+* The installation package was faulty and contained
+   "/usr/lib/x86_64-linux-gnu/openjpeg-2.3/OpenJPEGTargets.cmake"
+but not all the files it references.
+
+-- Found OpenJPEG: openjp2 (found version "2.3.0")
+-- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version "1.2.11") 
+-- found Intel IPP (ICV version): 2020.0.0 [2020.0.0 Gold]
+-- at: /home/dhankar/opencv_cuda/opencv/build/3rdparty/ippicv/ippicv_lnx/icv
+-- found Intel IPP Integration Wrappers sources: 2020.0.0
+-- at: /home/dhankar/opencv_cuda/opencv/build/3rdparty/ippicv/ippicv_lnx/iw
+-- Could not find OpenBLAS include. Turning OpenBLAS_FOUND off
+-- Could not find OpenBLAS lib. Turning OpenBLAS_FOUND off
+-- Could NOT find Atlas (missing: Atlas_CLAPACK_INCLUDE_DIR) 
+-- A library with BLAS API found.
+-- A library with LAPACK API found.
+-- Could NOT find JNI (missing: JAVA_INCLUDE_PATH JAVA_INCLUDE_PATH2 JAVA_AWT_INCLUDE_PATH) 
+-- VTK is not found. Please set -DVTK_DIR in CMake to VTK build directory, or to VTK install subdirectory with VTKConfig.cmake file
+-- OpenCV Python: during development append to PYTHONPATH: /home/dhankar/opencv_cuda/opencv/build/python_loader
+-- Checking for module 'libavresample'
+--   No package 'libavresample' found
+-- Checking for module 'gstreamer-base-1.0'
+--   No package 'gstreamer-base-1.0' found
+-- Checking for module 'gstreamer-app-1.0'
+--   No package 'gstreamer-app-1.0' found
+-- Checking for module 'gstreamer-riff-1.0'
+--   No package 'gstreamer-riff-1.0' found
+-- Checking for module 'gstreamer-pbutils-1.0'
+--   No package 'gstreamer-pbutils-1.0' found
+-- Checking for module 'libdc1394-2'
+--   No package 'libdc1394-2' found
+-- Caffe:   NO
+-- Protobuf:   NO
+-- Glog:   NO
+-- freetype2:   YES (ver 21.0.15)
+-- harfbuzz:    YES (ver 1.7.2)
+-- HDF5: Using hdf5 compiler wrapper to determine C configuration
+-- Module opencv_ovis disabled because OGRE3D was not found
+-- No preference for use of exported gflags CMake configuration set, and no hints for include/library directories provided. Defaulting to preferring an installed/exported gflags CMake configuration if available.
+-- Found installed version of gflags: /home/dhankar/_dc_all/odmOwnUp/OpenDroneMap/ODM/SuperBuild/install/lib/cmake/gflags
+-- Detected gflags version: 2.2.2
+-- Failed to find glog - Could not find glog include directory, set GLOG_INCLUDE_DIR to directory containing glog/logging.h
+-- Module opencv_sfm disabled because the following dependencies are not found: Glog/Gflags
+-- Tesseract:   YES (ver 4.0.0-beta.1)
+-- Allocator metrics storage type: 'long long'
+-- HDF5: Using hdf5 compiler wrapper to determine C configuration
+-- Registering hook 'INIT_MODULE_SOURCES_opencv_dnn': /home/dhankar/opencv_cuda/opencv/modules/dnn/cmake/hooks/INIT_MODULE_SOURCES_opencv_dnn.cmake
+-- opencv_dnn: filter out cuda4dnn source code
+-- 
+-- General configuration for OpenCV 4.3.0 =====================================
+--   Version control:               unknown
+-- 
+--   Extra modules:
+--     Location (extra):            /home/dhankar/opencv_cuda/opencv_contrib/modules
+--     Version control (extra):     unknown
+-- 
+--   Platform:
+--     Timestamp:                   2020-07-26T18:00:40Z
+--     Host:                        Linux 5.4.0-42-generic x86_64
+--     CMake:                       3.10.2
+--     CMake generator:             Unix Makefiles
+--     CMake build tool:            /usr/bin/make
+--     Configuration:               RELEASE
+-- 
+--   CPU/HW features:
+--     Baseline:                    SSE SSE2 SSE3
+--       requested:                 SSE3
+--     Dispatched code generation:  SSE4_1 SSE4_2 FP16 AVX AVX2 AVX512_SKX
+--       requested:                 SSE4_1 SSE4_2 AVX FP16 AVX2 AVX512_SKX
+--       SSE4_1 (14 files):         + SSSE3 SSE4_1
+--       SSE4_2 (1 files):          + SSSE3 SSE4_1 POPCNT SSE4_2
+--       FP16 (0 files):            + SSSE3 SSE4_1 POPCNT SSE4_2 FP16 AVX
+--       AVX (4 files):             + SSSE3 SSE4_1 POPCNT SSE4_2 AVX
+--       AVX2 (28 files):           + SSSE3 SSE4_1 POPCNT SSE4_2 FP16 FMA3 AVX AVX2
+--       AVX512_SKX (3 files):      + SSSE3 SSE4_1 POPCNT SSE4_2 FP16 FMA3 AVX AVX2 AVX_512F AVX512_COMMON AVX512_SKX
+-- 
+--   C/C++:
+--     Built as dynamic libs?:      YES
+--     C++ standard:                11
+--     C++ Compiler:                /usr/lib/ccache/c++  (ver 7.5.0)
+--     C++ flags (Release):         -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Wsuggest-override -Wno-delete-non-virtual-dtor -Wno-comment -Wimplicit-fallthrough=3 -Wno-strict-overflow -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -ffunction-sections -fdata-sections  -msse -msse2 -msse3 -fvisibility=hidden -fvisibility-inlines-hidden -O3 -DNDEBUG  -DNDEBUG
+--     C++ flags (Debug):           -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Wsuggest-override -Wno-delete-non-virtual-dtor -Wno-comment -Wimplicit-fallthrough=3 -Wno-strict-overflow -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -ffunction-sections -fdata-sections  -msse -msse2 -msse3 -fvisibility=hidden -fvisibility-inlines-hidden -g  -O0 -DDEBUG -D_DEBUG
+--     C Compiler:                  /usr/lib/ccache/cc
+--     C flags (Release):           -fsigned-char -W -Wall -Werror=return-type -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wuninitialized -Winit-self -Wno-comment -Wimplicit-fallthrough=3 -Wno-strict-overflow -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -ffunction-sections -fdata-sections  -msse -msse2 -msse3 -fvisibility=hidden -O3 -DNDEBUG  -DNDEBUG
+--     C flags (Debug):             -fsigned-char -W -Wall -Werror=return-type -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wuninitialized -Winit-self -Wno-comment -Wimplicit-fallthrough=3 -Wno-strict-overflow -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -ffunction-sections -fdata-sections  -msse -msse2 -msse3 -fvisibility=hidden -g  -O0 -DDEBUG -D_DEBUG
+--     Linker flags (Release):      -Wl,--exclude-libs,libippicv.a -Wl,--exclude-libs,libippiw.a   -Wl,--gc-sections -Wl,--as-needed  
+--     Linker flags (Debug):        -Wl,--exclude-libs,libippicv.a -Wl,--exclude-libs,libippiw.a   -Wl,--gc-sections -Wl,--as-needed  
+--     ccache:                      YES
+--     Precompiled headers:         NO
+--     Extra dependencies:          dl m pthread rt
+--     3rdparty dependencies:
+-- 
+--   OpenCV modules:
+--     To be built:                 alphamat aruco bgsegm bioinspired calib3d ccalib core datasets dnn dnn_objdetect dnn_superres dpm face features2d flann freetype fuzzy gapi hdf hfs highgui img_hash imgcodecs imgproc intensity_transform line_descriptor ml objdetect optflow phase_unwrapping photo plot quality rapid reg rgbd saliency shape stereo stitching structured_light superres surface_matching text tracking video videoio videostab xfeatures2d ximgproc xobjdetect xphoto
+--     Disabled:                    world
+--     Disabled by dependency:      -
+--     Unavailable:                 cnn_3dobj cudaarithm cudabgsegm cudacodec cudafeatures2d cudafilters cudaimgproc cudalegacy cudaobjdetect cudaoptflow cudastereo cudawarping cudev cvv java js matlab ovis python2 python3 sfm ts viz
+--     Applications:                apps
+--     Documentation:               NO
+--     Non-free algorithms:         NO
+-- 
+--   GUI: 
+--     GTK+:                        YES (ver 3.22.30)
+--       GThread :                  YES (ver 2.56.4)
+--       GtkGlExt:                  NO
+--     VTK support:                 NO
+-- 
+--   Media I/O: 
+--     ZLib:                        /usr/lib/x86_64-linux-gnu/libz.so (ver 1.2.11)
+--     JPEG:                        /usr/lib/x86_64-linux-gnu/libjpeg.so (ver 80)
+--     WEBP:                        /usr/lib/x86_64-linux-gnu/libwebp.so (ver encoder: 0x020e)
+--     PNG:                         /usr/lib/x86_64-linux-gnu/libpng.so (ver 1.6.34)
+--     TIFF:                        /usr/lib/x86_64-linux-gnu/libtiff.so (ver 42 / 4.0.9)
+--     JPEG 2000:                   OpenJPEG (ver 2.3.0)
+--     OpenEXR:                     build (ver 2.3.0)
+--     HDR:                         YES
+--     SUNRASTER:                   YES
+--     PXM:                         YES
+--     PFM:                         YES
+-- 
+--   Video I/O:
+--     DC1394:                      NO
+--     FFMPEG:                      YES
+--       avcodec:                   YES (58.35.100)
+--       avformat:                  YES (58.20.100)
+--       avutil:                    YES (56.22.100)
+--       swscale:                   YES (5.3.100)
+--       avresample:                NO
+--     GStreamer:                   NO
+--     v4l/v4l2:                    YES (linux/videodev2.h)
+-- 
+--   Parallel framework:            pthreads
+-- 
+--   Trace:                         YES (with Intel ITT)
+-- 
+--   Other third-party libraries:
+--     Intel IPP:                   2020.0.0 Gold [2020.0.0]
+--            at:                   /home/dhankar/opencv_cuda/opencv/build/3rdparty/ippicv/ippicv_lnx/icv
+--     Intel IPP IW:                sources (2020.0.0)
+--               at:                /home/dhankar/opencv_cuda/opencv/build/3rdparty/ippicv/ippicv_lnx/iw
+--     Lapack:                      NO
+--     Eigen:                       YES (ver 3.3.4)
+--     Custom HAL:                  NO
+--     Protobuf:                    build (3.5.1)
+-- 
+--   OpenCL:                        YES (no extra features)
+--     Include path:                /home/dhankar/opencv_cuda/opencv/3rdparty/include/opencl/1.2
+--     Link libraries:              Dynamic load
+-- 
+--   Python (for build):            /home/dhankar/.virtualenvs/opencv_cuda/bin/python3
+-- 
+--   Java:                          
+--     ant:                         NO
+--     JNI:                         NO
+--     Java wrappers:               NO
+--     Java tests:                  NO
+-- 
+--   Install to:                    /usr/local
+-- -----------------------------------------------------------------
+-- 
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/dhankar/opencv_cuda/opencv/build
+-- Cache values
+// Path to a program.
+ANT_EXECUTABLE:FILEPATH=ANT_EXECUTABLE-NOTFOUND
+
+// Path to a library.
+Atlas_BLAS_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libatlas.so
+
+// Path to a file.
+Atlas_CBLAS_INCLUDE_DIR:PATH=/usr/include/x86_64-linux-gnu
+
+// Path to a library.
+Atlas_CBLAS_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libcblas.so
+
+// Path to a file.
+Atlas_CLAPACK_INCLUDE_DIR:PATH=Atlas_CLAPACK_INCLUDE_DIR-NOTFOUND
+
+// Path to a library.
+Atlas_LAPACK_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/liblapack.so
+
+// Path to a library.
+BLAS_goto2_LIBRARY:FILEPATH=BLAS_goto2_LIBRARY-NOTFOUND
+
+// Path to a library.
+BLAS_openblas_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libopenblas.so
+
+// Build CUDA modules stubs when no CUDA SDK
+BUILD_CUDA_STUBS:BOOL=OFF
+
+// Create build rules for OpenCV Documentation
+BUILD_DOCS:BOOL=OFF
+
+// Build all examples
+BUILD_EXAMPLES:BOOL=OFF
+
+// Build IPP IW from source
+BUILD_IPP_IW:BOOL=ON
+
+// Build Intel ITT from source
+BUILD_ITT:BOOL=ON
+
+// Build libjasper from source
+BUILD_JASPER:BOOL=OFF
+
+// Enable Java support
+BUILD_JAVA:BOOL=ON
+
+// Build libjpeg from source
+BUILD_JPEG:BOOL=OFF
+
+// Build only listed modules (comma-separated, e.g. 'videoio,dnn,ts')
+BUILD_LIST:STRING=
+
+// Build openexr from source
+BUILD_OPENEXR:BOOL=OFF
+
+// Enables 'make package_source' command
+BUILD_PACKAGE:BOOL=ON
+
+// Build performance tests
+BUILD_PERF_TESTS:BOOL=OFF
+
+// Build libpng from source
+BUILD_PNG:BOOL=OFF
+
+// Force to build libprotobuf from sources
+BUILD_PROTOBUF:BOOL=ON
+
+// Build shared libraries (.dll/.so) instead of static ones (.lib/.a)
+BUILD_SHARED_LIBS:BOOL=ON
+
+// Download and build TBB from source
+BUILD_TBB:BOOL=OFF
+
+// Build accuracy & regression tests
+BUILD_TESTS:BOOL=OFF
+
+// Build libtiff from source
+BUILD_TIFF:BOOL=OFF
+
+// Use symlinks instead of files copying during build (and !!INSTALL!!)
+BUILD_USE_SYMLINKS:BOOL=OFF
+
+// Build WebP from source
+BUILD_WEBP:BOOL=OFF
+
+// Include debug info into release binaries ('OFF' means default settings)
+BUILD_WITH_DEBUG_INFO:BOOL=OFF
+
+// Enables dynamic linking of IPP (only for standalone IPP)
+BUILD_WITH_DYNAMIC_IPP:BOOL=OFF
+
+// Build zlib from source
+BUILD_ZLIB:BOOL=OFF
+
+// Include opencv_alphamat module into the OpenCV build
+BUILD_opencv_alphamat:BOOL=ON
+
+// Build utility applications (used for example to train classifiers)
+BUILD_opencv_apps:BOOL=ON
+
+// Include opencv_aruco module into the OpenCV build
+BUILD_opencv_aruco:BOOL=ON
+
+// Include opencv_bgsegm module into the OpenCV build
+BUILD_opencv_bgsegm:BOOL=ON
+
+// Include opencv_bioinspired module into the OpenCV build
+BUILD_opencv_bioinspired:BOOL=ON
+
+// Include opencv_calib3d module into the OpenCV build
+BUILD_opencv_calib3d:BOOL=ON
+
+// Include opencv_ccalib module into the OpenCV build
+BUILD_opencv_ccalib:BOOL=ON
+
+// Include opencv_core module into the OpenCV build
+BUILD_opencv_core:BOOL=ON
+
+// Include opencv_datasets module into the OpenCV build
+BUILD_opencv_datasets:BOOL=ON
+
+// Include opencv_dnn module into the OpenCV build
+BUILD_opencv_dnn:BOOL=ON
+
+// Include opencv_dnn_objdetect module into the OpenCV build
+BUILD_opencv_dnn_objdetect:BOOL=ON
+
+// Include opencv_dnn_superres module into the OpenCV build
+BUILD_opencv_dnn_superres:BOOL=ON
+
+// Include opencv_dpm module into the OpenCV build
+BUILD_opencv_dpm:BOOL=ON
+
+// Include opencv_face module into the OpenCV build
+BUILD_opencv_face:BOOL=ON
+
+// Include opencv_features2d module into the OpenCV build
+BUILD_opencv_features2d:BOOL=ON
+
+// Include opencv_flann module into the OpenCV build
+BUILD_opencv_flann:BOOL=ON
+
+// Include opencv_freetype module into the OpenCV build
+BUILD_opencv_freetype:BOOL=ON
+
+// Include opencv_fuzzy module into the OpenCV build
+BUILD_opencv_fuzzy:BOOL=ON
+
+// Include opencv_gapi module into the OpenCV build
+BUILD_opencv_gapi:BOOL=ON
+
+// Include opencv_hdf module into the OpenCV build
+BUILD_opencv_hdf:BOOL=ON
+
+// Include opencv_hfs module into the OpenCV build
+BUILD_opencv_hfs:BOOL=ON
+
+// Include opencv_highgui module into the OpenCV build
+BUILD_opencv_highgui:BOOL=ON
+
+// Include opencv_img_hash module into the OpenCV build
+BUILD_opencv_img_hash:BOOL=ON
+
+// Include opencv_imgcodecs module into the OpenCV build
+BUILD_opencv_imgcodecs:BOOL=ON
+
+// Include opencv_imgproc module into the OpenCV build
+BUILD_opencv_imgproc:BOOL=ON
+
+// Include opencv_intensity_transform module into the OpenCV build
+BUILD_opencv_intensity_transform:BOOL=ON
+
+// Include opencv_java_bindings_generator module into the OpenCV build
+BUILD_opencv_java_bindings_generator:BOOL=ON
+
+// Build JavaScript bindings by Emscripten
+BUILD_opencv_js:BOOL=OFF
+
+// Include opencv_line_descriptor module into the OpenCV build
+BUILD_opencv_line_descriptor:BOOL=ON
+
+// Include opencv_ml module into the OpenCV build
+BUILD_opencv_ml:BOOL=ON
+
+// Include opencv_objdetect module into the OpenCV build
+BUILD_opencv_objdetect:BOOL=ON
+
+// Include opencv_optflow module into the OpenCV build
+BUILD_opencv_optflow:BOOL=ON
+
+// Include opencv_phase_unwrapping module into the OpenCV build
+BUILD_opencv_phase_unwrapping:BOOL=ON
+
+// Include opencv_photo module into the OpenCV build
+BUILD_opencv_photo:BOOL=ON
+
+// Include opencv_plot module into the OpenCV build
+BUILD_opencv_plot:BOOL=ON
+
+// Include opencv_python_bindings_generator module into the OpenCV build
+BUILD_opencv_python_bindings_generator:BOOL=ON
+
+// Include opencv_python_tests module into the OpenCV build
+BUILD_opencv_python_tests:BOOL=ON
+
+// Include opencv_quality module into the OpenCV build
+BUILD_opencv_quality:BOOL=ON
+
+// Include opencv_rapid module into the OpenCV build
+BUILD_opencv_rapid:BOOL=ON
+
+// Include opencv_reg module into the OpenCV build
+BUILD_opencv_reg:BOOL=ON
+
+// Include opencv_rgbd module into the OpenCV build
+BUILD_opencv_rgbd:BOOL=ON
+
+// Include opencv_saliency module into the OpenCV build
+BUILD_opencv_saliency:BOOL=ON
+
+// Include opencv_shape module into the OpenCV build
+BUILD_opencv_shape:BOOL=ON
+
+// Include opencv_stereo module into the OpenCV build
+BUILD_opencv_stereo:BOOL=ON
+
+// Include opencv_stitching module into the OpenCV build
+BUILD_opencv_stitching:BOOL=ON
+
+// Include opencv_structured_light module into the OpenCV build
+BUILD_opencv_structured_light:BOOL=ON
+
+// Include opencv_superres module into the OpenCV build
+BUILD_opencv_superres:BOOL=ON
+
+// Include opencv_surface_matching module into the OpenCV build
+BUILD_opencv_surface_matching:BOOL=ON
+
+// Include opencv_text module into the OpenCV build
+BUILD_opencv_text:BOOL=ON
+
+// Include opencv_tracking module into the OpenCV build
+BUILD_opencv_tracking:BOOL=ON
+
+// Include opencv_video module into the OpenCV build
+BUILD_opencv_video:BOOL=ON
+
+// Include opencv_videoio module into the OpenCV build
+BUILD_opencv_videoio:BOOL=ON
+
+// Include opencv_videostab module into the OpenCV build
+BUILD_opencv_videostab:BOOL=ON
+
+// Include opencv_world module into the OpenCV build
+BUILD_opencv_world:BOOL=OFF
+
+// Include opencv_xfeatures2d module into the OpenCV build
+BUILD_opencv_xfeatures2d:BOOL=ON
+
+// Include opencv_ximgproc module into the OpenCV build
+BUILD_opencv_ximgproc:BOOL=ON
+
+// Include opencv_xobjdetect module into the OpenCV build
+BUILD_opencv_xobjdetect:BOOL=ON
+
+// Include opencv_xphoto module into the OpenCV build
+BUILD_opencv_xphoto:BOOL=ON
+
+// clAmdFft include directory
+CLAMDBLAS_INCLUDE_DIR:PATH=CLAMDBLAS_INCLUDE_DIR-NOTFOUND
+
+// AMD FFT root directory
+CLAMDBLAS_ROOT_DIR:PATH=CLAMDBLAS_ROOT_DIR-NOTFOUND
+
+// clAmdFft include directory
+CLAMDFFT_INCLUDE_DIR:PATH=CLAMDFFT_INCLUDE_DIR-NOTFOUND
+
+// AMD FFT root directory
+CLAMDFFT_ROOT_DIR:PATH=CLAMDFFT_ROOT_DIR-NOTFOUND
+
+// Path to a program.
+CMAKE_AR:FILEPATH=/usr/bin/ar
+
+// Choose the type of build, options are: None(CMAKE_CXX_FLAGS or CMAKE_C_FLAGS used) Debug Release RelWithDebInfo MinSizeRel.
+CMAKE_BUILD_TYPE:STRING=RELEASE
+
+// Enable/Disable color output during build.
+CMAKE_COLOR_MAKEFILE:BOOL=ON
+
+// Configs
+CMAKE_CONFIGURATION_TYPES:STRING=Debug;Release
+
+// CXX compiler
+CMAKE_CXX_COMPILER:FILEPATH=/usr/lib/ccache/c++
+
+// A wrapper around 'ar' adding the appropriate '--plugin' option for the GCC compiler
+CMAKE_CXX_COMPILER_AR:FILEPATH=/usr/bin/gcc-ar-7
+
+// A wrapper around 'ranlib' adding the appropriate '--plugin' option for the GCC compiler
+CMAKE_CXX_COMPILER_RANLIB:FILEPATH=/usr/bin/gcc-ranlib-7
+
+// Flags used by the compiler during all build types.
+CMAKE_CXX_FLAGS:STRING=
+
+// Flags used by the compiler during debug builds.
+CMAKE_CXX_FLAGS_DEBUG:STRING=-g
+
+// Flags used by the compiler during release builds for minimum size.
+CMAKE_CXX_FLAGS_MINSIZEREL:STRING=-Os -DNDEBUG
+
+// Flags used by the compiler during release builds.
+CMAKE_CXX_FLAGS_RELEASE:STRING=-O3 -DNDEBUG
+
+// Flags used by the compiler during release builds with debug info.
+CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
+
+// C compiler
+CMAKE_C_COMPILER:FILEPATH=/usr/lib/ccache/cc
+
+// A wrapper around 'ar' adding the appropriate '--plugin' option for the GCC compiler
+CMAKE_C_COMPILER_AR:FILEPATH=/usr/bin/gcc-ar-7
+
+// A wrapper around 'ranlib' adding the appropriate '--plugin' option for the GCC compiler
+CMAKE_C_COMPILER_RANLIB:FILEPATH=/usr/bin/gcc-ranlib-7
+
+// Flags used by the compiler during all build types.
+CMAKE_C_FLAGS:STRING=
+
+// Flags used by the compiler during debug builds.
+CMAKE_C_FLAGS_DEBUG:STRING=-g
+
+// Flags used by the compiler during release builds for minimum size.
+CMAKE_C_FLAGS_MINSIZEREL:STRING=-Os -DNDEBUG
+
+// Flags used by the compiler during release builds.
+CMAKE_C_FLAGS_RELEASE:STRING=-O3 -DNDEBUG
+
+// Flags used by the compiler during release builds with debug info.
+CMAKE_C_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
+
+// Flags used by the linker.
+CMAKE_EXE_LINKER_FLAGS:STRING=
+
+// Flags used by the linker during debug builds.
+CMAKE_EXE_LINKER_FLAGS_DEBUG:STRING=
+
+// Flags used by the linker during release minsize builds.
+CMAKE_EXE_LINKER_FLAGS_MINSIZEREL:STRING=
+
+// Flags used by the linker during release builds.
+CMAKE_EXE_LINKER_FLAGS_RELEASE:STRING=
+
+// Flags used by the linker during Release with Debug Info builds.
+CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO:STRING=
+
+// Enable/Disable output of compile commands during generation.
+CMAKE_EXPORT_COMPILE_COMMANDS:BOOL=OFF
+
+// User executables (bin)
+CMAKE_INSTALL_BINDIR:PATH=bin
+
+// Read-only architecture-independent data (DATAROOTDIR)
+CMAKE_INSTALL_DATADIR:PATH=
+
+// Read-only architecture-independent data root (share)
+CMAKE_INSTALL_DATAROOTDIR:PATH=share
+
+// Documentation root (DATAROOTDIR/doc/PROJECT_NAME)
+CMAKE_INSTALL_DOCDIR:PATH=
+
+// C header files (include)
+CMAKE_INSTALL_INCLUDEDIR:PATH=include
+
+// Info documentation (DATAROOTDIR/info)
+CMAKE_INSTALL_INFODIR:PATH=
+
+// Object code libraries (lib)
+CMAKE_INSTALL_LIBDIR:PATH=lib
+
+// Program executables (libexec)
+CMAKE_INSTALL_LIBEXECDIR:PATH=libexec
+
+// Locale-dependent data (DATAROOTDIR/locale)
+CMAKE_INSTALL_LOCALEDIR:PATH=
+
+// Modifiable single-machine data (var)
+CMAKE_INSTALL_LOCALSTATEDIR:PATH=var
+
+// Man documentation (DATAROOTDIR/man)
+CMAKE_INSTALL_MANDIR:PATH=
+
+// C header files for non-gcc (/usr/include)
+CMAKE_INSTALL_OLDINCLUDEDIR:PATH=/usr/include
+
+// Install path prefix, prepended onto install directories.
+CMAKE_INSTALL_PREFIX:PATH=/usr/local
+
+// Run-time variable data (LOCALSTATEDIR/run)
+CMAKE_INSTALL_RUNSTATEDIR:PATH=
+
+// System admin executables (sbin)
+CMAKE_INSTALL_SBINDIR:PATH=sbin
+
+// Modifiable architecture-independent data (com)
+CMAKE_INSTALL_SHAREDSTATEDIR:PATH=com
+
+// Read-only single-machine data (etc)
+CMAKE_INSTALL_SYSCONFDIR:PATH=etc
+
+// Path to a program.
+CMAKE_LINKER:FILEPATH=/usr/bin/ld
+
+// Path to a program.
+CMAKE_MAKE_PROGRAM:FILEPATH=/usr/bin/make
+
+// Flags used by the linker during the creation of modules.
+CMAKE_MODULE_LINKER_FLAGS:STRING=
+
+// Flags used by the linker during debug builds.
+CMAKE_MODULE_LINKER_FLAGS_DEBUG:STRING=
+
+// Flags used by the linker during release minsize builds.
+CMAKE_MODULE_LINKER_FLAGS_MINSIZEREL:STRING=
+
+// Flags used by the linker during release builds.
+CMAKE_MODULE_LINKER_FLAGS_RELEASE:STRING=
+
+// Flags used by the linker during Release with Debug Info builds.
+CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO:STRING=
+
+// Path to a program.
+CMAKE_NM:FILEPATH=/usr/bin/nm
+
+// Path to a program.
+CMAKE_OBJCOPY:FILEPATH=/usr/bin/objcopy
+
+// Path to a program.
+CMAKE_OBJDUMP:FILEPATH=/usr/bin/objdump
+
+// Path to a program.
+CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
+
+// Flags used by the linker during the creation of dll's.
+CMAKE_SHARED_LINKER_FLAGS:STRING=
+
+// Flags used by the linker during debug builds.
+CMAKE_SHARED_LINKER_FLAGS_DEBUG:STRING=
+
+// Flags used by the linker during release minsize builds.
+CMAKE_SHARED_LINKER_FLAGS_MINSIZEREL:STRING=
+
+// Flags used by the linker during release builds.
+CMAKE_SHARED_LINKER_FLAGS_RELEASE:STRING=
+
+// Flags used by the linker during Release with Debug Info builds.
+CMAKE_SHARED_LINKER_FLAGS_RELWITHDEBINFO:STRING=
+
+// If set, runtime paths are not added when installing shared libraries, but are added when building.
+CMAKE_SKIP_INSTALL_RPATH:BOOL=NO
+
+// If set, runtime paths are not added when using shared libraries.
+CMAKE_SKIP_RPATH:BOOL=NO
+
+// Flags used by the linker during the creation of static libraries.
+CMAKE_STATIC_LINKER_FLAGS:STRING=
+
+// Flags used by the linker during debug builds.
+CMAKE_STATIC_LINKER_FLAGS_DEBUG:STRING=
+
+// Flags used by the linker during release minsize builds.
+CMAKE_STATIC_LINKER_FLAGS_MINSIZEREL:STRING=
+
+// Flags used by the linker during release builds.
+CMAKE_STATIC_LINKER_FLAGS_RELEASE:STRING=
+
+// Flags used by the linker during Release with Debug Info builds.
+CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO:STRING=
+
+// Path to a program.
+CMAKE_STRIP:FILEPATH=/usr/bin/strip
+
+// If this value is on, makefiles will be generated without the .SILENT directive, and all commands will be echoed to the console during the make.  This is useful for debugging only. With Visual Studio IDE projects all commands are done without /nologo.
+CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
+
+// Enable to build Debian packages
+CPACK_BINARY_DEB:BOOL=OFF
+
+// Enable to build FreeBSD packages
+CPACK_BINARY_FREEBSD:BOOL=OFF
+
+// Enable to build IFW packages
+CPACK_BINARY_IFW:BOOL=OFF
+
+// Enable to build NSIS packages
+CPACK_BINARY_NSIS:BOOL=OFF
+
+// Enable to build RPM packages
+CPACK_BINARY_RPM:BOOL=OFF
+
+// Enable to build STGZ packages
+CPACK_BINARY_STGZ:BOOL=ON
+
+// Enable to build TBZ2 packages
+CPACK_BINARY_TBZ2:BOOL=OFF
+
+// Enable to build TGZ packages
+CPACK_BINARY_TGZ:BOOL=ON
+
+// Enable to build TXZ packages
+CPACK_BINARY_TXZ:BOOL=OFF
+
+// Enable to build TZ packages
+CPACK_BINARY_TZ:BOOL=ON
+
+// Enable to build RPM source packages
+CPACK_SOURCE_RPM:BOOL=OFF
+
+// Enable to build TBZ2 source packages
+CPACK_SOURCE_TBZ2:BOOL=ON
+
+// Enable to build TGZ source packages
+CPACK_SOURCE_TGZ:BOOL=ON
+
+// Enable to build TXZ source packages
+CPACK_SOURCE_TXZ:BOOL=ON
+
+// Enable to build TZ source packages
+CPACK_SOURCE_TZ:BOOL=ON
+
+// Enable to build ZIP source packages
+CPACK_SOURCE_ZIP:BOOL=OFF
+
+// Specify list of enabled baseline CPU optimizations
+CPU_BASELINE:STRING=SSE3
+
+// Specify list of dispatched CPU optimizations
+CPU_DISPATCH:STRING=SSE4_1;SSE4_2;AVX;FP16;AVX2;AVX512_SKX
+
+// Disable explicit optimized code (dispatched code/intrinsics/loop unrolling/etc)
+CV_DISABLE_OPTIMIZATION:BOOL=OFF
+
+// Use intrinsic-based optimized code
+CV_ENABLE_INTRINSICS:BOOL=ON
+
+// Enable OpenCV code trace
+CV_TRACE:BOOL=ON
+
+// Path to a file.
+Caffe_INCLUDE_DIR:PATH=Caffe_INCLUDE_DIR-NOTFOUND
+
+// Path to a library.
+Caffe_LIBS:FILEPATH=Caffe_LIBS-NOTFOUND
+
+// The directory containing a CMake configuration file for Ceres.
+Ceres_DIR:PATH=Ceres_DIR-NOTFOUND
+
+// Path to a file.
+DC1394_INCLUDE:PATH=DC1394_INCLUDE-NOTFOUND
+
+// Path to a library.
+DC1394_LIBRARY:FILEPATH=DC1394_LIBRARY-NOTFOUND
+
+// Enable hardening of the resulting binaries (against security attacks, detects memory corruption, etc)
+ENABLE_BUILD_HARDENING:BOOL=OFF
+
+// Use ccache
+ENABLE_CCACHE:BOOL=ON
+
+// Fail build if actual configuration doesn't match requested (WITH_XXX != HAVE_XXX)
+ENABLE_CONFIG_VERIFICATION:BOOL=OFF
+
+// Enable coverage collection with  GCov
+ENABLE_COVERAGE:BOOL=OFF
+
+// Enable compiler options for fast math optimizations on FP computations (not recommended)
+ENABLE_FAST_MATH:BOOL=OFF
+
+// Add target with Python flake8 checker
+ENABLE_FLAKE8:BOOL=OFF
+
+// Enable GNU STL Debug mode (defines _GLIBCXX_DEBUG)
+ENABLE_GNU_STL_DEBUG:BOOL=OFF
+
+// Collect implementation data on function call
+ENABLE_IMPL_COLLECTION:BOOL=OFF
+
+// Instrument functions to collect calls trace and performance
+ENABLE_INSTRUMENTATION:BOOL=OFF
+
+// Enable Link Time Optimization
+ENABLE_LTO:BOOL=OFF
+
+// Show all warnings even if they are too noisy
+ENABLE_NOISY_WARNINGS:BOOL=OFF
+
+// Enable -fomit-frame-pointer for GCC
+ENABLE_OMIT_FRAME_POINTER:BOOL=ON
+
+// Generate position independent code (necessary for shared libraries)
+ENABLE_PIC:BOOL=ON
+
+// 
+ENABLE_PRECOMPILED_HEADERS:BOOL=OFF
+
+// Enable profiling in the GCC compiler (Add flags: -g -pg)
+ENABLE_PROFILING:BOOL=OFF
+
+// Add target with Pylint checks
+ENABLE_PYLINT:BOOL=OFF
+
+// Solution folder in Visual Studio or in other IDEs
+ENABLE_SOLUTION_FOLDERS:BOOL=OFF
+
+// Output directory for applications
+EXECUTABLE_OUTPUT_PATH:PATH=/home/dhankar/opencv_cuda/opencv/build/bin
+
+// The directory containing a CMake configuration file for Eigen3.
+Eigen3_DIR:PATH=/usr/lib/cmake/eigen3
+
+// Generate XML file for abi_compliance_checker tool
+GENERATE_ABI_DESCRIPTOR:BOOL=OFF
+
+// Git command line client
+GIT_EXECUTABLE:FILEPATH=/usr/bin/git
+
+// Path to a file.
+GLOG_INCLUDE_DIR:PATH=GLOG_INCLUDE_DIR-NOTFOUND
+
+// Path to a library.
+Glog_LIBS:FILEPATH=Glog_LIBS-NOTFOUND
+
+// HDF5 C Wrapper compiler.  Used only to detect HDF5 compile flags.
+HDF5_C_COMPILER_EXECUTABLE:FILEPATH=/usr/bin/h5cc
+
+// Path to a library.
+HDF5_C_LIBRARY_dl:FILEPATH=/usr/lib/x86_64-linux-gnu/libdl.so
+
+// Path to a library.
+HDF5_C_LIBRARY_hdf5:FILEPATH=/usr/lib/x86_64-linux-gnu/hdf5/serial/libhdf5.so
+
+// Path to a library.
+HDF5_C_LIBRARY_m:FILEPATH=/usr/lib/x86_64-linux-gnu/libm.so
+
+// Path to a library.
+HDF5_C_LIBRARY_pthread:FILEPATH=/usr/lib/x86_64-linux-gnu/libpthread.so
+
+// Path to a library.
+HDF5_C_LIBRARY_sz:FILEPATH=/usr/lib/x86_64-linux-gnu/libsz.so
+
+// Path to a library.
+HDF5_C_LIBRARY_z:FILEPATH=/usr/lib/x86_64-linux-gnu/libz.so
+
+// HDF5 file differencing tool.
+HDF5_DIFF_EXECUTABLE:FILEPATH=HDF5_DIFF_EXECUTABLE-NOTFOUND
+
+// The directory containing a CMake configuration file for HDF5.
+HDF5_DIR:PATH=HDF5_DIR-NOTFOUND
+
+// Change install rules to build the distribution package
+INSTALL_CREATE_DISTRIB:BOOL=OFF
+
+// Install C examples
+INSTALL_C_EXAMPLES:BOOL=OFF
+
+// Install Python examples
+INSTALL_PYTHON_EXAMPLES:BOOL=OFF
+
+// Install accuracy and performance test binaries and test data
+INSTALL_TESTS:BOOL=OFF
+
+// Enables mangled install paths, that help with side by side installs.
+INSTALL_TO_MANGLED_PATHS:BOOL=OFF
+
+// Path to a file.
+JAVA_AWT_INCLUDE_PATH:PATH=JAVA_AWT_INCLUDE_PATH-NOTFOUND
+
+// Path to a library.
+JAVA_AWT_LIBRARY:FILEPATH=/usr/lib/jvm/default-java/lib/libjawt.so
+
+// Path to a file.
+JAVA_INCLUDE_PATH:PATH=JAVA_INCLUDE_PATH-NOTFOUND
+
+// Path to a file.
+JAVA_INCLUDE_PATH2:PATH=JAVA_INCLUDE_PATH2-NOTFOUND
+
+// Path to a library.
+JAVA_JVM_LIBRARY:FILEPATH=/usr/lib/jvm/default-java/lib/server/libjvm.so
+
+// Path to a file.
+JPEG_INCLUDE_DIR:PATH=/usr/include
+
+// Path to a library.
+JPEG_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libjpeg.so
+
+// Path to a file.
+LAPACKE_INCLUDE_DIR:PATH=LAPACKE_INCLUDE_DIR-NOTFOUND
+
+// Alternative name of cblas.h
+LAPACK_CBLAS_H:STRING=
+
+// Lapack implementation id
+LAPACK_IMPL:STRING=Unknown
+
+// Path to BLAS include dir
+LAPACK_INCLUDE_DIR:PATH=
+
+// Alternative name of lapacke.h
+LAPACK_LAPACKE_H:STRING=
+
+// Names of BLAS & LAPACK binaries (.so, .dll, .a, .lib)
+LAPACK_LIBRARIES:STRING=
+
+// Path to a library.
+LAPACK_goto2_LIBRARY:FILEPATH=LAPACK_goto2_LIBRARY-NOTFOUND
+
+// Path to a library.
+LAPACK_openblas_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libopenblas.so
+
+// Path to MKL include directory
+MKL_INCLUDE_DIRS:PATH=MKL_ROOT_DIR-NOTFOUND/include
+
+// Path to a file.
+MKL_LAPACKE_INCLUDE_DIR:PATH=MKL_LAPACKE_INCLUDE_DIR-NOTFOUND
+
+// Path to a file.
+MKL_ROOT_DIR:PATH=MKL_ROOT_DIR-NOTFOUND
+
+// Use MKL with OpenMP multithreading
+MKL_WITH_OPENMP:BOOL=OFF
+
+// Use MKL with TBB multithreading
+MKL_WITH_TBB:BOOL=OFF
+
+// The directory containing a CMake configuration file for OGRE.
+OGRE_DIR:PATH=OGRE_DIR-NOTFOUND
+
+// OpenCL library is found
+OPENCL_FOUND:BOOL=ON
+
+// OpenCL include directory
+OPENCL_INCLUDE_DIR:PATH=/home/dhankar/opencv_cuda/opencv/3rdparty/include/opencl/1.2
+
+// OpenCL library
+OPENCL_LIBRARY:STRING=
+
+// Where to create the platform-dependant cvconfig.h
+OPENCV_CONFIG_FILE_INCLUDE_DIR:PATH=/home/dhankar/opencv_cuda/opencv/build
+
+// Build with CUDA support
+OPENCV_DNN_CUDA:BOOL=OFF
+
+// Build with OpenCL support
+OPENCV_DNN_OPENCL:BOOL=ON
+
+// Download parameters to be passed to file(DOWNLAOD ...)
+OPENCV_DOWNLOAD_PARAMS:STRING=INACTIVITY_TIMEOUT;60;TIMEOUT;600
+
+// Cache directory for downloaded files
+OPENCV_DOWNLOAD_PATH:PATH=/home/dhankar/opencv_cuda/opencv/.cache
+
+// List of download tries
+OPENCV_DOWNLOAD_TRIES_LIST:STRING=1
+
+// Dump called OpenCV hooks
+OPENCV_DUMP_HOOKS_FLOW:BOOL=OFF
+
+// Enable Allocator metrics
+OPENCV_ENABLE_ALLOCATOR_STATS:BOOL=ON
+
+// Enable C++ compiler support for atomic<long long>
+OPENCV_ENABLE_ATOMIC_LONG_LONG:BOOL=ON
+
+// Enable posix_memalign or memalign usage
+OPENCV_ENABLE_MEMALIGN:BOOL=ON
+
+// Better support for memory/address sanitizers
+OPENCV_ENABLE_MEMORY_SANITIZER:BOOL=OFF
+
+// Enable non-free algorithms
+OPENCV_ENABLE_NONFREE:BOOL=OFF
+
+// Where to look for additional OpenCV modules (can be ;-separated list of paths)
+OPENCV_EXTRA_MODULES_PATH:PATH=/home/dhankar/opencv_cuda/opencv_contrib/modules
+
+// Force using 3rdparty code from source
+OPENCV_FORCE_3RDPARTY_BUILD:BOOL=OFF
+
+// Generate .pc file for pkg-config build tool (deprecated)
+OPENCV_GENERATE_PKGCONFIG:BOOL=OFF
+
+// Generate setup_vars* scripts
+OPENCV_GENERATE_SETUPVARS:BOOL=ON
+
+// Java source version (javac Ant target)
+OPENCV_JAVA_SOURCE_VERSION:STRING=
+
+// Java target version (javac Ant target)
+OPENCV_JAVA_TARGET_VERSION:STRING=
+
+// URI to a MathJax installation
+OPENCV_MATHJAX_RELPATH:STRING=https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0
+
+// Python3 version
+OPENCV_PYTHON3_VERSION:BOOL=OFF
+
+// Timestamp of OpenCV build configuration
+OPENCV_TIMESTAMP:STRING=2020-07-26T18:00:40Z
+
+// Treat warnings as errors
+OPENCV_WARNINGS_ARE_ERRORS:BOOL=OFF
+
+// Path to a library.
+OPENEXR_HALF_LIBRARY:FILEPATH=OPENEXR_HALF_LIBRARY-NOTFOUND
+
+// Path to a library.
+OPENEXR_IEX_LIBRARY:FILEPATH=OPENEXR_IEX_LIBRARY-NOTFOUND
+
+// Path to a library.
+OPENEXR_ILMTHREAD_LIBRARY:FILEPATH=OPENEXR_ILMTHREAD_LIBRARY-NOTFOUND
+
+// Path to a library.
+OPENEXR_IMATH_LIBRARY:FILEPATH=OPENEXR_IMATH_LIBRARY-NOTFOUND
+
+// Path to a file.
+OPENEXR_INCLUDE_PATH:PATH=OPENEXR_INCLUDE_PATH-NOTFOUND
+
+// Path to a file.
+OpenBLAS_INCLUDE_DIR:PATH=OpenBLAS_INCLUDE_DIR-NOTFOUND
+
+// Path to a library.
+OpenBLAS_LIB:FILEPATH=OpenBLAS_LIB-NOTFOUND
+
+// The directory containing a CMake configuration file for OpenCV_HAL.
+OpenCV_HAL_DIR:PATH=OpenCV_HAL_DIR-NOTFOUND
+
+// The directory containing a CMake configuration file for OpenJPEG.
+OpenJPEG_DIR:PATH=/usr/lib/x86_64-linux-gnu/openjpeg-2.3
+
+// pkg-config executable
+PKG_CONFIG_EXECUTABLE:FILEPATH=/usr/bin/pkg-config
+
+// Path to a library.
+PNG_LIBRARY_DEBUG:FILEPATH=PNG_LIBRARY_DEBUG-NOTFOUND
+
+// Path to a library.
+PNG_LIBRARY_RELEASE:FILEPATH=/usr/lib/x86_64-linux-gnu/libpng.so
+
+// Path to a file.
+PNG_PNG_INCLUDE_DIR:PATH=/usr/include
+
+// Force rebuilding .proto files (protoc should be available)
+PROTOBUF_UPDATE_FILES:BOOL=OFF
+
+// Path to Python interpreter
+PYTHON2_EXECUTABLE:FILEPATH=
+
+// Python include dir
+PYTHON2_INCLUDE_DIR:PATH=
+
+// Python include dir 2
+PYTHON2_INCLUDE_DIR2:PATH=
+
+// Path to Python library
+PYTHON2_LIBRARY:FILEPATH=
+
+// Path to Python debug
+PYTHON2_LIBRARY_DEBUG:FILEPATH=
+
+// Path to numpy headers
+PYTHON2_NUMPY_INCLUDE_DIRS:PATH=
+
+// Where to install the python packages.
+PYTHON2_PACKAGES_PATH:PATH=
+
+// Path to Python interpreter
+PYTHON3_EXECUTABLE:FILEPATH=/home/dhankar/.virtualenvs/opencv_cuda/bin/python3
+
+// Python include dir
+PYTHON3_INCLUDE_DIR:PATH=
+
+// Python include dir 2
+PYTHON3_INCLUDE_DIR2:PATH=
+
+// Path to Python library
+PYTHON3_LIBRARY:FILEPATH=
+
+// Path to Python debug
+PYTHON3_LIBRARY_DEBUG:FILEPATH=
+
+// Path to numpy headers
+PYTHON3_NUMPY_INCLUDE_DIRS:PATH=/home/dhankar/.virtualenvs/opencv_cuda/lib/python3.7/site-packages/numpy/core/include
+
+// Where to install the python packages.
+PYTHON3_PACKAGES_PATH:PATH=lib/python3.7/site-packages
+
+// Path to a file.
+TIFF_INCLUDE_DIR:PATH=/usr/include/x86_64-linux-gnu
+
+// Path to a library.
+TIFF_LIBRARY_DEBUG:FILEPATH=TIFF_LIBRARY_DEBUG-NOTFOUND
+
+// Path to a library.
+TIFF_LIBRARY_RELEASE:FILEPATH=/usr/lib/x86_64-linux-gnu/libtiff.so
+
+// The directory containing a CMake configuration file for Tesseract.
+Tesseract_DIR:PATH=Tesseract_DIR-NOTFOUND
+
+// Allow building videoio plugin support
+VIDEOIO_ENABLE_PLUGINS:BOOL=ON
+
+// Make sure OpenCV version is the same in plugin and host code
+VIDEOIO_ENABLE_STRICT_PLUGIN_CHECK:BOOL=ON
+
+// List of videoio backends to be compiled as plugins (ffmpeg, gstreamer)
+VIDEOIO_PLUGIN_LIST:STRING=
+
+// The directory containing a CMake configuration file for VTK.
+VTK_DIR:PATH=VTK_DIR-NOTFOUND
+
+// Path to a file.
+WEBP_INCLUDE_DIR:PATH=/usr/include
+
+// Path to a library.
+WEBP_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libwebp.so
+
+// Include IEEE1394 support
+WITH_1394:BOOL=ON
+
+// Enable ADE framework (required for Graph API module)
+WITH_ADE:BOOL=ON
+
+// Include Aravis GigE support
+WITH_ARAVIS:BOOL=OFF
+
+// Include Clp support (EPL)
+WITH_CLP:BOOL=OFF
+
+// Include NVidia Cuda Runtime support
+WITH_CUDA:BOOL=OFF
+
+// Include Eigen2/Eigen3 support
+WITH_EIGEN:BOOL=ON
+
+// Include FFMPEG support
+WITH_FFMPEG:BOOL=ON
+
+// Enable FreeType framework
+WITH_FREETYPE:BOOL=OFF
+
+// Include GDAL Support
+WITH_GDAL:BOOL=OFF
+
+// Include DICOM support
+WITH_GDCM:BOOL=OFF
+
+// Include gPhoto2 library support
+WITH_GPHOTO2:BOOL=OFF
+
+// Include Gstreamer support
+WITH_GSTREAMER:BOOL=ON
+
+// Include GTK support
+WITH_GTK:BOOL=ON
+
+// Use GTK version 2
+WITH_GTK_2_X:BOOL=OFF
+
+// Include Halide support
+WITH_HALIDE:BOOL=OFF
+
+// Include Ste||ar Group HPX support
+WITH_HPX:BOOL=OFF
+
+// Include HDR support
+WITH_IMGCODEC_HDR:BOOL=ON
+
+// Include PFM formats support
+WITH_IMGCODEC_PFM:BOOL=ON
+
+// Include PNM (PBM,PGM,PPM) and PAM formats support
+WITH_IMGCODEC_PXM:BOOL=ON
+
+// Include SUNRASTER support
+WITH_IMGCODEC_SUNRASTER:BOOL=ON
+
+// Include Intel Inference Engine support
+WITH_INF_ENGINE:BOOL=OFF
+
+// Include Intel IPP support
+WITH_IPP:BOOL=ON
+
+// Include Intel ITT support
+WITH_ITT:BOOL=ON
+
+// Include JPEG2K support (Jasper)
+WITH_JASPER:BOOL=ON
+
+// Include JPEG support
+WITH_JPEG:BOOL=ON
+
+// Include Lapack library support
+WITH_LAPACK:BOOL=ON
+
+// Include Intel librealsense support
+WITH_LIBREALSENSE:BOOL=OFF
+
+// Include Matlab support (opencv_contrib)
+WITH_MATLAB:BOOL=OFF
+
+// Include Intel Media SDK support
+WITH_MFX:BOOL=OFF
+
+// Include nGraph support
+WITH_NGRAPH:BOOL=OFF
+
+// Include OpenCL Runtime support
+WITH_OPENCL:BOOL=ON
+
+// Include AMD OpenCL BLAS library support
+WITH_OPENCLAMDBLAS:BOOL=ON
+
+// Include AMD OpenCL FFT library support
+WITH_OPENCLAMDFFT:BOOL=ON
+
+// Include OpenCL Shared Virtual Memory support
+WITH_OPENCL_SVM:BOOL=OFF
+
+// Include ILM support via OpenEXR
+WITH_OPENEXR:BOOL=ON
+
+// Include OpenGL support
+WITH_OPENGL:BOOL=OFF
+
+// Include JPEG2K support (OpenJPEG)
+WITH_OPENJPEG:BOOL=ON
+
+// Include OpenMP support
+WITH_OPENMP:BOOL=OFF
+
+// Include OpenNI support
+WITH_OPENNI:BOOL=OFF
+
+// Include OpenNI2 support
+WITH_OPENNI2:BOOL=OFF
+
+// Include OpenVX support
+WITH_OPENVX:BOOL=OFF
+
+// Include PlaidML2 support
+WITH_PLAIDML:BOOL=OFF
+
+// Include PNG support
+WITH_PNG:BOOL=ON
+
+// Enable libprotobuf
+WITH_PROTOBUF:BOOL=ON
+
+// Use pthreads-based parallel_for
+WITH_PTHREADS_PF:BOOL=ON
+
+// Include Prosilica GigE support
+WITH_PVAPI:BOOL=OFF
+
+// Build with Qt Backend support
+WITH_QT:BOOL=OFF
+
+// Include library QR-code decoding
+WITH_QUIRC:BOOL=ON
+
+// Include Intel TBB support
+WITH_TBB:BOOL=OFF
+
+// Include Tesseract OCR library support
+WITH_TESSERACT:BOOL=ON
+
+// Include TIFF support
+WITH_TIFF:BOOL=ON
+
+// Include Video 4 Linux support
+WITH_V4L:BOOL=ON
+
+// Include VA support
+WITH_VA:BOOL=OFF
+
+// Include Intel VA-API/OpenCL support
+WITH_VA_INTEL:BOOL=OFF
+
+// Include VTK library support (and build opencv_viz module eiher)
+WITH_VTK:BOOL=ON
+
+// Include Vulkan support
+WITH_VULKAN:BOOL=OFF
+
+// Include WebP support
+WITH_WEBP:BOOL=ON
+
+// Include XIMEA cameras support
+WITH_XIMEA:BOOL=OFF
+
+// Include Xine support (GPL)
+WITH_XINE:BOOL=OFF
+
+// Path to a file.
+ZLIB_INCLUDE_DIR:PATH=/usr/include
+
+// Path to a library.
+ZLIB_LIBRARY_DEBUG:FILEPATH=ZLIB_LIBRARY_DEBUG-NOTFOUND
+
+// Path to a library.
+ZLIB_LIBRARY_RELEASE:FILEPATH=/usr/lib/x86_64-linux-gnu/libz.so
+
+// The directory containing a CMake configuration file for gflags.
+gflags_DIR:PATH=/home/dhankar/_dc_all/odmOwnUp/OpenDroneMap/ODM/SuperBuild/install/lib/cmake/gflags
+
+// Add performance tests of Caffe framework
+opencv_dnn_PERF_CAFFE:BOOL=OFF
+
+// Add performance tests of clCaffe framework
+opencv_dnn_PERF_CLCAFFE:BOOL=OFF
+
+// Path to a library.
+pkgcfg_lib_FFMPEG_avcodec:FILEPATH=/usr/lib/x86_64-linux-gnu/libavcodec.so
+
+// Path to a library.
+pkgcfg_lib_FFMPEG_avformat:FILEPATH=/usr/lib/x86_64-linux-gnu/libavformat.so
+
+// Path to a library.
+pkgcfg_lib_FFMPEG_avutil:FILEPATH=/usr/lib/x86_64-linux-gnu/libavutil.so
+
+// Path to a library.
+pkgcfg_lib_FFMPEG_swscale:FILEPATH=/usr/lib/x86_64-linux-gnu/libswscale.so
+
+// Path to a library.
+pkgcfg_lib_FREETYPE_freetype:FILEPATH=/usr/lib/x86_64-linux-gnu/libfreetype.so
+
+// Path to a library.
+pkgcfg_lib_GTHREAD_glib-2.0:FILEPATH=/usr/lib/x86_64-linux-gnu/libglib-2.0.so
+
+// Path to a library.
+pkgcfg_lib_GTHREAD_gthread-2.0:FILEPATH=/usr/lib/x86_64-linux-gnu/libgthread-2.0.so
+
+// Path to a library.
+pkgcfg_lib_GTK3_atk-1.0:FILEPATH=/usr/lib/x86_64-linux-gnu/libatk-1.0.so
+
+// Path to a library.
+pkgcfg_lib_GTK3_cairo:FILEPATH=/usr/lib/x86_64-linux-gnu/libcairo.so
+
+// Path to a library.
+pkgcfg_lib_GTK3_cairo-gobject:FILEPATH=/usr/lib/x86_64-linux-gnu/libcairo-gobject.so
+
+// Path to a library.
+pkgcfg_lib_GTK3_gdk-3:FILEPATH=/usr/lib/x86_64-linux-gnu/libgdk-3.so
+
+// Path to a library.
+pkgcfg_lib_GTK3_gdk_pixbuf-2.0:FILEPATH=/usr/lib/x86_64-linux-gnu/libgdk_pixbuf-2.0.so
+
+// Path to a library.
+pkgcfg_lib_GTK3_gio-2.0:FILEPATH=/usr/lib/x86_64-linux-gnu/libgio-2.0.so
+
+// Path to a library.
+pkgcfg_lib_GTK3_glib-2.0:FILEPATH=/usr/lib/x86_64-linux-gnu/libglib-2.0.so
+
+// Path to a library.
+pkgcfg_lib_GTK3_gobject-2.0:FILEPATH=/usr/lib/x86_64-linux-gnu/libgobject-2.0.so
+
+// Path to a library.
+pkgcfg_lib_GTK3_gtk-3:FILEPATH=/usr/lib/x86_64-linux-gnu/libgtk-3.so
+
+// Path to a library.
+pkgcfg_lib_GTK3_pango-1.0:FILEPATH=/usr/lib/x86_64-linux-gnu/libpango-1.0.so
+
+// Path to a library.
+pkgcfg_lib_GTK3_pangocairo-1.0:FILEPATH=/usr/lib/x86_64-linux-gnu/libpangocairo-1.0.so
+
+// Path to a library.
+pkgcfg_lib_HARFBUZZ_harfbuzz:FILEPATH=/usr/lib/x86_64-linux-gnu/libharfbuzz.so
+
+// Path to a library.
+pkgcfg_lib_Tesseract_tesseract:FILEPATH=/usr/lib/x86_64-linux-gnu/libtesseract.so
+

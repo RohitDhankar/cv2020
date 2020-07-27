@@ -20,6 +20,33 @@
 ```
 #
 
+##### Need to see CMAKE cached variable values - before we go for next clean BUILD
+
+> When we give a vanilla - cmake - command .    
+ As seen below the last terminal prints from a BUILD end with the line -     
+-- Build files have been written to: /home/dhankar/opencv_cuda/opencv/build   
+#
+
+```
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/dhankar/opencv_cuda/opencv/build
+```
+#
+
+When we need to see CMAKE cached variable values - before we go for next clean BUILD   
+At terminal within the BUILD DIR 
+```
+
+dhankar@dhankar-1:~/opencv_cuda/opencv/build$ cmake -LAH .. > ~/cmake_LAH_variables.txt
+dhankar@dhankar-1:~/opencv_cuda/opencv/build$ # Above will run CMAKE again and also provide the - LAH within a text file log. 
+dhankar@dhankar-1:~/opencv_cuda/opencv/build$ cmake -L -N > ~/cmake_L-N_variables.txt
+dhankar@dhankar-1:~/opencv_cuda/opencv/build$ # Above will NOT run CMAKE again - will only provide CACHED VARIABLES - within a text file log. 
+
+```
+ - The text file logs from above - ```cmake -L -N``` are here - 
+
+#
 
 
 ##### Need to update flag for CUDA 11.0 DIR == -DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda-11.0 \
