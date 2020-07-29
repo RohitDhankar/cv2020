@@ -15,6 +15,7 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
  -D WITH_CUDA=ON \
  -D WITH_CUDNN=ON \
  -D OPENCV_DNN_CUDA=ON \
+ -D WITH_OPENGL=ON \
  -D BUILD_PERF_TESTS=OFF ..
 
 
@@ -1367,6 +1368,7 @@ See also "/home/dhankar/opencv_cuda/opencv/build/CMakeFiles/CMakeError.log".
 ###################
 
 
+sudo apt-get install build-essential gdb
 
 ##### CMAKE CUDA Linters etc -- https://code.visualstudio.com/docs/cpp/cmake-linux
 
@@ -1391,5 +1393,9 @@ Thread model: posix
 gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04) 
 (base) dhankar@dhankar-1:~/opencv_cuda/opencv$ 
 #
+
+
+
+
 
 
