@@ -1,4 +1,9 @@
-##### New ERROR ? Not sure if i got this earlier - FindCUDNN 
+##### Search within this README with the tag - FOOBAR_Error - for all errors issues etc encountered . 
+
+
+##### FOOBAR_Error_FindCUDNN - Solved as per issue raised by me at OpenCV GIT Repo - 
+
+- https://github.com/opencv/opencv/issues/17955
 
 > Searching the NVIDIA Forum - am getting one probable similar Issue , but its got to with a NVIDIA Docker Image ? 
 - https://forums.developer.nvidia.com/search?q=FindCUDNN
@@ -65,12 +70,9 @@ lrwxrwxrwx 1 root root  50 Jul 25 23:34 cudnn_adv_infer_h -> /usr/include/x86_64
 
 ```
 #
+##### FOOBAR_Error_Flags - Question asked on SO - still being investigated - CUDA NVCC target flags:
 
-
-
-
-
-
+- Own SO Question - CUDA NVCC target flags:- https://stackoverflow.com/questions/63131395/compiling-opencv-with-cmake-cuda-nvcc-target-flags-my-question-where-are
 
 
 

@@ -1,34 +1,27 @@
+-- CUDA NVCC target flags: -gencode;arch=compute_30,code=sm_30;-gencode;arch=compute_35,code=sm_35;-gencode;arch=compute_37,code=sm_37;-gencode;arch=compute_50,code=sm_50;-gencode;arch=compute_52,code=sm_52;-gencode;arch=compute_60,code=sm_60;-gencode;arch=compute_61,code=sm_61;-gencode;arch=compute_70,code=sm_70;-gencode;arch=compute_75,code=sm_75;-D_FORCE_INLINES
+
+
+
+cmake -D CMAKE_BUILD_TYPE=RELEASE \
+ -D CMAKE_INSTALL_PREFIX=/usr/local \
+ -D BUILD_opencv_python2=OFF \
+ -D INSTALL_C_EXAMPLES=OFF \
+ -D OPENCV_EXTRA_MODULES_PATH=~/opencv_cuda/opencv_contrib/modules \
+ -D HAVE_opencv_python3=ON \
+ -D PYTHON_EXECUTABLE=~/.virtualenvs/opencv_cuda/bin/python \
+ -D BUILD_TESTS=OFF \
+ -D CUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda \
+ -D OPENCV_ENABLE_NONFREE=ON \
+ -D WITH_CUDA=ON \
+ -D WITH_CUDNN=ON \
+ -D OPENCV_DNN_CUDA=ON \
+ -D BUILD_PERF_TESTS=OFF ..
+
+
+
+
 ################ FOOBAR ---- Ok CUDNN Fine but the CUDA is again 9.1 inplace of 11
 
-wxr-xr-x  3 dhankar dhankar  4096 Jul 21 13:49 include
-drwxr-xr-x  8 dhankar dhankar  4096 Jul 21 13:49 doc
-drwxr-xr-x  7 dhankar dhankar  4096 Jul 21 13:49 data
--rw-r--r--  1 dhankar dhankar   191 Jul 21 13:49 CONTRIBUTING.md
--rw-r--r--  1 dhankar dhankar 66070 Jul 21 13:49 CMakeLists.txt
-drwxr-xr-x  7 dhankar dhankar  4096 Jul 21 13:49 cmake
-drwxr-xr-x  8 dhankar dhankar  4096 Jul 21 13:49 apps
-drwxr-xr-x 21 dhankar dhankar  4096 Jul 21 13:49 3rdparty
-drwxr-xr-x 17 dhankar dhankar  4096 Jul 27 17:57 1st_build
-drwxr-xr-x  2 dhankar dhankar  4096 Jul 27 20:41 build
-(opencv_cuda) dhankar@dhankar-1:~/opencv_cuda/opencv$ 
-(opencv_cuda) dhankar@dhankar-1:~/opencv_cuda/opencv$ cd build
-(opencv_cuda) dhankar@dhankar-1:~/opencv_cuda/opencv/build$ 
-(opencv_cuda) dhankar@dhankar-1:~/opencv_cuda/opencv/build$ cmake -D CMAKE_BUILD_TYPE=RELEASE \
-> -D CMAKE_INSTALL_PREFIX=/usr/local \
->         -D BUILD_opencv_python2=OFF \
->         -D INSTALL_C_EXAMPLES=OFF \
-> -D OPENCV_EXTRA_MODULES_PATH=~/opencv_cuda/opencv_contrib/modules \
-> -D HAVE_opencv_python3=ON \
-> -D PYTHON_EXECUTABLE=~/.virtualenvs/opencv_cuda/bin/python \
->         -D BUILD_TESTS=OFF \
-> -D OPENCV_ENABLE_NONFREE=ON \
-> -D WITH_CUDA=ON \
-> -D WITH_CUDNN=ON \
-> -D OPENCV_DNN_CUDA=ON \
->         -D BUILD_PERF_TESTS=OFF ..^C
-(opencv_cuda) dhankar@dhankar-1:~/opencv_cuda/opencv/build$ 
-(opencv_cuda) dhankar@dhankar-1:~/opencv_cuda/opencv/build$ ls -ltr
-total 0
 (opencv_cuda) dhankar@dhankar-1:~/opencv_cuda/opencv/build$ 
 (opencv_cuda) dhankar@dhankar-1:~/opencv_cuda/opencv/build$ cmake -D CMAKE_BUILD_TYPE=RELEASE \
 > -D CMAKE_INSTALL_PREFIX=/usr/local \
@@ -447,6 +440,11 @@ Call Stack (most recent call first):
   cmake/OpenCVDetectCUDA.cmake:267 (ocv_filter_available_architecture)
   cmake/OpenCVFindLibsPerf.cmake:43 (include)
   CMakeLists.txt:688 (include)
+
+DWITH_CUDA=ON -DCUDA_NVCC_FLAGS="-ccbin /usr/bin/gcc -D_FORCE_INLINES --expt-relaxed-constexpr -std=c++11" \
+-DCUDA_ARCH_BIN="3.5, 3.7, 5.0, 5.2, 6.0, 6.1" \
+-DWITH_
+
 
 
 -- CUDA NVCC target flags: -D_FORCE_INLINES
@@ -1367,3 +1365,31 @@ See also "/home/dhankar/opencv_cuda/opencv/build/CMakeFiles/CMakeError.log".
 
 
 ###################
+
+
+
+##### CMAKE CUDA Linters etc -- https://code.visualstudio.com/docs/cpp/cmake-linux
+
+(base) dhankar@dhankar-1:~/opencv_cuda/opencv$ code .
+(base) dhankar@dhankar-1:~/opencv_cuda/opencv$ cmake --version
+cmake version 3.10.2
+
+CMake suite maintained and supported by Kitware (kitware.com/cmake).
+(base) dhankar@dhankar-1:~/opencv_cuda/opencv$ gcc -V
+gcc: error: unrecognized command line option ‘-V’
+gcc: fatal error: no input files
+compilation terminated.
+(base) dhankar@dhankar-1:~/opencv_cuda/opencv$ gcc -v
+Using built-in specs.
+COLLECT_GCC=/usr/bin/gcc
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper
+OFFLOAD_TARGET_NAMES=nvptx-none
+OFFLOAD_TARGET_DEFAULT=1
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 7.5.0-3ubuntu1~18.04' --with-bugurl=file:///usr/share/doc/gcc-7/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++ --prefix=/usr --with-gcc-major-version-only --program-suffix=-7 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-libmpx --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
+Thread model: posix
+gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04) 
+(base) dhankar@dhankar-1:~/opencv_cuda/opencv$ 
+#
+
+
