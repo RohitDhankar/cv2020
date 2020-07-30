@@ -1,3 +1,10 @@
+##### CMAKE intro Talks YouTube - in no particular order 
+
+- CppCon 2017: Mathieu Ropert “Using Modern CMake Patterns to Enforce a Good Modular Design” - https://www.youtube.com/watch?v=eC9-iRN2b04
+- https://www.youtube.com/watch?v=6hC9IxqdDDw
+
+
+
 ##### CMAKE Linting and Formatting - VSCode and Terminal Options
 
 > 3 Extensions for CMAKE - now enabled in VSCode , these are - CMAKE(twxs) , CMake Tools (MS) , cmake-format (chesireKow)
