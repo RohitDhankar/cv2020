@@ -1394,8 +1394,204 @@ gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04)
 (base) dhankar@dhankar-1:~/opencv_cuda/opencv$ 
 #
 
+##### FOOBAR_Error_C_Cpp.errorSquiggles
 
 
 
 
 
+
+
+
+##### FOOBAR_Install_TOR_Starts --- # --- --- # ------ # ------ # ------ # ------ # ---
+
+> Added below text to the bottom of own File == /etc/apt$ sources.list  
+
+# TOR Browser installed MANUALLY - FOOBAR-DHANKAR -- https://2019.www.torproject.org/docs/debian.html.en
+deb https://deb.torproject.org/torproject.org bionic main
+deb-src https://deb.torproject.org/torproject.org bionic main
+#
+# curl https://deb.torproject.org/torproject.org/A3C4F0F979CAA22CDBA8F512EE8CBC9E886DDD89.asc | gpg --import
+# gpg --export A3C4F0F979CAA22CDBA8F512EE8CBC9E886DDD89 | apt-key add -
+#
+- Web of TRUST -- Validating other keys on your public keyring- https://www.gnupg.org/gph/en/manual/x334.html
+#
+dhankar@dhankar-1:/etc/apt$ 
+dhankar@dhankar-1:/etc/apt$ curl https://deb.torproject.org/torproject.org/A3C4F0F979CAA22CDBA8F512EE8CBC9E886DDD89.asc | gpg --import
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 19665  100 19665    0     0    145      0  0:02:15  0:02:15 --:--:--  6215
+gpg: key EE8CBC9E886DDD89: 36 signatures not checked due to missing keys
+gpg: key EE8CBC9E886DDD89: public key "deb.torproject.org archive signing key" imported
+gpg: Total number processed: 1
+gpg:               imported: 1
+gpg: no ultimately trusted keys found
+#
+dhankar@dhankar-1:/etc/apt$ 
+dhankar@dhankar-1:/etc/apt$ curl https://deb.torproject.org/torproject.org/A3C4F0F979CAA22CDBA8F512EE8CBC9E886DDD89.asc | gpg --import
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 19665  100 19665    0     0   8775      0  0:00:02  0:00:02 --:--:--  8771
+gpg: key EE8CBC9E886DDD89: 36 signatures not checked due to missing keys
+gpg: key EE8CBC9E886DDD89: "deb.torproject.org archive signing key" not changed
+gpg: Total number processed: 1
+gpg:              unchanged: 1
+dhankar@dhankar-1:/etc/apt$ 
+#
+ankar@dhankar-1:/etc/apt$ 
+dhankar@dhankar-1:/etc/apt$ curl https://deb.torproject.org/torproject.org/A3C4F0F979CAA22CDBA8F512EE8CBC9E886DDD89.asc | gpg --import
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 19665  100 19665    0     0   8775      0  0:00:02  0:00:02 --:--:--  8771
+gpg: key EE8CBC9E886DDD89: 36 signatures not checked due to missing keys
+gpg: key EE8CBC9E886DDD89: "deb.torproject.org archive signing key" not changed
+gpg: Total number processed: 1
+gpg:              unchanged: 1
+dhankar@dhankar-1:/etc/apt$ 
+dhankar@dhankar-1:/etc/apt$ ls -ltr
+total 84
+drwxr-xr-x 2 root root  4096 May  7  2019 auth.conf.d
+-rw-r--r-- 1 root root  3244 Jul 17 20:08 sources.list.save
+-rw-r--r-- 1 root root 26912 Jul 21 18:18 trusted.gpg~
+drwxr-xr-x 2 root root  4096 Jul 24 19:02 apt.conf.d
+drwxr-xr-x 2 root root  4096 Jul 25 16:49 preferences.d
+drwxr-xr-x 2 root root  4096 Jul 25 16:52 sources.list.d
+-rw-r--r-- 1 root root 28080 Jul 25 16:53 trusted.gpg
+drwxr-xr-x 2 root root  4096 Jul 30 09:08 trusted.gpg.d
+-rw-r--r-- 1 root root  3627 Jul 30 09:51 sources.list
+
+
+dhankar@dhankar-1:/etc/apt$ 
+dhankar@dhankar-1:/etc/apt$ sudo apt install flatpak
+[sudo] password for dhankar: 
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following packages were automatically installed and are no longer required:
+  efibootmgr fonts-wine gconf-service gconf-service-backend gconf2 gconf2-common gir1.2-geocodeglib-1.0 libappindicator1 libavdevice57
+  libfwup1 libgconf-2-4 libgeos-3.6.2 libgeotiff2 libindicator7 libllvm8 libllvm8:i386 libllvm9 libllvm9:i386 liblo7 libmxml-bin libmxml-dev
+  libmxml1 libnvidia-common-435 libnvidia-common-440 libproj12 libproj13 libqgis-3d3.12.3 libqgis-analysis3.12.3 libqgis-app3.12.3
+  libqgis-core3.12.3 libqgis-gui3.12.3 libqgis-native3.12.3 libqgis-server3.12.3 libqgisgrass7-3.12.3 libqgispython3.12.3 libwine:i386
+  ubuntu-web-launchers wine32:i386
+Use 'sudo apt autoremove' to remove them.
+The following additional packages will be installed:
+  libostree-1-1
+The following NEW packages will be installed:
+  flatpak libostree-1-1
+0 upgraded, 2 newly installed, 0 to remove and 30 not upgraded.
+Need to get 1,008 kB of archives.
+After this operation, 4,205 kB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://in.archive.ubuntu.com/ubuntu bionic-updates/universe amd64 libostree-1-1 amd64 2018.8-0ubuntu0.2 [258 kB]
+Get:2 http://in.archive.ubuntu.com/ubuntu bionic-updates/universe amd64 flatpak amd64 1.0.9-0ubuntu0.1 [750 kB]
+Fetched 1,008 kB in 1s (972 kB/s)
+Selecting previously unselected package libostree-1-1:amd64.
+(Reading database ... 314122 files and directories currently installed.)
+Preparing to unpack .../libostree-1-1_2018.8-0ubuntu0.2_amd64.deb ...
+Unpacking libostree-1-1:amd64 (2018.8-0ubuntu0.2) ...
+Selecting previously unselected package flatpak.
+Preparing to unpack .../flatpak_1.0.9-0ubuntu0.1_amd64.deb ...
+Unpacking flatpak (1.0.9-0ubuntu0.1) ...
+Setting up libostree-1-1:amd64 (2018.8-0ubuntu0.2) ...
+Setting up flatpak (1.0.9-0ubuntu0.1) ...
+flatpak-system-helper.service is a disabled or a static unit, not starting it.
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+Processing triggers for dbus (1.12.2-1ubuntu1.2) ...
+Processing triggers for libc-bin (2.27-3ubuntu1.2) ...
+dhankar@dhankar-1:/etc/apt$ 
+dhankar@dhankar-1:/etc/apt$ sudo add-apt-repository ppa:alexlarsson/flatpak
+  Linux application sandboxing and distribution framework
+ More info: https://launchpad.net/~alexlarsson/+archive/ubuntu/flatpak
+Press [ENTER] to continue or Ctrl-c to cancel adding it.
+
+Get:1 file:/var/cuda-repo-ubuntu1804-11-0-local  InRelease
+Ign:1 file:/var/cuda-repo-ubuntu1804-11-0-local  InRelease
+Get:2 file:/var/cuda-repo-ubuntu1804-11-0-local  Release [564 B]
+Get:2 file:/var/cuda-repo-ubuntu1804-11-0-local  Release [564 B]
+Get:4 https://deb.torproject.org/torproject.org bionic InRelease [4,244 B]                                                    
+Err:4 https://deb.torproject.org/torproject.org bionic InRelease                                            
+  The following signatures couldn't be verified because the public key is not available: NO_PUBKEY 74A941BA219EC810
+Hit:5 http://packages.ros.org/ros/ubuntu bionic InRelease                                           
+Hit:6 https://download.docker.com/linux/ubuntu bionic InRelease                                        
+Hit:7 https://dl.winehq.org/wine-builds/ubuntu bionic InRelease                                                               
+Hit:8 https://repo.skype.com/deb stable InRelease                                                                                            
+Hit:9 https://qgis.org/ubuntugis bionic InRelease                                                                                            
+Hit:10 https://qgis.org/ubuntu bionic InRelease                                                                                              
+Get:11 http://security.ubuntu.com/ubuntu bionic-security InRelease [88.7 kB]                                                                 
+Hit:12 http://in.archive.ubuntu.com/ubuntu bionic InRelease                                                                                  
+Hit:13 http://in.archive.ubuntu.com/ubuntu bionic-updates InRelease                                                                          
+Hit:14 http://in.archive.ubuntu.com/ubuntu bionic-backports InRelease                                                                        
+Get:15 http://security.ubuntu.com/ubuntu bionic-security/main amd64 DEP-11 Metadata [46.1 kB]                                                
+Get:16 http://security.ubuntu.com/ubuntu bionic-security/universe amd64 DEP-11 Metadata [49.2 kB]                                            
+Get:17 http://security.ubuntu.com/ubuntu bionic-security/multiverse amd64 DEP-11 Metadata [2,464 B]                                          
+Hit:18 http://dl.google.com/linux/chrome/deb stable InRelease                                                                                
+Hit:19 http://packages.microsoft.com/repos/vscode stable InRelease                                                                           
+Hit:20 https://packagecloud.io/slacktechnologies/slack/debian jessie InRelease                                                               
+Get:21 http://ppa.launchpad.net/alexlarsson/flatpak/ubuntu bionic InRelease [21.3 kB]                                                        
+Hit:22 http://ppa.launchpad.net/apandada1/brightness-controller/ubuntu bionic InRelease                                                      
+Hit:23 http://ppa.launchpad.net/cybermax-dexter/sdl2-backport/ubuntu bionic InRelease                                                        
+Hit:24 http://ppa.launchpad.net/kxstudio-debian/libs/ubuntu bionic InRelease                                                                 
+Hit:25 http://ppa.launchpad.net/kxstudio-debian/music/ubuntu bionic InRelease                                                                
+Hit:26 http://ppa.launchpad.net/kxstudio-debian/plugins/ubuntu bionic InRelease                                                              
+Hit:27 http://ppa.launchpad.net/kxstudio-debian/apps/ubuntu bionic InRelease                                                                 
+Hit:28 http://ppa.launchpad.net/kxstudio-debian/kxstudio/ubuntu bionic InRelease                                                             
+Hit:29 http://ppa.launchpad.net/mixxx/mixxx/ubuntu bionic InRelease                                                                          
+Hit:30 http://ppa.launchpad.net/ubuntugis/ubuntugis-unstable/ubuntu bionic InRelease                                                         
+Get:31 http://ppa.launchpad.net/alexlarsson/flatpak/ubuntu bionic/main amd64 Packages [4,116 B]                                              
+Get:32 http://ppa.launchpad.net/alexlarsson/flatpak/ubuntu bionic/main i386 Packages [4,120 B]                                               
+Get:33 http://ppa.launchpad.net/alexlarsson/flatpak/ubuntu bionic/main Translation-en [2,852 B]                                              
+Err:34 https://kx.studio/repo stable InRelease                                                                                               
+  Could not connect to kx.studio:443 (95.216.41.244), connection timed out
+Err:35 https://kx.studio/repo gcc5 InRelease
+  Unable to connect to kx.studio:https:
+Reading package lists... Done
+W: GPG error: https://deb.torproject.org/torproject.org bionic InRelease: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY 74A941BA219EC810
+E: The repository 'https://deb.torproject.org/torproject.org bionic InRelease' is not signed.
+N: Updating from such a repository can't be done securely, and is therefore disabled by default.
+N: See apt-secure(8) manpage for repository creation and user configuration details.
+dhankar@dhankar-1:/etc/apt$ 
+dhankar@dhankar-1:/etc/apt$ sudo apt install flatpak
+[sudo] password for dhankar: 
+Sorry, try again.
+[sudo] password for dhankar: 
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following packages were automatically installed and are no longer required:
+  efibootmgr fonts-wine gconf-service gconf-service-backend gconf2 gconf2-common gir1.2-geocodeglib-1.0 libappindicator1 libavdevice57
+  libfwup1 libgconf-2-4 libgeos-3.6.2 libgeotiff2 libindicator7 libllvm8 libllvm8:i386 libllvm9 libllvm9:i386 liblo7 libmxml-bin libmxml-dev
+  libmxml1 libnvidia-common-435 libnvidia-common-440 libproj12 libproj13 libqgis-3d3.12.3 libqgis-analysis3.12.3 libqgis-app3.12.3
+  libqgis-core3.12.3 libqgis-gui3.12.3 libqgis-native3.12.3 libqgis-server3.12.3 libqgisgrass7-3.12.3 libqgispython3.12.3 libwine:i386
+  ubuntu-web-launchers wine32:i386
+Use 'sudo apt autoremove' to remove them.
+The following additional packages will be installed:
+  libostree-1-1
+The following packages will be upgraded:
+  flatpak libostree-1-1
+2 upgraded, 0 newly installed, 0 to remove and 32 not upgraded.
+Need to get 1,469 kB of archives.
+After this operation, 2,607 kB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://ppa.launchpad.net/alexlarsson/flatpak/ubuntu bionic/main amd64 libostree-1-1 amd64 2019.1-flatpak2~bionic [274 kB]
+Get:2 http://ppa.launchpad.net/alexlarsson/flatpak/ubuntu bionic/main amd64 flatpak amd64 1.8.1-flatpak1~bionic [1,195 kB]
+Fetched 1,469 kB in 4s (418 kB/s)  
+(Reading database ... 314225 files and directories currently installed.)
+Preparing to unpack .../libostree-1-1_2019.1-flatpak2~bionic_amd64.deb ...
+Unpacking libostree-1-1:amd64 (2019.1-flatpak2~bionic) over (2018.8-0ubuntu0.2) ...
+Preparing to unpack .../flatpak_1.8.1-flatpak1~bionic_amd64.deb ...
+Unpacking flatpak (1.8.1-flatpak1~bionic) over (1.0.9-0ubuntu0.1) ...
+Setting up libostree-1-1:amd64 (2019.1-flatpak2~bionic) ...
+Setting up flatpak (1.8.1-flatpak1~bionic) ...
+Installing new version of config file /etc/X11/Xsession.d/20flatpak ...
+Installing new version of config file /etc/profile.d/flatpak.sh ...
+flatpak-system-helper.service is a disabled or a static unit not running, not starting it.
+Removing obsolete conffile /etc/dbus-1/system.d/org.freedesktop.Flatpak.SystemHelper.conf ...
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+Processing triggers for dbus (1.12.2-1ubuntu1.2) ...
+Processing triggers for libc-bin (2.27-3ubuntu1.2) ...
+dhankar@dhankar-1:/etc/apt$ 
+
+
+
+
+##### FOOBAR_Install_TOR_ENDs --- # --- --- # ------ # ------ # ------ # ------ # ---
