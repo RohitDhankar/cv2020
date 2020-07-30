@@ -1394,13 +1394,10 @@ gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04)
 (base) dhankar@dhankar-1:~/opencv_cuda/opencv$ 
 #
 
-##### FOOBAR_Error_C_Cpp.errorSquiggles
+##### FOOBAR_Error_C_Cpp.errorSquiggles --- WIP
 
 
-
-
-
-
+#
 
 
 ##### FOOBAR_Install_TOR_Starts --- # --- --- # ------ # ------ # ------ # ------ # ---
@@ -1591,7 +1588,63 @@ Processing triggers for dbus (1.12.2-1ubuntu1.2) ...
 Processing triggers for libc-bin (2.27-3ubuntu1.2) ...
 dhankar@dhankar-1:/etc/apt$ 
 
+- Source - FlatPak --torbrowser-launcher-- https://github.com/micahflee/torbrowser-launcher#installing-in-any-linux-distro-using-flatpak
+#
+(base) dhankar@dhankar-1:~/_dc_all/cv20/cv2020$ flatpak install flathub com.github.micahflee.torbrowser-launcher -y
+Looking for matches…
+error: No remote refs found similar to ‘flathub’
+(base) dhankar@dhankar-1:~/_dc_all/cv20/cv2020$ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+(base) dhankar@dhankar-1:~/_dc_all/cv20/cv2020$ 
+(base) dhankar@dhankar-1:~/_dc_all/cv20/cv2020$ flatpak install flathub com.github.micahflee.torbrowser-launcher -y
+Looking for matches…
+Required runtime for com.github.micahflee.torbrowser-launcher/x86_64/stable (runtime/org.kde.Platform/x86_64/5.14) found in remote flathub
+
+com.github.micahflee.torbrowser-launcher permissions:
+    ipc      network      pulseaudio      x11      dri      file access [1]     dbus access [2]
+
+    [1] xdg-config/kdeglobals:ro, xdg-download
+    [2] com.canonical.AppMenu.Registrar
 
 
+        ID                                                                   Branch          Op         Remote          Download
+ 1. [✓] org.freedesktop.Platform.GL.default                                  19.08           i          flathub          88.6 MB / 89.1 MB
+ 2. [✓] org.freedesktop.Platform.GL.nvidia-450-51-05                         1.4             i          flathub         356.1 kB / 141.5 MB
+ 3. [✓] org.freedesktop.Platform.openh264                                    2.0             i          flathub         266.5 kB / 1.5 MB
+ 4. [✓] org.gtk.Gtk3theme.Ambiance                                           3.22            i          flathub         300.6 kB / 1.5 MB
+ 5. [✓] org.kde.Platform.Locale                                              5.14            i          flathub          17.7 kB / 337.3 MB
+ 6. [✓] org.kde.PlatformTheme.QGnomePlatform.Sources                         5.14            i          flathub          32.2 kB / 30.1 kB
+ 7. [✓] org.kde.PlatformTheme.QGnomePlatform                                 5.14            i          flathub         110.2 kB / 144.9 kB
+ 8. [✓] org.kde.PlatformTheme.QtSNI.Sources                                  5.14            i          flathub          46.7 kB / 40.0 kB
+ 9. [✓] org.kde.PlatformTheme.QtSNI                                          5.14            i          flathub           1.4 MB / 1.4 MB
+10. [✓] org.kde.WaylandDecoration.QGnomePlatform-decoration                  5.14            i          flathub          48.4 kB / 59.5 kB
+11. [✓] org.kde.WaylandDecoration.QGnomePlatform_decoration.Sources          5.14            i          flathub           2.7 kB / 30.1 kB
+12. [✓] org.kde.Platform                                                     5.14            i          flathub         303.2 MB / 363.0 MB
+13. [✓] com.github.micahflee.torbrowser-launcher                             stable          i          flathub           6.3 MB / 8.5 MB
+
+Installation complete.
+(base) dhankar@dhankar-1:~/_dc_all/cv20/cv2020$ 
+#
+#
+(base) dhankar@dhankar-1:~/_dc_all/cv20/cv2020$ flatpak run com.github.micahflee.torbrowser-launcher
+Tor Browser Launcher
+By Micah Lee, licensed under MIT
+version 0.3.2
+https://github.com/micahflee/torbrowser-launcher
+Creating GnuPG homedir /home/dhankar/.var/app/com.github.micahflee.torbrowser-launcher/data/torbrowser/gnupg_homedir
+Gtk-Message: 13:14:11.949: Failed to load module "canberra-gtk-module"
+Gtk-Message: 13:14:11.949: Failed to load module "canberra-gtk-module"
+Qt: Session management error: None of the authentication protocols specified are supported
+Downloading Tor Browser for the first time.
+Downloading https://aus1.torproject.org/torbrowser/update_3/release/Linux_x86_64-gcc3/x/en-US
+Latest version: 9.5.3
+Downloading https://dist.torproject.org/torbrowser/9.5.3/tor-browser-linux64-9.5.3_en-US.tar.xz.asc
+Downloading https://dist.torproject.org/torbrowser/9.5.3/tor-browser-linux64-9.5.3_en-US.tar.xz
+Verifying Signature
+Extracting tor-browser-linux64-9.5.3_en-US.tar.xz
+Running /home/dhankar/.var/app/com.github.micahflee.torbrowser-launcher/data/torbrowser/tbb/x86_64/tor-browser_en-US/start-tor-browser.desktop
+Launching './Browser/start-tor-browser --detach'...
+(base) dhankar@dhankar-1:~/_dc_all/cv20/cv2020$ 
+#
 
 ##### FOOBAR_Install_TOR_ENDs --- # --- --- # ------ # ------ # ------ # ------ # ---
+

@@ -1,3 +1,29 @@
+##### CMAKE Linting and Formatting - VSCode and Terminal Options
+
+> 3 Extensions for CMAKE - now enabled in VSCode , these are - CMAKE(twxs) , CMake Tools (MS) , cmake-format (chesireKow)
+
+- VSCOde Screen Capture 
+
+#
+
+> The Python package == cmakelint  , can be used from the terminal as seen below - 
+
+$ cmakelint --filter=-linelength,-readability/mixedcase ./OpenCVDetectCUDA.cmake
+
+(base) dhankar@dhankar-1:~/opencv_cuda/opencv/cmake$ cmakelint --filter=-linelength,-readability/mixedcase ./OpenCVDetectCUDA.cmake
+./OpenCVDetectCUDA.cmake:20: Line ends in whitespace [whitespace/eol]
+./OpenCVDetectCUDA.cmake:75: Do not use mixed case commands [readability/wonkycase]
+./OpenCVDetectCUDA.cmake:76: Do not use mixed case commands [readability/wonkycase]
+./OpenCVDetectCUDA.cmake:347: Extra spaces between 'if' and its () [whitespace/extra]
+Total Errors: 4
+(base) dhankar@dhankar-1:~/opencv_cuda/opencv/cmake$ 
+
+##### Tutorials from the CMAKE initial maintainer == https://github.com/vector-of-bool
+
+- https://github.com/vector-of-bool
+- How to CMake Good - 0e - CMake in Visual Studio Code - https://www.youtube.com/watch?v=wP4cwAtU-g8
+
+
 ##### Learning CMAKE 
 
 ```
