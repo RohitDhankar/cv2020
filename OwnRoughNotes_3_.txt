@@ -26,18 +26,29 @@ make: *** [all] Error 2
 
 ```
 
-cmake -G "MinGW Makefiles" D:/opencv/source/opencv 
--DBUILD_opencv_python3=ON 
--DPYTHON_EXECUTABLE=D:/Python35/python.exe 
--DPYTHON_INCLUDE_DIRS=D:/Python35/include 
--DPYTHON_LIBRARY=D:/Python35/libs/python35.lib 
--DCMAKE_C_COMPILER=gcc 
--DCMAKE_CXX_COMPILER=g++
-
 ##### Installing latest version of CMAKE 
 -Source-  https://cmake.org/download/
 
 ```
+(base) dhankar@dhankar-1:~/CMAKE_latest_Aug2020$ ls
+cmake-3.18.1  cmake-3.18.1.tar.gz
+(base) dhankar@dhankar-1:~/CMAKE_latest_Aug2020$ cd cmake-3.18.1/
+(base) dhankar@dhankar-1:~/CMAKE_latest_Aug2020/cmake-3.18.1$ ./bootstrap
+---------------------------------------------
+CMake 3.18.1, Copyright 2000-2020 Kitware, Inc. and Contributors
+Found GNU toolchain
+C compiler on this system is: gcc   
+C++ compiler on this system is: g++    
+Makefile processor on this system is: make
+g++ has setenv
+g++ has unsetenv
+g++ does not have environ in stdlib.h
+g++ has stl wstring
+g++ has <ext/stdio_filebuf.h>
+---------------------------------------------
+g++        -DCMAKE_BOOTSTRAP    -DCMake_HAVE_CXX_MAKE_UNIQUE=1   -I/home/dhankar/CMAKE_latest_Aug2020/cmake-3.18.1/Bootstrap.cmk   -I/home/dhankar/CMAKE_latest_Aug2020/cmake-3.18.1/Source   -I/home/dhankar/CMAKE_latest_Aug2020/cmake-3.18.1/Source/LexerParser   -I/home/dhankar/CMAKE_latest_Aug2020/cmake-3.18.1/Utilities/std   -I/home/dhankar/CMAKE_latest_Aug2020/cmake-3.18.1/Utilities  -c /home/dhankar/CMAKE_latest_Aug2020/cmake-3.18.1/Source/cmAddCustomCommandCommand.cxx -o cmAddCustomCommandCommand.o
+g++        -DCMAKE_BOOTSTRAP    -DCMake_HAVE_CXX_MAKE_UNIQUE=1   -I/home/dhankar/CMAKE_latest_Aug2020/cmake-3.18.1/Bootstrap.cmk   -I/home/dhankar/CMAKE_latest_Aug2020/cmake-3.18.1/Source   -I/home/dhankar/CMAKE_latest_Aug2020/cmake-3.18.1/Source/LexerParser   -I/home/dhankar/..............................
+
 [ 99%] Built target pseudo_emulator_custom_command_arg
 Scanning dependencies of target pseudo_cpplint
 [100%] Building C object Tests/RunCMake/CMakeFiles/pseudo_cpplint.dir/pseudo_cpplint.c.o
@@ -59,8 +70,6 @@ CMake suite maintained and supported by Kitware (kitware.com/cmake).
 #
 #
 
-
-
 ##### Python.h --- https://cmake.org/cmake/help/v3.0/module/FindPythonLibs.html
 > https://cmake.org/cmake/help/v3.18/module/FindPythonLibs.html   
 Deprecated since version 3.12: Use FindPython3, FindPython2 or FindPython instead. 
@@ -72,29 +81,35 @@ Line 148 == set(_include_dirs ${PYTHON_INCLUDE_DIRS})
 /home/dhankar/anaconda3/include/python3.7m/Python.h
 
 
-##### 1700h
+
+##### 2100h
 
 cmake -D CMAKE_BUILD_TYPE=RELEASE \
- -D CMAKE_INSTALL_PREFIX=/usr/local \
- -D INSTALL_PYTHON_EXAMPLES=ON \
- -D INSTALL_C_EXAMPLES=OFF \
- -D OPENCV_ENABLE_NONFREE=ON \
- -D WITH_CUDA=ON \
- -D WITH_CUDNN=ON \
- -D OPENCV_DNN_CUDA=ON \
- -D ENABLE_FAST_MATH=1 \
- -D CUDA_FAST_MATH=1 \
- -D CUDA_ARCH_BIN=7.5 \
- -D WITH_CUBLAS=1 \
- -D OPENCV_EXTRA_MODULES_PATH=~/opencv_cuda/opencv_contrib/modules \
- -D HAVE_opencv_python3=ON \
- -D PYTHON_EXECUTABLE=/home/dhankar/.virtualenvs/opencv_cuda/bin/python \
- -D PYTHON_LIBRARIES=/home/dhankar/anaconda3/lib/libpython3.7m.so \
- -D PYTHON_INCLUDE_DIRS=/home/dhankar/.virtualenvs/opencv_cuda/bin/python \
- -D CUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda \
- -D BUILD_PERF_TESTS=OFF \
- -D BUILD_TESTS=OFF \
- -D BUILD_EXAMPLES=ON .. > ~/cmakeDumpt_1700h.txt
+ -DCMAKE_INSTALL_PREFIX=/usr/local \
+ -DBUILD_opencv_python2=OFF \
+ -DBUILD_opencv_python3=ON \
+ -DINSTALL_PYTHON_EXAMPLES=ON \
+ -DINSTALL_C_EXAMPLES=OFF \
+ -DOPENCV_ENABLE_NONFREE=ON \
+ -DWITH_CUDA=ON \
+ -DWITH_CUDNN=ON \
+ -DOPENCV_DNN_CUDA=ON \
+ -DENABLE_FAST_MATH=1 \
+ -DCUDA_FAST_MATH=1 \
+ -DCUDA_ARCH_BIN=7.5 \
+ -DWITH_CUBLAS=1 \
+ -DWITH_TBB=OFF \
+ -DOPENCV_EXTRA_MODULES_PATH=~/opencv_cuda/opencv_contrib/modules \
+ -DHAVE_opencv_python3=ON \
+ -DPYTHON_DEFAULT_EXECUTABLE=/home/dhankar/.virtualenvs/opencv_cuda/bin/python \
+ -DPYTHON3_EXECUTABLE=/home/dhankar/.virtualenvs/opencv_cuda/bin/python \
+ -DPYTHON3_LIBRARY=/home/dhankar/anaconda3/lib/libpython3.7m.so \
+ -DPYTHON_INCLUDE_DIRS=/home/dhankar/.virtualenvs/opencv_cuda/bin/python \
+ -DPYTHON3_NUMPY_INCLUDE_DIRS=/home/dhankar/.virtualenvs/opencv_cuda/lib/python3.7/site-packages \
+ -DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda \
+ -DBUILD_PERF_TESTS=OFF \
+ -DBUILD_TESTS=OFF \
+ -DBUILD_EXAMPLES=ON .. > ~/cmakeDump_2100h.txt
 
 
 
@@ -6222,4 +6237,107 @@ Call Stack (most recent call first):
 (opencv_cuda) dhankar@dhankar-1:~/opencv_cuda/opencv/build$ 
 #
 
+
+##### FOOBAR_2100h_01AUG
+
+pencv_cuda) dhankar@dhankar-1:~/opencv_cuda/opencv/build$ cd /home/dhankar/.virtualenvs/opencv_cuda/
+(opencv_cuda) dhankar@dhankar-1:~/.virtualenvs/opencv_cuda$ ls -ltr
+total 12
+drwxr-xr-x 3 dhankar dhankar 4096 Jul 23 21:21 lib
+-rw-r--r-- 1 dhankar dhankar  277 Jul 23 21:21 pyvenv.cfg
+drwxr-xr-x 2 dhankar dhankar 4096 Jul 23 21:34 bin
+(opencv_cuda) dhankar@dhankar-1:~/.virtualenvs/opencv_cuda$ cd lib
+(opencv_cuda) dhankar@dhankar-1:~/.virtualenvs/opencv_cuda/lib$ ls -ltr
+total 4
+drwxr-xr-x 3 dhankar dhankar 4096 Jul 23 21:21 python3.7
+(opencv_cuda) dhankar@dhankar-1:~/.virtualenvs/opencv_cuda/lib$ cd python3.7/
+(opencv_cuda) dhankar@dhankar-1:~/.virtualenvs/opencv_cuda/lib/python3.7$ ls -ltr
+total 4
+drwxr-xr-x 13 dhankar dhankar 4096 Jul 30 23:53 site-packages
+(opencv_cuda) dhankar@dhankar-1:~/.virtualenvs/opencv_cuda/lib/python3.7$ cd site-packages/
+(opencv_cuda) dhankar@dhankar-1:~/.virtualenvs/opencv_cuda/lib/python3.7/site-packages$ ls -ltr
+total 64
+-rw-r--r--  1 dhankar dhankar 5662 Jul 23 21:21 _virtualenv.py
+-rw-r--r--  1 dhankar dhankar   18 Jul 23 21:21 _virtualenv.pth
+drwxr-xr-x  3 dhankar dhankar 4096 Jul 23 21:21 wheel
+-rw-r--r--  1 dhankar dhankar    0 Jul 23 21:21 wheel-0.34.2.virtualenv
+drwxr-xr-x  2 dhankar dhankar 4096 Jul 23 21:21 wheel-0.34.2.dist-info
+drwxr-xr-x  2 dhankar dhankar 4096 Jul 23 21:21 setuptools-49.2.0.dist-info
+drwxr-xr-x  6 dhankar dhankar 4096 Jul 23 21:21 setuptools
+-rw-r--r--  1 dhankar dhankar    0 Jul 23 21:21 setuptools-49.2.0.virtualenv
+drwxr-xr-x  4 dhankar dhankar 4096 Jul 23 21:21 pkg_resources
+-rw-r--r--  1 dhankar dhankar  126 Jul 23 21:21 easy_install.py
+-rw-r--r--  1 dhankar dhankar    0 Jul 23 21:21 pip-20.1.1.virtualenv
+drwxr-xr-x  2 dhankar dhankar 4096 Jul 23 21:21 pip-20.1.1.dist-info
+drwxr-xr-x  2 dhankar dhankar 4096 Jul 23 21:34 __pycache__
+drwxr-xr-x  5 dhankar dhankar 4096 Jul 23 21:34 pip
+drwxr-xr-x 17 dhankar dhankar 4096 Jul 23 21:34 numpy
+drwxr-xr-x  2 dhankar dhankar 4096 Jul 23 21:34 numpy.libs
+drwxr-xr-x  2 dhankar dhankar 4096 Jul 23 21:34 numpy-1.19.1.dist-info
+lrwxrwxrwx  1 dhankar dhankar  113 Jul 30 23:53 cv2.cpython-38-x86_64-linux-gnu.so -> /home/dhankar/anaconda3/envs/tensorflow_gpuenv/lib/python3.8/site-packages/cv2/cv2.cpython-38-x86_64-linux-gnu.so
+(opencv_cuda) dhankar@dhankar-1:~/.virtualenvs/opencv_cuda/lib/python3.7/site-packages$ pwd
+/home/dhankar/.virtualenvs/opencv_cuda/lib/python3.7/site-packages
+(opencv_cuda) dhankar@dhankar-1:~/.virtualenvs/opencv_cuda/lib/python3.7/site-packages$ 
+#
+(opencv_cuda) dhankar@dhankar-1:/usr/local/bin$ ls -ltr
+total 42632
+-rwxr-xr-x 1 root root 10735384 Aug  1 18:10 cpack
+-rwxr-xr-x 1 root root 10538640 Aug  1 18:11 cmake
+-rwxr-xr-x 1 root root 11907896 Aug  1 18:11 ctest
+-rwxr-xr-x 1 root root 10089288 Aug  1 18:11 ccmake
+(opencv_cuda) dhankar@dhankar-1:/usr/local/bin$ 
+#
+##### FOOBAR_cmake_latest_install_errors
+#
+CMake Error: Could not find CMAKE_ROOT !!!
+CMake has most likely not been installed correctly.
+Modules directory not found in
+/usr/local/share/cmake-3.10
+CMake Error: Error executing cmake::LoadCache(). Aborting.
+#
+
+
+
+
+
+
+
+
+
+
+
+
+##### FOOBAR_TEST -- made and source / saved the entry in bashrc
+# CMAKE installed latest version - AUG 2020 - Source-  https://cmake.org/download/
+export CMAKE_ROOT="/usr/local/bin/cmake"
+
+#
+pencv_cuda) dhankar@dhankar-1:/usr/local/bin$ cmake
+CMake Error: Could not find CMAKE_ROOT !!!
+CMake has most likely not been installed correctly.
+Modules directory not found in
+/usr/local/share/cmake-3.10
+Usage
+
+  cmake [options] <path-to-source>
+  cmake [options] <path-to-existing-build>
+
+Specify a source directory to (re-)generate a build system for it in the
+current working directory.  Specify an existing build directory to
+re-generate its build system.
+
+Run 'cmake --help' for more information.
+
+(opencv_cuda) dhankar@dhankar-1:/usr/local/bin$ cd /usr/local/share/
+(opencv_cuda) dhankar@dhankar-1:/usr/local/share$ ls -ltr
+total 56
+drwxr-xr-x 3 root root  4096 Jul 30 23:07 licenses
+drwxr-xr-x 6 root root  4096 Jul 30 23:07 opencv4
+drwxr-xr-x 6 root root  4096 Aug  1 18:15 cmake-3.18
+drwxr-xr-x 3 root root  4096 Aug  1 18:15 vim
+drwxr-xr-x 3 root root  4096 Aug  1 18:15 bash-completion
+drwxr-xr-x 2 root root  4096 Aug  1 18:15 aclocal
+(opencv_cuda) dhankar@dhankar-1:/usr/local/share$ 
+
+/usr/local/share/cmake-3.18
 
