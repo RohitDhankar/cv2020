@@ -91,7 +91,7 @@ ii  nvidia-cuda-toolkit                        9.1.85-3ubuntu1                  
 (base) dhankar@dhankar-1:/var/log$ 
 
 ```
-#
+# 
 ```
 grep installed dpkg.log.1 > ~/log_packs1.txt
 grep installed dpkg.log.2.gz > ~/log_packs2_May2020.txt
