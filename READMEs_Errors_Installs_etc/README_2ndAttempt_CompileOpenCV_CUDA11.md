@@ -1,6 +1,31 @@
 ##### Search within this README with the tag - FOOBAR_Error - for all errors issues etc encountered . 
 
 
+##### FOOBAR_Error_
+
+```
+Scanning dependencies of target example_ximgproc_thinning
+modules/xfeatures2d/CMakeFiles/example_xfeatures2d_bagofwords_classification.dir/build.make:81: recipe for target 'modules/xfeatures2d/CMakeFiles/example_xfeatures2d_bagofwords_classification.dir/samples/bagofwords_classification.cpp.o' failed
+CMakeFiles/Makefile2:10290: recipe for target 'modules/xfeatures2d/CMakeFiles/example_xfeatures2d_bagofwords_classification.dir/all' failed
+[ 56%] Building CXX object modules/ximgproc/CMakeFiles/example_ximgproc_thinning.dir/samples/thinning.cpp.o
+[ 56%] Building NVCC (Device) object modules/cudafilters/CMakeFiles/cuda_compile_1.dir/src/cuda/cuda_compile_1_generated_row_filter.32fc3.cu.o
+[ 56%] Linking CXX executable ../../bin/example_ximgproc_thinning
+[ 56%] Built target example_ximgproc_thinning
+[ 56%] Building NVCC (Device) object modules/cudafilters/CMakeFiles/cuda_compile_1.dir/src/cuda/cuda_compile_1_generated_row_filter.32fc4.cu.o
+[ 56%] Building NVCC (Device) object modules/cudafilters/CMakeFiles/cuda_compile_1.dir/src/cuda/cuda_compile_1_generated_row_filter.32sc1.cu.o
+[ 56%] Building NVCC (Device) object modules/cudafilters/CMakeFiles/cuda_compile_1.dir/src/cuda/cuda_compile_1_generated_row_filter.32sc3.cu.o
+[ 56%] Building NVCC (Device) object modules/cudafilters/CMakeFiles/cuda_compile_1.dir/src/cuda/cuda_compile_1_generated_row_filter.32sc4.cu.o
+[ 56%] Building NVCC (Device) object modules/cudafilters/CMakeFiles/cuda_compile_1.dir/src/cuda/cuda_compile_1_generated_row_filter.8uc1.cu.o
+[ 56%] Building NVCC (Device) object modules/cudafilters/CMakeFiles/cuda_compile_1.dir/src/cuda/cuda_compile_1_generated_row_filter.8uc3.cu.o
+Scanning dependencies of target opencv_cudafilters
+[ 56%] Building CXX object modules/cudafilters/CMakeFiles/opencv_cudafilters.dir/src/filtering.cpp.o
+[ 56%] Linking CXX shared library ../../lib/libopencv_cudafilters.so
+[ 56%] Built target opencv_cudafilters
+Makefile:181: recipe for target 'all' failed
+```
+
+
+
 ##### FOOBAR_Error_FindCUDNN - Solved as per issue raised by me at OpenCV GIT Repo - 
 
 - https://github.com/opencv/opencv/issues/17955
