@@ -1,7 +1,7 @@
 ##### Search within this README with the tag - FOOBAR_Error - for all errors issues etc encountered . 
 
 
-##### FOOBAR_Error_
+##### FOOBAR_Error_bagofwords_classification_SIFT
 
 ```
 Scanning dependencies of target example_ximgproc_thinning
@@ -22,8 +22,31 @@ Scanning dependencies of target opencv_cudafilters
 [ 56%] Linking CXX shared library ../../lib/libopencv_cudafilters.so
 [ 56%] Built target opencv_cudafilters
 Makefile:181: recipe for target 'all' failed
-```
+#
+# Terminal Prints as seen below --- 
+#
 
+/home/dhankar/opencv_cuda/opencv_contrib/modules/xfeatures2d/samples/bagofwords_classification.cpp: In function ‘cv::Ptr<cv::Feature2D> createByName(const String&)’:
+/home/dhankar/opencv_cuda/opencv_contrib/modules/xfeatures2d/samples/bagofwords_classification.cpp:2525:16: error: reference to ‘SIFT’ is ambiguous
+         return SIFT::create();
+                ^~~~
+In file included from /home/dhankar/opencv_cuda/opencv_contrib/modules/xfeatures2d/samples/bagofwords_classification.cpp:10:0:
+/home/dhankar/opencv_cuda/opencv_contrib/modules/xfeatures2d/include/opencv2/xfeatures2d.hpp:74:20: note: candidates are: class cv::xfeatures2d::SIFT
+ class CV_EXPORTS_W SIFT : public Feature2D
+                    ^~~~
+In file included from /home/dhankar/opencv_cuda/opencv_contrib/modules/xfeatures2d/samples/bagofwords_classification.cpp:9:0:
+/home/dhankar/opencv_cuda/opencv/modules/features2d/include/opencv2/features2d.hpp:251:20: note:                 class cv::SIFT
+ class CV_EXPORTS_W SIFT : public Feature2D
+                    ^~~~
+make[2]: *** [modules/xfeatures2d/CMakeFiles/example_xfeatures2d_bagofwords_classification.dir/samples/bagofwords_classification.cpp.o] Error 1
+make[1]: *** [modules/xfeatures2d/CMakeFiles/example_xfeatures2d_bagofwords_classification.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+make: *** [all] Error 2
+```
+#
+
+
+#
 
 
 ##### FOOBAR_Error_FindCUDNN - Solved as per issue raised by me at OpenCV GIT Repo - 
