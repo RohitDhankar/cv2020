@@ -1,4 +1,104 @@
-cv2.cpython-38-x86_64-linux-gnu.so
+
+
+#
+```
+(opencv_cuda) dhankar@dhankar-1:~$ python
+Python 3.7.4 (default, Aug 13 2019, 20:35:49) 
+[GCC 7.3.0] :: Anaconda, Inc. on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> 
+>>> import cv2
+>>> cv2.__version__
+'4.4.0-dev'
+>>> 
+#
+```
+
+#
+```
+(opencv_cuda) dhankar@dhankar-1:~/_dc_all/cv20/cv2020/2_FeatureDetection_SIFT_SURF$ python SURF_FeatureDetection.py --img_in ./Input_Images/box.png
+```
+#
+
+```
+-- Installing: /usr/local/lib/python3.7/site-packages/cv2/python-3.7/cv2.cpython-37m-x86_64-linux-gnu.so
+-- Set runtime path of "/usr/local/lib/python3.7/site-packages/cv2/python-3.7/cv2.cpython-37m-x86_64-linux-gnu.so" to "/usr/local/lib:/usr/local/cuda/lib64"
+```
+#
+
+#
+(opencv_cuda) dhankar@dhankar-1:~$ python
+Python 3.7.4 (default, Aug 13 2019, 20:35:49) 
+[GCC 7.3.0] :: Anaconda, Inc. on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> 
+>>> import cv2
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ImportError: /home/dhankar/anaconda3/bin/../lib/libfontconfig.so.1: undefined symbol: FT_Done_MM_Var
+>>> 
+>>> 
+#
+#
+
+- Delete file = ```libfreetype.so.6``` - https://kb.tecplot.com/2019/09/11/undefined-symbol-ft_done_mm_var/
+- 
+
+
+
+#
+/home/dhankar/.virtualenvs/opencv_cuda/lib/python3.7/site-packages
+#
+
+(opencv_cuda) dhankar@dhankar-1:~/opencv_cuda/opencv/build$ sudo make install > ~/sudoMakeInstall_1700h.txt
+[sudo] password for dhankar: 
+CMake Warning at samples/samples_utils.cmake:7 (add_executable):
+  Cannot generate a safe runtime search path for target
+  example_opencl_opencl-opencv-interop because files in some directories may
+  conflict with libraries in implicit directories:
+
+    runtime library [libOpenCL.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+      /usr/local/cuda/lib64
+
+  Some of these libraries may not be found correctly.
+Call Stack (most recent call first):
+  samples/opencl/CMakeLists.txt:33 (ocv_define_sample)
+
+
+(opencv_cuda) dhankar@dhankar-1:~/opencv_cuda/opencv/build$ cd /usr/local/lib/python3.7/site-packages/cv2/python-3.7
+(opencv_cuda) dhankar@dhankar-1:/usr/local/lib/python3.7/site-packages/cv2/python-3.7$ ls -ltr
+total 8044
+-rw-r--r-- 1 root root 8233424 Aug  4 17:02 cv2.cpython-37m-x86_64-linux-gnu.so
+(opencv_cuda) dhankar@dhankar-1:/usr/local/lib/python3.7/site-packages/cv2/python-3.7$ 
+(opencv_cuda) dhankar@dhankar-1:/usr/local/lib/python3.7/site-packages/cv2/python-3.7$ cd -
+/home/dhankar/opencv_cuda/opencv/build
+
+(opencv_cuda) dhankar@dhankar-1:~/opencv_cuda/opencv/build$ sudo sh -c 'echo "/usr/local/lib" >> /etc/ld.so.conf.d/opencv.conf'
+[sudo] password for dhankar: 
+(opencv_cuda) dhankar@dhankar-1:~/opencv_cuda/opencv/build$ cd /etc/ld.so.conf.d/
+(opencv_cuda) dhankar@dhankar-1:/etc/ld.so.conf.d$ ls -ltr
+total 28
+............
+-rw-r--r-- 1 root root  46 Jun 12 23:36 cuda-11-0.conf
+-rw-r--r-- 1 root root  15 Aug  4 18:04 opencv.conf
+
+(opencv_cuda) dhankar@dhankar-1:/etc/ld.so.conf.d$ gedit opencv.conf
+(opencv_cuda) dhankar@dhankar-1:/etc/ld.so.conf.d$ find /usr/local/lib/ -type f -name "cv2*.so"
+/usr/local/lib/python3.7/site-packages/cv2/python-3.7/cv2.cpython-37m-x86_64-linux-gnu.so
+(opencv_cuda) dhankar@dhankar-1:/etc/ld.so.conf.d$ 
+#
+```
+(opencv_cuda) dhankar@dhankar-1:~/.virtualenvs/opencv_cuda/lib/python3.7/site-packages$ ln -s /usr/local/lib/python3.7/site-packages/cv2/python-3.7/cv2.cpython-37m-x86_64-linux-gnu.so
+(opencv_cuda) dhankar@dhankar-1:~/.virtualenvs/opencv_cuda/lib/python3.7/site-packages$ ls -ltr
+total 68
+..........................
+drwxr-xr-x 17 dhankar dhankar 4096 Jul 23 21:34 numpy
+drwxr-xr-x  2 dhankar dhankar 4096 Jul 23 21:34 numpy.libs
+drwxr-xr-x  2 dhankar dhankar 4096 Jul 23 21:34 numpy-1.19.1.dist-info
+lrwxrwxrwx  1 dhankar dhankar  113 Jul 30 23:53 cv2.cpython-38-x86_64-linux-gnu.so -> /home/dhankar/anaconda3/envs/tensorflow_gpuenv/lib/python3.8/site-packages/cv2/cv2.cpython-38-x86_64-linux-gnu.so
+lrwxrwxrwx  1 dhankar dhankar   89 Aug  4 18:39 cv2.cpython-37m-x86_64-linux-gnu.so -> /usr/local/lib/python3.7/site-packages/cv2/python-3.7/cv2.cpython-37m-x86_64-linux-gnu.so
+
+```
 
 
 -- CUDA NVCC target flags: -gencode;arch=compute_30,code=sm_30;-gencode;arch=compute_35,code=sm_35;-gencode;arch=compute_37,code=sm_37;-gencode;arch=compute_50,code=sm_50;-gencode;arch=compute_52,code=sm_52;-gencode;arch=compute_60,code=sm_60;-gencode;arch=compute_61,code=sm_61;-gencode;arch=compute_70,code=sm_70;-gencode;arch=compute_75,code=sm_75;-D_FORCE_INLINES
@@ -81,6 +181,44 @@ Line 148 == set(_include_dirs ${PYTHON_INCLUDE_DIRS})
 
 /home/dhankar/anaconda3/include/python3.7m/Python.h
 
+
+##### FOOBAR_missing_cv2.so
+#
+> Seen below result of -```python3 -m site``` , own relevant output is - ```ENABLE_USER_SITE: False```
+```
+(opencv_cuda) dhankar@dhankar-1:~$ python3.7 -c "from distutils.sysconfig import *; print(get_python_lib())"
+/home/dhankar/.virtualenvs/opencv_cuda/lib/python3.7/site-packages
+
+(opencv_cuda) dhankar@dhankar-1:~$ python3 -m site
+sys.path = [
+    '/home/dhankar',
+    '/home/dhankar/anaconda3/lib/python37.zip',
+    '/home/dhankar/anaconda3/lib/python3.7',
+    '/home/dhankar/anaconda3/lib/python3.7/lib-dynload',
+    '/home/dhankar/.virtualenvs/opencv_cuda/lib/python3.7/site-packages',
+]
+USER_BASE: '/home/dhankar/.local' (exists)
+USER_SITE: '/home/dhankar/.local/lib/python3.7/site-packages' (exists)
+ENABLE_USER_SITE: False
+
+```
+> As seen above - i cant seem to find many refrences to learn about - ``` ENABLE_USER_SITE: False``` , whether to have it as TRUE or FALSE etc . Some ISSUES ( in the wild ) are as seen below . 
+- ENABLE_USER_SITE: False - https://github.com/conda/conda-env/pull/110
+
+
+```
+if(CMAKE_HOST_UNIX)
+        execute_process(COMMAND ${_executable} -c "from distutils.sysconfig import *; print(get_python_lib())"
+                        RESULT_VARIABLE _cvpy_process
+                        OUTPUT_VARIABLE _std_packages_path
+                        OUTPUT_STRIP_TRAILING_WHITESPACE)
+        if("${_std_packages_path}" MATCHES "site-packages")
+          set(_packages_path "python${_version_major_minor}/site-packages")
+        else() #debian based assumed, install to the dist-packages.
+          set(_packages_path "python${_version_major_minor}/dist-packages")
+        endif()
+        set(_packages_path "lib/${_packages_path}")
+```
 
 
 ##### 2100h
@@ -6625,4 +6763,796 @@ drwxr-x---  2 mysql             adm                4096 Aug  3 09:41 mysql
 (opencv_cuda) dhankar@dhankar-1:/var/log$ grep installed dpkg.log > ~/log_cmake_install.txt
 (opencv_cuda) dhankar@dhankar-1:/var/log$ grep installed dpkg.log.1 > ~/log_cmake_install.txt
 (opencv_cuda) dhankar@dhankar-1:/var/log$ 
+
+
+
+####### FOOBAR_libfontconfig.so.1
+
+- Similar issues in OpenCV GitRepo - https://github.com/opencv/opencv/issues/12625
+- https://stackoverflow.com/questions/53910698/undefined-reference-to-ft-done-mm-var/56581845#56581845
+
+
+#
+```
+(base) dhankar@dhankar-1:~/anaconda3/lib$ ls -ltr | grep "libfontconfig*"
+-rw-rw-r--  1 dhankar dhankar   494654 Jan  9  2020 libfontconfig.a
+-rwxrwxr-x  1 dhankar dhankar   324384 Jan  9  2020 libfontconfig.so.1.11.1
+lrwxrwxrwx  1 dhankar dhankar       23 Jan  9  2020 libfontconfig.so.1 -> libfontconfig.so.1.11.1
+lrwxrwxrwx  1 dhankar dhankar       23 Jan  9  2020 libfontconfig.so -> libfontconfig.so.1.11.1
+-rwxrwxr-x  1 dhankar dhankar     1259 Jan  9  2020 libfontconfig.la
+
+```
+
+##### FOOBAR_conda uninstall fontconfig___STARTS
+
+
+### Dump below probably not required 
+```
+base) dhankar@dhankar-1:~/_dc_all/cv20$ ag libfontconfig -l
+cmake_opencv/opencv-python/LICENSE-3RD-PARTY.txt
+cv2020/READMEs_Errors_Installs_etc/03AUG/OwnRoughNotes_3_.txt
+(base) dhankar@dhankar-1:~/_dc_all/cv20$ cd ~
+(base) dhankar@dhankar-1:~$ 
+(base) dhankar@dhankar-1:~$ locate libfontconfig
+/home/dhankar/anaconda3/lib/libfontconfig.a
+/home/dhankar/anaconda3/lib/libfontconfig.la
+/home/dhankar/anaconda3/lib/libfontconfig.so
+/home/dhankar/anaconda3/lib/libfontconfig.so.1
+/home/dhankar/anaconda3/lib/libfontconfig.so.1.11.1
+/home/dhankar/anaconda3/pkgs/fontconfig-2.13.0-h9420a91_0/lib/libfontconfig.a
+/home/dhankar/anaconda3/pkgs/fontconfig-2.13.0-h9420a91_0/lib/libfontconfig.la
+/home/dhankar/anaconda3/pkgs/fontconfig-2.13.0-h9420a91_0/lib/libfontconfig.so
+/home/dhankar/anaconda3/pkgs/fontconfig-2.13.0-h9420a91_0/lib/libfontconfig.so.1
+/home/dhankar/anaconda3/pkgs/fontconfig-2.13.0-h9420a91_0/lib/libfontconfig.so.1.11.1
+/snap/gnome-3-28-1804/116/usr/lib/x86_64-linux-gnu/libfontconfig.so.1
+/snap/gnome-3-28-1804/116/usr/lib/x86_64-linux-gnu/libfontconfig.so.1.10.1
+/snap/gnome-3-28-1804/116/usr/share/doc/libfontconfig1
+/snap/gnome-3-28-1804/116/usr/share/doc/libfontconfig1/AUTHORS
+/snap/gnome-3-28-1804/116/usr/share/doc/libfontconfig1/README.gz
+/snap/gnome-3-28-1804/116/usr/share/doc/libfontconfig1/changelog.Debian.gz
+/snap/gnome-3-28-1804/116/usr/share/doc/libfontconfig1/copyright
+/snap/gnome-3-28-1804/128/usr/lib/x86_64-linux-gnu/libfontconfig.so.1
+/snap/gnome-3-28-1804/128/usr/lib/x86_64-linux-gnu/libfontconfig.so.1.10.1
+/snap/gnome-3-28-1804/128/usr/share/doc/libfontconfig1
+/snap/gnome-3-28-1804/128/usr/share/doc/libfontconfig1/AUTHORS
+/snap/gnome-3-28-1804/128/usr/share/doc/libfontconfig1/README.gz
+/snap/gnome-3-28-1804/128/usr/share/doc/libfontconfig1/changelog.Debian.gz
+/snap/gnome-3-28-1804/128/usr/share/doc/libfontconfig1/copyright
+/snap/gnome-3-34-1804/33/usr/lib/x86_64-linux-gnu/libfontconfig.a
+/snap/gnome-3-34-1804/33/usr/lib/x86_64-linux-gnu/libfontconfig.so
+/snap/gnome-3-34-1804/33/usr/lib/x86_64-linux-gnu/libfontconfig.so.1
+/snap/gnome-3-34-1804/33/usr/lib/x86_64-linux-gnu/libfontconfig.so.1.10.1
+/snap/gnome-3-34-1804/36/usr/lib/x86_64-linux-gnu/libfontconfig.a
+/snap/gnome-3-34-1804/36/usr/lib/x86_64-linux-gnu/libfontconfig.so
+/snap/gnome-3-34-1804/36/usr/lib/x86_64-linux-gnu/libfontconfig.so.1
+/snap/gnome-3-34-1804/36/usr/lib/x86_64-linux-gnu/libfontconfig.so.1.10.1
+/snap/postman/118/usr/lib/x86_64-linux-gnu/libfontconfig.so.1
+/snap/postman/118/usr/lib/x86_64-linux-gnu/libfontconfig.so.1.9.0
+/snap/postman/118/usr/share/doc/libfontconfig1
+/snap/postman/118/usr/share/doc/libfontconfig1/AUTHORS
+/snap/postman/118/usr/share/doc/libfontconfig1/README.gz
+/snap/postman/118/usr/share/doc/libfontconfig1/changelog.Debian.gz
+/snap/postman/118/usr/share/doc/libfontconfig1/copyright
+/snap/postman/119/usr/lib/x86_64-linux-gnu/libfontconfig.so.1
+/snap/postman/119/usr/lib/x86_64-linux-gnu/libfontconfig.so.1.9.0
+/snap/postman/119/usr/share/doc/libfontconfig1
+/snap/postman/119/usr/share/doc/libfontconfig1/AUTHORS
+/snap/postman/119/usr/share/doc/libfontconfig1/README.gz
+/snap/postman/119/usr/share/doc/libfontconfig1/changelog.Debian.gz
+/snap/postman/119/usr/share/doc/libfontconfig1/copyright
+/usr/lib/i386-linux-gnu/libfontconfig.so.1
+/usr/lib/i386-linux-gnu/libfontconfig.so.1.10.1
+/usr/lib/x86_64-linux-gnu/libfontconfig.a
+/usr/lib/x86_64-linux-gnu/libfontconfig.so
+/usr/lib/x86_64-linux-gnu/libfontconfig.so.1
+/usr/lib/x86_64-linux-gnu/libfontconfig.so.1.10.1
+/usr/share/doc/libfontconfig1
+/usr/share/doc/libfontconfig1-dev
+/usr/share/doc/libfontconfig1/AUTHORS
+/usr/share/doc/libfontconfig1/README.gz
+/usr/share/doc/libfontconfig1/changelog.Debian.gz
+/usr/share/doc/libfontconfig1/copyright
+/usr/share/doc/libfontconfig1-dev/AUTHORS
+/usr/share/doc/libfontconfig1-dev/README.gz
+/usr/share/doc/libfontconfig1-dev/changelog.Debian.gz
+/usr/share/doc/libfontconfig1-dev/copyright
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel.pdf.gz
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel.txt.gz
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcatomiccreate.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcatomicdeletenew.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcatomicdestroy.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcatomiclock.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcatomicnewfile.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcatomicorigfile.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcatomicreplaceorig.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcatomicunlock.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcblanksadd.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcblankscreate.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcblanksdestroy.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcblanksismember.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fccachecopyset.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fccachecreatetagfile.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fccachedir.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fccachenumfont.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fccachenumsubdir.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fccachesubdir.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fccharsetaddchar.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fccharsetcopy.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fccharsetcount.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fccharsetcoverage.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fccharsetcreate.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fccharsetdelchar.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fccharsetdestroy.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fccharsetequal.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fccharsetfirstpage.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fccharsethaschar.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fccharsetintersect.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fccharsetintersectcount.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fccharsetissubset.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fccharsetmerge.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fccharsetnew.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fccharsetnextpage.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fccharsetsubtract.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fccharsetsubtractcount.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fccharsetunion.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcconfigappfontadddir.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcconfigappfontaddfile.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcconfigappfontclear.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcconfigbuildfonts.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcconfigcreate.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcconfigdestroy.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcconfigenablehome.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcconfigfilename.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcconfiggetblanks.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcconfiggetcache.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcconfiggetcachedirs.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcconfiggetconfigdirs.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcconfiggetconfigfiles.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcconfiggetcurrent.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcconfiggetfontdirs.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcconfiggetfonts.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcconfiggetrescaninterval.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcconfiggetsysroot.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcconfighome.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcconfigparseandload.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcconfigparseandloadfrommemory.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcconfigreference.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcconfigsetcurrent.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcconfigsetrescaninterval.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcconfigsetsysroot.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcconfigsubstitute.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcconfigsubstitutewithpat.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcconfiguptodate.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcdefaultsubstitute.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcdircacheclean.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcdircacheload.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcdircacheloadfile.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcdircacheread.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcdircacherescan.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcdircacheunlink.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcdircacheunload.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcdircachevalid.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcdirsave.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcdirscan.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcfileisdir.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcfilescan.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcfini.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcfontlist.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcfontmatch.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcfontrenderprepare.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcfontsetadd.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcfontsetcreate.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcfontsetdestroy.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcfontsetlist.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcfontsetmatch.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcfontsetprint.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcfontsetsort.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcfontsetsortdestroy.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcfontsort.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcfreetypecharindex.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcfreetypecharset.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcfreetypecharsetandspacing.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcfreetypequery.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcfreetypequeryface.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcgetdefaultlangs.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcgetlangs.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcgetversion.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcinit.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcinitbringuptodate.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcinitloadconfig.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcinitloadconfigandfonts.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcinitreinitialize.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcislower.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcisupper.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fclanggetcharset.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fclangnormalize.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fclangsetadd.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fclangsetcompare.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fclangsetcontains.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fclangsetcopy.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fclangsetcreate.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fclangsetdel.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fclangsetdestroy.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fclangsetequal.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fclangsetgetlangs.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fclangsethash.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fclangsethaslang.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fclangsetsubtract.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fclangsetunion.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcmatrixcopy.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcmatrixequal.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcmatrixinit.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcmatrixmultiply.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcmatrixrotate.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcmatrixscale.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcmatrixshear.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcnameconstant.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcnamegetconstant.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcnamegetobjecttype.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcnameparse.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcnameregisterconstants.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcnameregisterobjecttypes.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcnameunparse.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcnameunregisterconstants.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcnameunregisterobjecttypes.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcobjectsetadd.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcobjectsetbuild.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcobjectsetcreate.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcobjectsetdestroy.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcpatternadd-type.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcpatternadd.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcpatternaddweak.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcpatternbuild.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcpatterncreate.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcpatterndel.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcpatterndestroy.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcpatternduplicate.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcpatternequal.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcpatternequalsubset.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcpatternfilter.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcpatternformat.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcpatternget-type.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcpatternget.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcpatterngetwithbinding.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcpatternhash.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcpatternprint.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcpatternreference.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcpatternremove.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcrangecopy.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcrangecreatedouble.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcrangecreateinteger.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcrangedestroy.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcrangegetdouble.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcstrbasename.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcstrcmp.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcstrcmpignorecase.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcstrcopy.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcstrcopyfilename.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcstrdirname.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcstrdowncase.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcstrfree.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcstrlistcreate.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcstrlistdone.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcstrlistfirst.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcstrlistnext.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcstrplus.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcstrsetadd.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcstrsetaddfilename.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcstrsetcreate.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcstrsetdel.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcstrsetdestroy.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcstrsetequal.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcstrsetmember.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcstrstr.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcstrstrignorecase.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fctolower.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcucs4toutf8.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcutf16len.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcutf16toucs4.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcutf8len.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcutf8toucs4.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcvaluedestroy.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcvalueequal.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcvalueprint.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcvaluesave.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcweightfromopentype.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/fcweighttoopentype.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/index.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/x102.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/x19.html
+/usr/share/doc/libfontconfig1-dev/fontconfig-devel/x31.html
+/var/lib/dpkg/info/libfontconfig1-dev:amd64.list
+/var/lib/dpkg/info/libfontconfig1-dev:amd64.md5sums
+/var/lib/dpkg/info/libfontconfig1:amd64.list
+/var/lib/dpkg/info/libfontconfig1:amd64.md5sums
+/var/lib/dpkg/info/libfontconfig1:amd64.shlibs
+/var/lib/dpkg/info/libfontconfig1:amd64.triggers
+/var/lib/dpkg/info/libfontconfig1:i386.list
+/var/lib/dpkg/info/libfontconfig1:i386.md5sums
+/var/lib/dpkg/info/libfontconfig1:i386.shlibs
+/var/lib/dpkg/info/libfontconfig1:i386.triggers
+/var/lib/flatpak/runtime/org.kde.Platform/x86_64/5.14/4ef4f41780775a45ffc655655f8bc47f27fad7a13cf57b0da4c21512d5aa5465/files/lib/x86_64-linux-gnu/libfontconfig.so.1
+/var/lib/flatpak/runtime/org.kde.Platform/x86_64/5.14/4ef4f41780775a45ffc655655f8bc47f27fad7a13cf57b0da4c21512d5aa5465/files/lib/x86_64-linux-gnu/libfontconfig.so.1.12.0
+(base) dhankar@dhankar-1:~$ 
+
+```
+(base) dhankar@dhankar-1:~/anaconda3/lib$ 
+(base) dhankar@dhankar-1:~/anaconda3/lib$ conda uninstall fontconfig
+Collecting package metadata (repodata.json): done
+Solving environment: done
+
+## Package Plan ##
+
+  environment location: /home/dhankar/anaconda3
+
+  removed specs:
+    - fontconfig
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    attrs-19.3.0               |             py_0          40 KB
+    backcall-0.2.0             |             py_0          15 KB
+    backports.functools_lru_cache-1.6.1|             py_0          11 KB
+    beautifulsoup4-4.9.1       |           py37_0         165 KB
+    bleach-3.1.5               |             py_0         116 KB
+    brotlipy-0.7.0             |py37h7b6447c_1000         322 KB
+    ca-certificates-2020.6.24  |                0         125 KB
+    certifi-2020.6.20          |           py37_0         156 KB
+    cffi-1.14.0                |   py37h2e261b9_0         224 KB
+    conda-4.8.3                |           py37_0         2.8 MB
+    conda-package-handling-1.6.1|   py37h7b6447c_0         798 KB
+    cryptography-2.9.2         |   py37h1ba5d50_0         552 KB
+    decorator-4.4.2            |             py_0          14 KB
+    future-0.18.2              |           py37_1         631 KB
+    icu-58.2                   |       he6710b0_3        10.5 MB
+    idna-2.10                  |             py_0          50 KB
+    importlib-metadata-1.7.0   |           py37_0          51 KB
+    importlib_metadata-1.7.0   |                0          11 KB
+    ipykernel-5.3.4            |   py37h5ca1d4c_0         179 KB
+    ipython-7.16.1             |   py37h5ca1d4c_0         987 KB
+    jedi-0.17.2                |           py37_0         912 KB
+    jinja2-2.11.2              |             py_0         103 KB
+    json5-0.9.5                |             py_0          22 KB
+    jsonschema-3.2.0           |           py37_1          91 KB
+    jupyter_client-6.1.6       |             py_0          84 KB
+    jupyter_core-4.6.3         |           py37_0          71 KB
+    jupyterlab-2.1.5           |             py_0         3.3 MB
+    jupyterlab_server-1.2.0    |             py_0          25 KB
+    libarchive-3.4.2           |       h62408e4_0         796 KB
+    libedit-3.1.20191231       |       h14c3975_1         116 KB
+    liblief-0.10.1             |       he6710b0_0         1.7 MB
+    libsodium-1.0.18           |       h7b6447c_0         244 KB
+    libxml2-2.9.10             |       he19cac6_1         1.2 MB
+    lz4-c-1.9.2                |       he6710b0_1         190 KB
+    markupsafe-1.1.1           |   py37h14c3975_1          26 KB
+    mistune-0.8.4              |py37h14c3975_1001          54 KB
+    nbconvert-5.6.1            |           py37_1         451 KB
+    nbformat-5.0.7             |             py_0          89 KB
+    notebook-6.0.3             |           py37_0         4.0 MB
+    packaging-20.4             |             py_0          36 KB
+    pandoc-2.10                |                0        12.4 MB
+    parso-0.7.0                |             py_0          72 KB
+    patchelf-0.11              |       he6710b0_0          75 KB
+    pexpect-4.8.0              |           py37_1          77 KB
+    pickleshare-0.7.5          |        py37_1001          13 KB
+    pip-20.1.1                 |           py37_1         1.7 MB
+    prometheus_client-0.8.0    |             py_0          47 KB
+    prompt-toolkit-3.0.5       |             py_0         245 KB
+    psutil-5.7.0               |   py37h7b6447c_0         319 KB
+    py-lief-0.10.1             |   py37h403a769_0         919 KB
+    pycosat-0.6.3              |   py37h7b6447c_0          82 KB
+    pycparser-2.20             |             py_2          94 KB
+    pygments-2.6.1             |             py_0         654 KB
+    pyopenssl-19.1.0           |             py_1          48 KB
+    pyparsing-2.4.7            |             py_0          65 KB
+    pyrsistent-0.16.0          |   py37h7b6447c_0          94 KB
+    pysocks-1.7.1              |           py37_1          27 KB
+    python-dateutil-2.8.1      |             py_0         215 KB
+    python-libarchive-c-2.9    |             py_0          46 KB
+    pytz-2020.1                |             py_0         184 KB
+    pyyaml-5.3.1               |   py37h7b6447c_1         180 KB
+    pyzmq-19.0.1               |   py37he6710b0_1         459 KB
+    requests-2.24.0            |             py_0          56 KB
+    ripgrep-11.0.2             |       he32d670_0         1.3 MB
+    ruamel_yaml-0.15.87        |   py37h7b6447c_1         245 KB
+    setuptools-49.2.0          |           py37_0         743 KB
+    six-1.15.0                 |             py_0          13 KB
+    soupsieve-2.0.1            |             py_0          33 KB
+    sqlite-3.32.3              |       h62c20be_0         1.1 MB
+    terminado-0.8.3            |           py37_0          26 KB
+    testpath-0.4.4             |             py_0          82 KB
+    tk-8.6.10                  |       hbc83047_0         3.0 MB
+    tornado-6.0.4              |   py37h7b6447c_1         611 KB
+    tqdm-4.47.0                |             py_0          62 KB
+    urllib3-1.25.9             |             py_0         103 KB
+    wcwidth-0.2.5              |             py_0          29 KB
+    wheel-0.34.2               |           py37_0          51 KB
+    yaml-0.2.5                 |       h7b6447c_0          75 KB
+    zeromq-4.3.2               |       he6710b0_2         510 KB
+    zipp-3.1.0                 |             py_0          13 KB
+    zstd-1.4.5                 |       h9ceee32_0         619 KB
+    ------------------------------------------------------------
+                                           Total:        57.5 MB
+
+The following NEW packages will be INSTALLED:
+
+  brotlipy           pkgs/main/linux-64::brotlipy-0.7.0-py37h7b6447c_1000
+  importlib-metadata pkgs/main/linux-64::importlib-metadata-1.7.0-py37_0
+  prompt-toolkit     pkgs/main/noarch::prompt-toolkit-3.0.5-py_0
+
+The following packages will be REMOVED:
+
+  alabaster-0.7.12-py37_0
+  anaconda-2019.10-py37_0
+  anaconda-client-1.7.2-py37_0
+  anaconda-navigator-1.9.7-py37_0
+  anaconda-project-0.8.3-py_0
+  asn1crypto-1.0.1-py37_0
+  astroid-2.3.1-py37_0
+  astropy-3.2.2-py37h7b6447c_0
+  atomicwrites-1.3.0-py37_1
+  babel-2.7.0-py_0
+  backports.os-0.1.1-py37_0
+  backports.shutil_get_terminal_size-1.0.0-py37_2
+  bitarray-1.0.1-py37h7b6447c_0
+  bkcharts-0.2-py37_0
+  blas-1.0-mkl
+  blosc-1.16.3-hd408876_0
+  bokeh-1.3.4-py37_0
+  boto-2.49.0-py37_0
+  bottleneck-1.2.1-py37h035aef0_1
+  cairo-1.14.12-h8948797_3
+  cloudpickle-1.2.2-py_0
+  clyent-1.2.2-py37_1
+  colorama-0.4.1-py37_0
+  contextlib2-0.6.0-py_0
+  curl-7.65.3-hbc83047_0
+  cycler-0.10.0-py37_0
+  cython-0.29.13-py37he6710b0_0
+  cytoolz-0.10.0-py37h7b6447c_0
+  dask-2.5.2-py_0
+  dask-core-2.5.2-py_0
+  dbus-1.13.6-h746ee38_0
+  distributed-2.5.2-py_0
+  docutils-0.15.2-py37_0
+  et_xmlfile-1.0.1-py37_0
+  expat-2.2.6-he6710b0_0
+  fastcache-1.1.0-py37h7b6447c_0
+  flask-1.1.1-py_0
+  fontconfig-2.13.0-h9420a91_0
+  freetype-2.9.1-h8a8886c_1
+  fribidi-1.0.5-h7b6447c_0
+  fsspec-0.5.2-py_0
+  get_terminal_size-1.0.0-haa9412d_0
+  gevent-1.4.0-py37h7b6447c_0
+  glib-2.56.2-hd408876_0
+  gmp-6.1.2-h6c8ec71_1
+  gmpy2-2.0.8-py37h10f8cd9_2
+  graphite2-1.3.13-h23475e2_0
+  greenlet-0.4.15-py37h7b6447c_0
+  gst-plugins-base-1.14.0-hbbd80ab_1
+  gstreamer-1.14.0-hb453b48_1
+  h5py-2.9.0-py37h7918eee_0
+  harfbuzz-1.8.8-hffaf4a1_0
+  hdf5-1.10.4-hb1b8bf9_0
+  heapdict-1.0.1-py_0
+  html5lib-1.0.1-py37_0
+  imageio-2.6.0-py37_0
+  imagesize-1.1.0-py37_0
+  intel-openmp-2019.4-243
+  isort-4.3.21-py37_0
+  itsdangerous-1.1.0-py37_0
+  jbig-2.1-hdba287a_0
+  jdcal-1.4.1-py_0
+  jeepney-0.4.1-py_0
+  joblib-0.13.2-py37_0
+  jpeg-9b-h024ee3a_2
+  jupyter-1.0.0-py37_7
+  jupyter_console-6.0.0-py37_0
+  keyring-18.0.0-py37_0
+  kiwisolver-1.1.0-py37he6710b0_0
+  krb5-1.16.1-h173b8e3_7
+  lazy-object-proxy-1.4.2-py37h7b6447c_0
+  libcurl-7.65.3-h20c2e04_0
+  libgfortran-ng-7.3.0-hdf63c60_0
+  libpng-1.6.37-hbc83047_0
+  libssh2-1.8.2-h1ba5d50_0
+  libtiff-4.0.10-h2733197_2
+  libtool-2.4.6-h7b6447c_5
+  libuuid-1.0.3-h1bed415_2
+  libxcb-1.13-h1bed415_1
+  libxslt-1.1.33-h7d1a2b0_0
+  llvmlite-0.29.0-py37hd408876_0
+  locket-0.2.0-py37_1
+  lxml-4.4.1-py37hefd8a0e_0
+  lzo-2.10-h49e0be7_2
+  matplotlib-3.1.1-py37h5429711_0
+  mccabe-0.6.1-py37_1
+  mkl-2019.4-243
+  mkl-service-2.3.0-py37he904b0f_0
+  mkl_fft-1.0.14-py37ha843d7b_0
+  mkl_random-1.1.0-py37hd6b4f25_0
+  mock-3.0.5-py37_0
+  more-itertools-7.2.0-py37_0
+  mpc-1.1.0-h10f8cd9_1
+  mpfr-4.0.1-hdf1c602_3
+  mpmath-1.1.0-py37_0
+  msgpack-python-0.6.1-py37hfd86e86_1
+  multipledispatch-0.6.0-py37_0
+  navigator-updater-0.2.1-py37_0
+  networkx-2.3-py_0
+  nltk-3.4.5-py37_0
+  nose-1.3.7-py37_2
+  numba-0.45.1-py37h962f231_0
+  numexpr-2.7.0-py37h9e4a6bb_0
+  numpy-1.17.2-py37haad9e8e_0
+  numpy-base-1.17.2-py37hde5b4d6_0
+  numpydoc-0.9.1-py_0
+  olefile-0.46-py37_0
+  openpyxl-3.0.0-py_0
+  pandas-0.25.1-py37he6710b0_0
+  pango-1.42.4-h049681c_0
+  partd-1.0.0-py_0
+  path.py-12.0.1-py_0
+  pathlib2-2.3.5-py37_0
+  patsy-0.5.1-py37_0
+  pcre-8.43-he6710b0_0
+  pep8-1.7.1-py37_0
+  pillow-6.2.0-py37h34e0f95_0
+  pixman-0.38.0-h7b6447c_0
+  pluggy-0.13.0-py37_0
+  ply-3.11-py37_0
+  prompt_toolkit-2.0.10-py_0
+  py-1.8.0-py37_0
+  pycodestyle-2.5.0-py37_0
+  pycrypto-2.6.1-py37h14c3975_9
+  pycurl-7.43.0.3-py37h1ba5d50_0
+  pyflakes-2.1.1-py37_0
+  pylint-2.4.2-py37_0
+  pyodbc-4.0.27-py37he6710b0_0
+  pyqt-5.9.2-py37h05f1152_2
+  pytables-3.5.2-py37h71ec239_1
+  pytest-5.2.1-py37_0
+  pytest-arraydiff-0.3-py37h39e3cac_0
+  pytest-astropy-0.5.0-py37_0
+  pytest-doctestplus-0.4.0-py_0
+  pytest-openfiles-0.4.0-py_0
+  pytest-remotedata-0.3.2-py37_0
+  pywavelets-1.0.3-py37hdd07704_1
+  qt-5.9.7-h5867ecd_1
+  qtawesome-0.6.0-py_0
+  qtconsole-4.5.5-py_0
+  qtpy-1.9.0-py_0
+  rope-0.14.0-py_0
+  scikit-image-0.15.0-py37he6710b0_0
+  scikit-learn-0.21.3-py37hd81dba3_0
+  scipy-1.3.1-py37h7c811a0_0
+  seaborn-0.9.0-py37_0
+  secretstorage-3.1.1-py37_0
+  simplegeneric-0.8.1-py37_2
+  singledispatch-3.4.0.3-py37_0
+  sip-4.19.8-py37hf484d3e_0
+  snappy-1.1.7-hbae5bb6_3
+  snowballstemmer-2.0.0-py_0
+  sortedcollections-1.1.2-py37_0
+  sortedcontainers-2.1.0-py37_0
+  sphinx-2.2.0-py_0
+  sphinxcontrib-1.0-py37_1
+  sphinxcontrib-applehelp-1.0.1-py_0
+  sphinxcontrib-devhelp-1.0.1-py_0
+  sphinxcontrib-htmlhelp-1.0.2-py_0
+  sphinxcontrib-jsmath-1.0.1-py_0
+  sphinxcontrib-qthelp-1.0.2-py_0
+  sphinxcontrib-serializinghtml-1.1.3-py_0
+  sphinxcontrib-websupport-1.1.2-py_0
+  spyder-3.3.6-py37_0
+  spyder-kernels-0.5.2-py37_0
+  sqlalchemy-1.3.9-py37h7b6447c_0
+  statsmodels-0.10.1-py37hdd07704_0
+  sympy-1.4-py37_0
+  tbb-2019.4-hfd86e86_0
+  tblib-1.4.0-py_0
+  toolz-0.10.0-py_0
+  unicodecsv-0.14.1-py37_0
+  unixodbc-2.3.7-h14c3975_0
+  werkzeug-0.16.0-py_0
+  wrapt-1.11.2-py37h7b6447c_0
+  wurlitzer-1.0.3-py37_0
+  xlrd-1.2.0-py37_0
+  xlsxwriter-1.2.1-py_0
+  xlwt-1.3.0-py37_0
+  zict-1.0.0-py_0
+
+The following packages will be UPDATED:
+
+  attrs                                         19.2.0-py_0 --> 19.3.0-py_0
+  backcall           pkgs/main/linux-64::backcall-0.1.0-py~ --> pkgs/main/noarch::backcall-0.2.0-py_0
+  backports.functoo~                               1.5-py_2 --> 1.6.1-py_0
+  beautifulsoup4                               4.8.0-py37_0 --> 4.9.1-py37_0
+  bleach             pkgs/main/linux-64::bleach-3.1.0-py37~ --> pkgs/main/noarch::bleach-3.1.5-py_0
+  ca-certificates                               2019.8.28-0 --> 2020.6.24-0
+  certifi                                  2019.9.11-py37_0 --> 2020.6.20-py37_0
+  cffi                                1.12.3-py37h2e261b9_0 --> 1.14.0-py37h2e261b9_0
+  click                pkgs/main/linux-64::click-7.0-py37_0 --> pkgs/main/noarch::click-7.1.2-py_0
+  conda                                       4.7.12-py37_0 --> 4.8.3-py37_0
+  conda-package-han~                   1.6.0-py37h7b6447c_0 --> 1.6.1-py37h7b6447c_0
+  cryptography                           2.7-py37h1ba5d50_0 --> 2.9.2-py37h1ba5d50_0
+  decorator          pkgs/main/linux-64::decorator-4.4.0-p~ --> pkgs/main/noarch::decorator-4.4.2-py_0
+  future                                      0.17.1-py37_0 --> 0.18.2-py37_1
+  icu                                       58.2-h9c2bf20_1 --> 58.2-he6710b0_3
+  idna                  pkgs/main/linux-64::idna-2.8-py37_0 --> pkgs/main/noarch::idna-2.10-py_0
+  importlib_metadata pkgs/main/linux-64::importlib_metadat~ --> pkgs/main/noarch::importlib_metadata-1.7.0-0
+  ipykernel                            5.1.2-py37h39e3cac_0 --> 5.3.4-py37h5ca1d4c_0
+  ipython                              7.8.0-py37h39e3cac_0 --> 7.16.1-py37h5ca1d4c_0
+  jedi                                        0.15.1-py37_0 --> 0.17.2-py37_0
+  jinja2                                        2.10.3-py_0 --> 2.11.2-py_0
+  json5                                          0.8.5-py_0 --> 0.9.5-py_0
+  jsonschema                                   3.0.2-py37_0 --> 3.2.0-py37_1
+  jupyter_client     pkgs/main/linux-64::jupyter_client-5.~ --> pkgs/main/noarch::jupyter_client-6.1.6-py_0
+  jupyter_core       pkgs/main/noarch::jupyter_core-4.5.0-~ --> pkgs/main/linux-64::jupyter_core-4.6.3-py37_0
+  jupyterlab                             1.1.4-pyhf63ae98_0 --> 2.1.5-py_0
+  jupyterlab_server                              1.0.6-py_0 --> 1.2.0-py_0
+  libarchive                               3.3.3-h5d8350f_5 --> 3.4.2-h62408e4_0
+  libedit                           3.1.20181209-hc058e9b_0 --> 3.1.20191231-h14c3975_1
+  liblief                                  0.9.0-h7725739_2 --> 0.10.1-he6710b0_0
+  libsodium                               1.0.16-h1bed415_0 --> 1.0.18-h7b6447c_0
+  libxml2                                  2.9.9-hea5a465_1 --> 2.9.10-he19cac6_1
+  lz4-c                                  1.8.1.2-h14c3975_0 --> 1.9.2-he6710b0_1
+  markupsafe                           1.1.1-py37h7b6447c_0 --> 1.1.1-py37h14c3975_1
+  mistune                              0.8.4-py37h7b6447c_0 --> 0.8.4-py37h14c3975_1001
+  nbconvert                                    5.6.0-py37_1 --> 5.6.1-py37_1
+  nbformat           pkgs/main/linux-64::nbformat-4.4.0-py~ --> pkgs/main/noarch::nbformat-5.0.7-py_0
+  ncurses                                    6.1-he6710b0_1 --> 6.2-he6710b0_1
+  notebook                                     6.0.1-py37_0 --> 6.0.3-py37_0
+  openssl                                 1.1.1d-h7b6447c_2 --> 1.1.1g-h7b6447c_0
+  packaging                                       19.2-py_0 --> 20.4-py_0
+  pandoc                                          2.2.3.2-0 --> 2.10-0
+  parso                                          0.5.1-py_0 --> 0.7.0-py_0
+  patchelf                                   0.9-he6710b0_3 --> 0.11-he6710b0_0
+  pexpect                                      4.7.0-py37_0 --> 4.8.0-py37_1
+  pickleshare                                  0.7.5-py37_0 --> 0.7.5-py37_1001
+  pip                                         19.2.3-py37_0 --> 20.1.1-py37_1
+  prometheus_client                              0.7.1-py_0 --> 0.8.0-py_0
+  psutil                               5.6.3-py37h7b6447c_0 --> 5.7.0-py37h7b6447c_0
+  py-lief                              0.9.0-py37h7725739_2 --> 0.10.1-py37h403a769_0
+  pycparser          pkgs/main/linux-64::pycparser-2.19-py~ --> pkgs/main/noarch::pycparser-2.20-py_2
+  pygments                                       2.4.2-py_0 --> 2.6.1-py_0
+  pyopenssl          pkgs/main/linux-64::pyopenssl-19.0.0-~ --> pkgs/main/noarch::pyopenssl-19.1.0-py_1
+  pyparsing                                      2.4.2-py_0 --> 2.4.7-py_0
+  pyrsistent                          0.15.4-py37h7b6447c_0 --> 0.16.0-py37h7b6447c_0
+  pysocks                                      1.7.1-py37_0 --> 1.7.1-py37_1
+  python-dateutil    pkgs/main/linux-64::python-dateutil-2~ --> pkgs/main/noarch::python-dateutil-2.8.1-py_0
+  python-libarchive~ pkgs/main/linux-64::python-libarchive~ --> pkgs/main/noarch::python-libarchive-c-2.9-py_0
+  pytz                                          2019.3-py_0 --> 2020.1-py_0
+  pyyaml                               5.1.2-py37h7b6447c_0 --> 5.3.1-py37h7b6447c_1
+  pyzmq                               18.1.0-py37he6710b0_0 --> 19.0.1-py37he6710b0_1
+  requests           pkgs/main/linux-64::requests-2.22.0-p~ --> pkgs/main/noarch::requests-2.24.0-py_0
+  ripgrep                                 0.10.0-hc07d326_0 --> 11.0.2-he32d670_0
+  ruamel_yaml                        0.15.46-py37h14c3975_0 --> 0.15.87-py37h7b6447c_1
+  setuptools                                  41.4.0-py37_0 --> 49.2.0-py37_0
+  six                 pkgs/main/linux-64::six-1.12.0-py37_0 --> pkgs/main/noarch::six-1.15.0-py_0
+  soupsieve          pkgs/main/linux-64::soupsieve-1.9.3-p~ --> pkgs/main/noarch::soupsieve-2.0.1-py_0
+  sqlite                                  3.30.0-h7b6447c_0 --> 3.32.3-h62c20be_0
+  terminado                                    0.8.2-py37_0 --> 0.8.3-py37_0
+  testpath           pkgs/main/linux-64::testpath-0.4.2-py~ --> pkgs/main/noarch::testpath-0.4.4-py_0
+  tk                                       8.6.8-hbc83047_0 --> 8.6.10-hbc83047_0
+  tornado                              6.0.3-py37h7b6447c_0 --> 6.0.4-py37h7b6447c_1
+  tqdm                                          4.36.1-py_0 --> 4.47.0-py_0
+  urllib3            pkgs/main/linux-64::urllib3-1.24.2-py~ --> pkgs/main/noarch::urllib3-1.25.9-py_0
+  wcwidth            pkgs/main/linux-64::wcwidth-0.1.7-py3~ --> pkgs/main/noarch::wcwidth-0.2.5-py_0
+  wheel                                       0.33.6-py37_0 --> 0.34.2-py37_0
+  xz                                       5.2.4-h14c3975_4 --> 5.2.5-h7b6447c_0
+  yaml                                     0.1.7-had09818_2 --> 0.2.5-h7b6447c_0
+  zeromq                                   4.3.1-he6710b0_3 --> 4.3.2-he6710b0_2
+  zipp                                           0.6.0-py_0 --> 3.1.0-py_0
+  zstd                                     1.3.7-h0b5b093_0 --> 1.4.5-h9ceee32_0
+
+The following packages will be DOWNGRADED:
+
+  pycosat                              0.6.3-py37h14c3975_0 --> 0.6.3-py37h7b6447c_0
+
+
+Proceed ([y]/n)? 
+
+Proceed ([y]/n)? y
+
+
+Downloading and Extracting Packages
+pyzmq-19.0.1         | 459 KB    | ################################################################################################### | 100% 
+cryptography-2.9.2   | 552 KB    | ################################################################################################### | 100% 
+yaml-0.2.5           | 75 KB     | ################################################################################################### | 100% 
+urllib3-1.25.9       | 103 KB    | ################################################################################################### | 100% 
+pycosat-0.6.3        | 82 KB     | ################################################################################################### | 100% 
+six-1.15.0           | 13 KB     | ################################################################################################### | 100% 
+wcwidth-0.2.5        | 29 KB     | ################################################################################################### | 100% 
+ruamel_yaml-0.15.87  | 245 KB    | ################################################################################################### | 100% 
+psutil-5.7.0         | 319 KB    | ################################################################################################### | 100% 
+pickleshare-0.7.5    | 13 KB     | ################################################################################################### | 100% 
+packaging-20.4       | 36 KB     | ################################################################################################### | 100% 
+python-dateutil-2.8. | 215 KB    | ################################################################################################### | 100% 
+soupsieve-2.0.1      | 33 KB     | ################################################################################################### | 100% 
+lz4-c-1.9.2          | 190 KB    | ################################################################################################### | 100% 
+pyyaml-5.3.1         | 180 KB    | ################################################################################################### | 100% 
+pip-20.1.1           | 1.7 MB    | ################################################################################################### | 100% 
+jupyterlab-2.1.5     | 3.3 MB    | ################################################################################################### | 100% 
+ca-certificates-2020 | 125 KB    | ################################################################################################### | 100% 
+terminado-0.8.3      | 26 KB     | ################################################################################################### | 100% 
+jinja2-2.11.2        | 103 KB    | ################################################################################################### | 100% 
+icu-58.2             | 10.5 MB   | ################################################################################################### | 100% 
+jupyter_client-6.1.6 | 84 KB     | ################################################################################################### | 100% 
+certifi-2020.6.20    | 156 KB    | ################################################################################################### | 100% 
+decorator-4.4.2      | 14 KB     | ################################################################################################### | 100% 
+cffi-1.14.0          | 224 KB    | ################################################################################################### | 100% 
+bleach-3.1.5         | 116 KB    | ################################################################################################### | 100% 
+parso-0.7.0          | 72 KB     | ################################################################################################### | 100% 
+notebook-6.0.3       | 4.0 MB    | ################################################################################################### | 100% 
+tornado-6.0.4        | 611 KB    | ################################################################################################### | 100% 
+tk-8.6.10            | 3.0 MB    | ################################################################################################### | 100% 
+ripgrep-11.0.2       | 1.3 MB    | ################################################################################################### | 100% 
+future-0.18.2        | 631 KB    | ################################################################################################### | 100% 
+jupyterlab_server-1. | 25 KB     | ################################################################################################### | 100% 
+tqdm-4.47.0          | 62 KB     | ################################################################################################### | 100% 
+python-libarchive-c- | 46 KB     | ################################################################################################### | 100% 
+zstd-1.4.5           | 619 KB    | ################################################################################################### | 100% 
+libxml2-2.9.10       | 1.2 MB    | ################################################################################################### | 100% 
+libsodium-1.0.18     | 244 KB    | ################################################################################################### | 100% 
+brotlipy-0.7.0       | 322 KB    | ################################################################################################### | 100% 
+importlib_metadata-1 | 11 KB     | ################################################################################################### | 100% 
+ipykernel-5.3.4      | 179 KB    | ################################################################################################### | 100% 
+pytz-2020.1          | 184 KB    | ################################################################################################### | 100% 
+libedit-3.1.20191231 | 116 KB    | ################################################################################################### | 100% 
+pyopenssl-19.1.0     | 48 KB     | ################################################################################################### | 100% 
+prompt-toolkit-3.0.5 | 245 KB    | ################################################################################################### | 100% 
+json5-0.9.5          | 22 KB     | ################################################################################################### | 100% 
+pycparser-2.20       | 94 KB     | ################################################################################################### | 100% 
+pygments-2.6.1       | 654 KB    | ################################################################################################### | 100% 
+sqlite-3.32.3        | 1.1 MB    | ################################################################################################### | 100% 
+jedi-0.17.2          | 912 KB    | ################################################################################################### | 100% 
+idna-2.10            | 50 KB     | ################################################################################################### | 100% 
+pyrsistent-0.16.0    | 94 KB     | ################################################################################################### | 100% 
+jupyter_core-4.6.3   | 71 KB     | ################################################################################################### | 100% 
+libarchive-3.4.2     | 796 KB    | ################################################################################################### | 100% 
+liblief-0.10.1       | 1.7 MB    | ################################################################################################### | 100% 
+jsonschema-3.2.0     | 91 KB     | ################################################################################################### | 100% 
+zeromq-4.3.2         | 510 KB    | ################################################################################################### | 100% 
+markupsafe-1.1.1     | 26 KB     | ################################################################################################### | 100% 
+conda-4.8.3          | 2.8 MB    | ################################################################################################### | 100% 
+pandoc-2.10          | 12.4 MB   | ################################################################################################### | 100% 
+beautifulsoup4-4.9.1 | 165 KB    | ################################################################################################### | 100% 
+setuptools-49.2.0    | 743 KB    | ################################################################################################### | 100% 
+patchelf-0.11        | 75 KB     | ################################################################################################### | 100% 
+mistune-0.8.4        | 54 KB     | ################################################################################################### | 100% 
+conda-package-handli | 798 KB    | ################################################################################################### | 100% 
+backcall-0.2.0       | 15 KB     | ################################################################################################### | 100% 
+nbconvert-5.6.1      | 451 KB    | ################################################################################################### | 100% 
+pysocks-1.7.1        | 27 KB     | ################################################################################################### | 100% 
+prometheus_client-0. | 47 KB     | ################################################################################################### | 100% 
+requests-2.24.0      | 56 KB     | ################################################################################################### | 100% 
+importlib-metadata-1 | 51 KB     | ################################################################################################### | 100% 
+attrs-19.3.0         | 40 KB     | ################################################################################################### | 100% 
+backports.functools_ | 11 KB     | ################################################################################################### | 100% 
+zipp-3.1.0           | 13 KB     | ################################################################################################### | 100% 
+nbformat-5.0.7       | 89 KB     | ################################################################################################### | 100% 
+testpath-0.4.4       | 82 KB     | ################################################################################################### | 100% 
+py-lief-0.10.1       | 919 KB    | ################################################################################################### | 100% 
+pyparsing-2.4.7      | 65 KB     | ################################################################################################### | 100% 
+pexpect-4.8.0        | 77 KB     | ################################################################################################### | 100% 
+wheel-0.34.2         | 51 KB     | ################################################################################################### | 100% 
+ipython-7.16.1       | 987 KB    | ################################################################################################### | 100% 
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+(base) dhankar@dhankar-1:~/anaconda3/lib$ 
+(base) dhankar@dhankar-1:~/anaconda3/lib$ ls -ltr | grep "libfontconfig*"
+(base) dhankar@dhankar-1:~/anaconda3/lib$ 
+```
+
+##### FOOBAR_conda uninstall fontconfig___ENDS
+
+#
+
 

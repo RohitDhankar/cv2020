@@ -29,7 +29,12 @@ pip3 install opencv_python-4.3.0+3073e9e-cp36-cp36m-linux_x86_64.whl
 
 As suggested by the Maintainers of - opencv-python --- "must compile OpenCV from sources" https://github.com/skvark/opencv-python/issues/126
 
+
+
 """
+
+
+
 
 from __future__ import print_function
 import cv2 as cv
