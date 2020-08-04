@@ -1,5 +1,24 @@
 ##### Search within this README with the tag - FOOBAR_Error - for all errors issues etc encountered . 
 
+#
+
+##### FOOBAR_Error-Warning => libOpenCL.so.1 - runtime library [libOpenCL.so.1] in /usr/lib/x86_64-linux-gnu may be hidden:
+
+```
+CMake Warning at samples/samples_utils.cmake:7 (add_executable):
+  Cannot generate a safe runtime search path for target
+  example_opencl_opencl-opencv-interop because files in some directories may
+  conflict with libraries in implicit directories:
+
+    runtime library [libOpenCL.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+      /usr/local/cuda/lib64
+
+  Some of these libraries may not be found correctly.
+Call Stack (most recent call first):
+  samples/opencl/CMakeLists.txt:33 (ocv_define_sample)
+
+```
+#
 
 ##### FOOBAR_Error_bagofwords_classification_SIFT
 
