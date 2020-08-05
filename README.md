@@ -15,7 +15,7 @@
 <br/>
 
 
-### Table of Contents of this repository
+### Table of Contents of this repository ( always - work in progress )
 
 - [X] `A-- Image processing and transforms - filtering , morphology , pyramids..` 
 - [X] `B-- Geometric image transforms - rotation , resizing ...` 
@@ -24,18 +24,22 @@
 - [X] `E-- Histograms ...` 
 - [X] `F-- Segmentation - watershed , meanshift ...` 
 - [X] `G-- Feature Detection - Canny , Harris , Hough , MSER , SURF ... ` 
+- [X] `H-- Motion analysis and object tracking --- Lucas and kanade , also Mean Shift...`
+- [X] `I-- Basic camera calibration and 3D reconstruction ...`
+- [X] `J-- ML algorithms - k-Nearest Neighbours (kNN), SVM (Support Vector Machines), decision trees , CART ( Classification and Regression Trees ) , Expectation maximization and Neural Netwoks ...`
+
 
 
 <br/>
 
-### References - Always an ongoing effort - Work in Progress
+### References - (always - Work in Progress)
 
 <br/>
 
 
 - Source URL - OpenCV - https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_calib3d/py_depthmap/py_depthmap.html
 
-> Depth Map with OpenCV 
+- Depth Map with OpenCV (various sources)
 
 <br/>
 
