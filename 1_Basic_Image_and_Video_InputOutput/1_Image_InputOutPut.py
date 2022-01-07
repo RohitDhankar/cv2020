@@ -1,4 +1,5 @@
-
+#conda activate pytorch_venv
+#python 1_Image_InputOutPut.py -i tsukuba_l.png
 ##/home/dhankar/_dc_all/20_8/cv20/cv2020
 # Source = https://docs.opencv.org/3.4/d3/d96/tutorial_basic_geometric_drawing.html
 
@@ -109,7 +110,7 @@ def getIndlPixels(img_in):
     crop_px = img_in[100,100]
     print("  " *90)
     print(type(crop_px))
-    plt.imshow(crop_px)#,'gray')
+    #plt.imshow(crop_px)#,'gray')
     #plt.show()
 
 
@@ -144,5 +145,6 @@ if __name__ == '__main__':
     #png_to_jpg('tsukuba_l.png')
     png_to_jpg(args["image"])
     cropImage(args["image"])
-    imgROI(args["image"])    
+    imgROI(args["image"])   
+    #getIndlPixels(args["image"]) 
 
