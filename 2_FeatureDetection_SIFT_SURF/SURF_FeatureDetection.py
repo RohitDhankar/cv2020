@@ -17,6 +17,9 @@ args = parser.parse_args()
 # python SURF_FeatureDetection.py --img_in ./Input_Images/box.png
 
 src = cv.imread(cv.samples.findFile(args.img_in), cv.IMREAD_GRAYSCALE)
+cv.imshow('box_img_input',src)
+cv.waitKey(0)
+
 if src is None:
     print('Could not open or find the image:', args.img_in)
     exit(0)
