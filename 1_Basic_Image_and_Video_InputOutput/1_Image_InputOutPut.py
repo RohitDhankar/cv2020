@@ -26,7 +26,7 @@ def png_to_jpg(img_in):
     cv2.destroyAllWindows()
     #plt.imshow(img_png)#,'gray') #Color image loaded by OpenCV is in BGR mode. But Matplotlib displays in RGB mode.
     #plt.show()
-    cv2.imwrite('MyPic.jpg', img_png)
+    cv2.imwrite('ragul_test_Pic.jpg', img_png)
 
 
 def cropImage(img_in):

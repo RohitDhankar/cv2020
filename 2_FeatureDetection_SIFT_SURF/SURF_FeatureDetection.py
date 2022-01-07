@@ -1,5 +1,7 @@
 
-## /home/dhankar/_dc_all/20_8/cv20/cv2020
+#conda activate pytorch_venv
+#python 1_Image_InputOutPut.py -i tsukuba_l.png
+#/home/dhankar/_dc_all/20_8/cv20/cv2020
 
 
 #Source = https://github.com/opencv/opencv/blob/3.4/samples/python/tutorial_code/features2D/feature_detection/SURF_detection_Demo.py
