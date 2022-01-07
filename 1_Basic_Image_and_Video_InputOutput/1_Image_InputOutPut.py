@@ -16,8 +16,7 @@ ap.add_argument("-i", "--image", required=True,help="path to the input image")
 ## cv2.GaussianBlur -- width_Kernel(Positive and ODD )
 ap.add_argument("-wK","--width_Kernel",type=int, required=False,help=" _width_Kernel -- cv2.GaussianBlur")
 ap.add_argument("-lK","--length_Kernel",type=int, required=False,help=" _length_Kernel -- cv2.GaussianBlur")
-args = vars(ap.parse_args())
-#print(type(args)) #<class 'dict'>
+args = vars(ap.parse_args()) #print(type(args)) #<class 'dict'>
 
 def png_to_jpg(img_in):
     """
@@ -39,6 +38,7 @@ def cropImage(img_in):
     # grab dimensions of image and calculate - Center
     """
     img_in = cv2.imread(img_in) # <class 'numpy.ndarray'>
+    # img_in -- is a 3D Numpy Array the - 3Dimensions of this image can be read as below -- (HEIGHT , WIDTH , DEPTH )
     #h = img_in.shape[:1] #- HEIGHT Only 
     #(h, w) = img_in.shape[:2] #- (HEIGHT , WIDTH)
     img_dim = img_in.shape[:3] #- (HEIGHT , WIDTH , DEPTH )
