@@ -1,13 +1,10 @@
 
 ##/home/dhankar/_dc_all/20_8/cv20/cv2020
-
-
 # Source = https://docs.opencv.org/3.4/d3/d96/tutorial_basic_geometric_drawing.html
 
 import cv2
 import numpy as np
 from matplotlib import pyplot as plt
-#
 import argparse
 
 # Construct the argument parse and parse the arguments
@@ -29,8 +26,7 @@ def png_to_jpg(img_in):
     #plt.imshow(img_png)#,'gray') #Color image loaded by OpenCV is in BGR mode. But Matplotlib displays in RGB mode.
     #plt.show()
     cv2.imwrite('MyPic.jpg', img_png)
-#png_to_jpg('tsukuba_l.png')
-png_to_jpg(args["image"])
+
 
 def cropImage(img_in):
     """
@@ -43,15 +39,13 @@ def cropImage(img_in):
     #(h, w) = img_in.shape[:2] #- (HEIGHT , WIDTH)
     img_dim = img_in.shape[:3] #- (HEIGHT , WIDTH , DEPTH )
     #print(type(img_dim)) #<class 'tuple'>
-    print("Image Dimensions are = ",img_dim) #(288, 384, 3)
+    print("3Dimensions of this image are =>\n",img_dim) #(288, 384, 3)
     print("Image Size - all image pixels accounted for = ",img_in.size) #331776
     print("Image datatype =",img_in.dtype) # uint8 -  Unsigned integer (0 to 255)
-   
-cropImage(args["image"])
 
 def imgROI(img_in):
     """
-    Get a - Region of Interest - ROI 
+    Region of Interest - ROI 
     """
     img_in = cv2.imread(img_in) # <class 'numpy.ndarray'>
     (h, w) = img_in.shape[:2] 
@@ -64,11 +58,11 @@ def imgROI(img_in):
     #print(type(gray_image)) #<class 'numpy.ndarray'>
     ret,thresh = cv2.threshold(gray_image,127,255,0)
     # calculate moments of binary image
-    # FOOBAR__Further Reads Required --- Convex Hull + Second Order Moments 
+    #TODO __Further Reads Required --- Convex Hull + Second Order Moments 
     # Udacity Video -- Image Moments - https://www.youtube.com/watch?v=AAbUfZD_09s
     # Video --  zedstatistics -   https://www.youtube.com/watch?v=ISaVvSO_3Sg&t=380s
-    M = cv2.moments(thresh)
-    print(M)
+    moments_dict = cv2.moments(thresh)
+    #print(moments_dict) # <class 'dict'>
     """
     {'m00': 2770830.0, 'm10': 430124820.0, 'm01': 533346015.0, 'm20': 72156806850.0, 'm11': 83238526215.0,
      'm02': 112292708055.0, 'm30': 12979334400450.0, 'm21': 13709938313625.0, 'm12': 17450831157195.0, 
@@ -79,39 +73,37 @@ def imgROI(img_in):
       'nu12': -1.1912269219021805e-05, 'nu03': -2.338321723523388e-05}
 
     """
+
+    # calculate x,y coordinate of center
+    cX = int(moments_dict["m10"] / moments_dict["m00"])
+    print("--COORD-X-Center-->>\n",cX) # 155
+    cY = int(moments_dict["m01"] / moments_dict["m00"])
+    print("--COORD-Y-Center-->>\n",cY) # 192 
+
     #
     # w1 = int(w/2:w/2 + 50)
     # h1 = int(h/2:h/2 + 50)
     # print(w1)
     #print("GOT h1 ---AAA----------",h1)
-    w2 = int(w/2)
-    got_roi = img_in[7:50,1:5]
-    #print("got_roi----------- = ",got_roi) #(288, 384, 3)
-    roi_img = cv2.imwrite('roiAA.png',got_roi)
-    img_dim = got_roi.shape[:3] #- (HEIGHT , WIDTH , DEPTH )
-    print("roi_img Dimensions are = ",img_dim) #(288, 384, 3)
-    
-    cv2.imshow("imshow_from_cv2_roi_img",got_roi)
+    # w2 = int(w/2)
+    got_roi_1 = img_in[1:190,1:190]
+    got_roi_2 = img_in[60:390,60:390]
+    got_roi_3 = img_in[155:390,192:390]
+
+    cv2.imshow("sample_roi_1",got_roi_1)
+    cv2.imshow("sample_roi_2",got_roi_2)
+    cv2.imshow("sample_roi_3",got_roi_3)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
+    #print("Large 3XD_Array is printed Dont Not reqd--\n",got_roi) #(288, 384, 3)
+    cv2.imwrite('roi_1.png',got_roi_1)
+    cv2.imwrite('roi_2.png',got_roi_2)
+    cv2.imwrite('roi_3.png',got_roi_3)
     
-    
-imgROI(args["image"])    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-####
+    img_dim_1 = got_roi_1.shape[:3] #- (HEIGHT , WIDTH , DEPTH )
+    img_dim_2 = got_roi_2.shape[:3] #- (HEIGHT , WIDTH , DEPTH )
+    print("roi_img_1 Dimensions are = ",img_dim_1) #(288, 384, 3)
+    print("roi_img_2 Dimensions are = ",img_dim_2) #(288, 384, 3)
 
 def getIndlPixels(img_in):
     crop_px = img_in[100,100]
@@ -147,4 +139,10 @@ def my_filled_circle(img, center):
                (0, 0, 255),
                thickness,
                line_type)
+
+if __name__ == '__main__':
+    #png_to_jpg('tsukuba_l.png')
+    png_to_jpg(args["image"])
+    cropImage(args["image"])
+    imgROI(args["image"])    
 
